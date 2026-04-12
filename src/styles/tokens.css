@@ -1,0 +1,49 @@
+:root {
+  --font-family: 'Inter', -apple-system, sans-serif;
+  --font-size-name: clamp(1.25rem, 4vw, 1.75rem);
+  --font-size-bio: clamp(0.75rem, 2.5vw, 0.875rem);
+  --font-size-link: 0.9375rem;
+  
+  --transition-speed: 250ms;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-btn: 12px;
+  --radius-avatar: 50%;
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #f5f5f7;
+  --bg-card: #ffffff;
+  --bg-hover: #f0f0f2;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6e6e73;
+  --accent: #1a1bc8; /* User's custom accent color */
+  --accent-hover: #131499;
+  --border: rgba(0,0,0,0.06);
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --glow: rgba(26, 27, 200, 0.15);
+  --icon-color: #1a1a1a;
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0a0a0b;
+  --bg-card: #141416;
+  --bg-hover: #1c1c1f;
+  --text-primary: #f5f5f7;
+  --text-secondary: #8e8e93;
+  --accent: #1a1bc8; /* User's custom accent color */
+  --accent-hover: #292ae6;
+  --border: rgba(255,255,255,0.08);
+  --shadow: 0 4px 12px rgba(0,0,0,0.2);
+  --glow: rgba(26, 27, 200, 0.2);
+  --icon-color: #f5f5f7;
+}
+
+/* User Accent is quite dark for dark mode. Let's make a slightly brighter variant for text/borders in dark mode if needed, though they asked for #1a1bc8, so we keep that true for backgrounds */
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) var(--transition-easing), 
+              color var(--transition-speed) var(--transition-easing);
+}

@@ -1,0 +1,104 @@
+.avatar {
+  border-radius: var(--radius-avatar);
+  object-fit: cover;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 20px var(--glow);
+  margin-bottom: 1rem;
+  background-color: var(--bg-card); /* Placeholder while loading */
+}
+
+.name {
+  font-size: var(--font-size-name);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.bio {
+  font-size: var(--font-size-bio);
+  color: var(--text-secondary);
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: var(--font-size-link);
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  transition: all var(--transition-speed) var(--transition-easing);
+  /* Use glassmorphism effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.link-btn svg {
+  color: var(--icon-color);
+  flex-shrink: 0;
+}
+
+/* Hover effects */
+@media (hover: hover) {
+  .link-btn:hover {
+    transform: translateY(-2px);
+    background-color: var(--bg-hover);
+    box-shadow: 0 6px 16px var(--glow);
+    border-color: var(--accent);
+  }
+}
+
+.link-btn:active {
+  transform: translateY(0);
+}
+
+/* Accent Button */
+.link-btn--accent {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  justify-content: center;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.link-btn--accent svg {
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .link-btn--accent:hover {
+    background-color: var(--accent-hover);
+    border-color: transparent;
+  }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-speed);
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+}
+
+:root[data-theme="light"] .icon-sun { display: none; }
+:root[data-theme="dark"] .icon-moon { display: none; }
