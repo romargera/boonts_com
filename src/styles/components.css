@@ -27,7 +27,7 @@
   padding: 1rem 1.25rem;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-btn);
+  border-radius: 99px; /* Liquid design pillow shape */
   color: var(--text-primary);
   text-decoration: none;
   font-size: var(--font-size-link);
@@ -35,8 +35,8 @@
   box-shadow: var(--shadow);
   transition: all var(--transition-speed) var(--transition-easing);
   /* Use glassmorphism effect */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .link-btn svg {
@@ -58,46 +58,56 @@
   transform: translateY(0);
 }
 
-/* Accent Button */
-.link-btn--accent {
-  background-color: var(--accent);
-  color: #fff;
-  border: none;
+/* Apple Wallet Button Guidelines */
+.apple-wallet-btn {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   justify-content: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 0.5rem;
+  height: 54px; /* Standardize touch height for wallet */
+  padding: 0 1.25rem;
 }
 
-.link-btn--accent svg {
-  color: #fff;
+.apple-wallet-btn svg {
+  color: #ffffff;
 }
 
 @media (hover: hover) {
-  .link-btn--accent:hover {
-    background-color: var(--accent-hover);
-    border-color: transparent;
+  .apple-wallet-btn:hover {
+    background-color: #1a1a1a !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px);
   }
 }
 
 /* Theme Toggle */
 .theme-toggle {
   position: absolute;
-  top: -1rem;
-  right: 0;
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
+  top: 1.25rem;
+  right: 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
   cursor: pointer;
-  padding: 0.5rem;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color var(--transition-speed);
+  transition: all var(--transition-speed);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  z-index: 10;
 }
 
 .theme-toggle:hover {
+  transform: scale(1.05);
   color: var(--text-primary);
+  border-color: var(--text-secondary);
 }
 
 :root[data-theme="light"] .icon-sun { display: none; }

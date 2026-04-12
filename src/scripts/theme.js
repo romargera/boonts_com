@@ -14,6 +14,12 @@ const getPreferredTheme = () => {
 const setTheme = (theme) => {
   html.setAttribute('data-theme', theme);
   localStorage.setItem('theme', theme);
+  
+  // Update meta theme-color for Safari behavior
+  const metaThemeColor = document.getElementById('theme-color-meta');
+  if (metaThemeColor) {
+    metaThemeColor.setAttribute('content', theme === 'dark' ? '#0a0a0b' : '#f5f5f7');
+  }
 };
 
 // Initialize

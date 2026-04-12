@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Roma B — Product Leader</title>
-  <meta name="description" content="Personal business card and links for Roma B, Product Leader.">
-  <meta property="og:image" content="/avatar.png">
+  <meta id="theme-color-meta" name="theme-color" content="#0a0a0b">
+  <title>Roman Babunts — Product Leader</title>
+  <meta name="description" content="Personal business card and links for Roman Babunts, Product Leader.">
+  <meta property="og:image" content="/avatar.jpg">
   
   <!-- Add Coolify / Umami Analytics - using the site token provided if needed, though Usually Umami script looks like this -->
   <script defer src="https://analytics.boonts.com/script.js" data-website-id="00000000-0000-0000-0000-000000000000"></script>
@@ -28,8 +29,8 @@
 
   <main id="card" class="card" role="main">
     <header class="hero">
-      <img class="avatar" src="/avatar.png" alt="Roma B" width="100" height="100" loading="eager">
-      <h1 class="name">Roma B</h1>
+      <img class="avatar" src="/avatar.jpg" alt="Roman Babunts" width="96" height="96" loading="eager">
+      <h1 class="name">Roman Babunts</h1>
       <p class="bio">Product Leader</p>
     </header>
     
@@ -54,9 +55,16 @@
         <span>Email</span>
       </a>
 
-      <a href="/contact.vcf" class="link-btn link-btn--accent" style="--delay: 5;" data-umami-event="click-save-card" download>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-        <span>Save Contact Card</span>
+      <a href="/contact.vcf" class="link-btn apple-wallet-btn" style="--delay: 5;" data-umami-event="click-save-card" download>
+        <svg viewBox="0 0 44 44" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized generic wallet icon similar to Apple Wallet -->
+          <rect x="4" y="10" width="36" height="24" rx="4" fill="white" />
+          <path d="M28 16V28H36C38.2091 28 40 26.2091 40 24V20C40 17.7909 38.2091 16 36 16H28Z" fill="#1a1a1a"/>
+          <circle cx="32" cy="22" r="2" fill="white"/>
+          <path d="M12 18H20" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 22H16" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Add to Apple Wallet</span>
       </a>
     </nav>
   </main>
