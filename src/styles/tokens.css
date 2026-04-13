@@ -18,8 +18,8 @@
   --text-secondary: #6e6e73;
   --accent: #1a1bc8; 
   --accent-hover: #131499;
-  --border: rgba(255, 255, 255, 0.9); /* Solid white border for crisp glass edge */
-  --shadow: 0 12px 32px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 1); /* Liquid drop shadow + inner reflection */
+  --border: rgba(0, 0, 0, 0.08); /* Delicate dark outline for glassy pill shape to be visible */
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 1); /* Liquid drop shadow + inner reflection */
   --glow: rgba(26, 27, 200, 0.15);
   --icon-color: #1a1a1a;
 }
