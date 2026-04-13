@@ -1,5 +1,5 @@
 :root {
-  --font-family: 'Inter', -apple-system, sans-serif;
+  --font-family: 'Outfit', -apple-system, sans-serif;
   --font-size-name: clamp(1.25rem, 4vw, 1.75rem);
   --font-size-bio: clamp(0.75rem, 2.5vw, 0.875rem);
   --font-size-link: 0.9375rem;

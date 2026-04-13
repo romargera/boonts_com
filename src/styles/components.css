@@ -1,7 +1,7 @@
 .avatar-inline {
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.4em;
+  height: 1.4em;
   border-radius: 50%;
   object-fit: cover;
   vertical-align: middle;
@@ -21,21 +21,16 @@
   transform: translateY(-0.1em);
 }
 
-.text-block {
-  margin-top: 0.5rem;
-  line-height: 1.5;
+.company-badge {
+  white-space: nowrap;
 }
 
 .name {
-  font-size: var(--font-size-name);
-  font-weight: 600;
+  font-size: clamp(1.15rem, 4vw, 1.35rem); /* So the block doesn't become too huge on desktop */
+  font-weight: 500;
+  line-height: 1.6;
   letter-spacing: -0.01em;
   margin-bottom: 0.25rem;
-}
-
-.bio {
-  font-size: var(--font-size-bio);
-  color: var(--text-secondary);
 }
 
 .link-btn {
