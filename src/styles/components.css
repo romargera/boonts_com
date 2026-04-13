@@ -72,28 +72,6 @@
   transform: translateY(0);
 }
 
-/* Apple Wallet Button Guidelines */
-.apple-wallet-badge-link {
-  display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
-  transition: opacity var(--transition-speed) var(--transition-easing), 
-              transform var(--transition-speed) var(--transition-easing);
-}
-
-.apple-wallet-badge {
-  height: 52px; /* Apple Wallet recommended minimum touch target size */
-  width: auto;
-  border-radius: 99px; /* The SVG might or might not have visual rounding that requires this when scaled */
-}
-
-@media (hover: hover) {
-  .apple-wallet-badge-link:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-}
-
 /* Theme Toggle */
 .theme-toggle {
   position: absolute;

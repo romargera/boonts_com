@@ -12,14 +12,14 @@
 
 :root[data-theme="light"] {
   --bg-primary: #f5f5f7;
-  --bg-card: rgba(255, 255, 255, 0.7);
-  --bg-hover: #f0f0f2;
+  --bg-card: rgba(255, 255, 255, 0.65); /* Translucent white base */
+  --bg-hover: rgba(255, 255, 255, 0.9);
   --text-primary: #1a1a1a;
   --text-secondary: #6e6e73;
-  --accent: #1a1bc8; /* User's custom accent color */
+  --accent: #1a1bc8; 
   --accent-hover: #131499;
-  --border: rgba(0,0,0,0.06);
-  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+  --border: rgba(255, 255, 255, 0.9); /* Solid white border for crisp glass edge */
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.04), inset 0 1px 1px rgba(255, 255, 255, 1); /* Liquid drop shadow + inner reflection */
   --glow: rgba(26, 27, 200, 0.15);
   --icon-color: #1a1a1a;
 }
