@@ -1,10 +1,29 @@
-.avatar {
-  border-radius: var(--radius-avatar);
+.avatar-inline {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
   object-fit: cover;
+  vertical-align: middle;
+  margin: 0 4px;
+  transform: translateY(-0.1em);
   border: 1px solid var(--border);
-  box-shadow: 0 0 20px var(--glow);
-  margin-bottom: 1rem;
-  background-color: var(--bg-card); /* Placeholder while loading */
+  box-shadow: 0 2px 8px var(--glow);
+}
+
+.favicon-inline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  border-radius: 20%;
+  margin: 0 2px;
+  transform: translateY(-0.1em);
+}
+
+.text-block {
+  margin-top: 0.5rem;
+  line-height: 1.5;
 }
 
 .name {
