@@ -59,26 +59,24 @@
 }
 
 /* Apple Wallet Button Guidelines */
-.apple-wallet-btn {
-  background-color: #000000 !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+.apple-wallet-badge-link {
+  display: flex;
   justify-content: center;
-  font-weight: 500;
   margin-top: 0.5rem;
-  height: 54px; /* Standardize touch height for wallet */
-  padding: 0 1.25rem;
+  transition: opacity var(--transition-speed) var(--transition-easing), 
+              transform var(--transition-speed) var(--transition-easing);
 }
 
-.apple-wallet-btn svg {
-  color: #ffffff;
+.apple-wallet-badge {
+  height: 52px; /* Apple Wallet recommended minimum touch target size */
+  width: auto;
+  border-radius: 99px; /* The SVG might or might not have visual rounding that requires this when scaled */
 }
 
 @media (hover: hover) {
-  .apple-wallet-btn:hover {
-    background-color: #1a1a1a !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
+  .apple-wallet-badge-link:hover {
     transform: translateY(-2px);
+    opacity: 0.9;
   }
 }
 
