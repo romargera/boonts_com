@@ -1,0 +1,103 @@
+name: Reusable Deploy To Coolify
+
+on:
+  workflow_call:
+    inputs:
+      poll_attempts:
+        description: Number of deployment status checks before timeout.
+        required: false
+        default: 60
+        type: number
+      poll_interval_seconds:
+        description: Delay between deployment status checks in seconds.
+        required: false
+        default: 10
+        type: number
+      force_redeploy:
+        description: Whether to request force rebuild from Coolify API.
+        required: false
+        default: true
+        type: boolean
+    secrets:
+      COOLIFY_API_URL:
+        required: true
+      COOLIFY_API_TOKEN:
+        required: true
+      COOLIFY_APP_UUID:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      COOLIFY_API_URL: ${{ secrets.COOLIFY_API_URL }}
+      COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+      COOLIFY_APP_UUID: ${{ secrets.COOLIFY_APP_UUID }}
+
+    steps:
+      - name: Validate secrets
+        run: |
+          set -euo pipefail
+          test -n "${COOLIFY_API_URL:-}" || (echo "Missing COOLIFY_API_URL secret" && exit 1)
+          test -n "${COOLIFY_API_TOKEN:-}" || (echo "Missing COOLIFY_API_TOKEN secret" && exit 1)
+          test -n "${COOLIFY_APP_UUID:-}" || (echo "Missing COOLIFY_APP_UUID secret" && exit 1)
+
+      - name: Trigger deployment
+        id: trigger
+        run: |
+          set -euo pipefail
+
+          payload='{}'
+          if [ "${{ inputs.force_redeploy }}" = "true" ]; then
+            payload='{"force": true}'
+          fi
+
+          response="$(curl -fsS -X POST \
+            -H "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "${payload}" \
+            "${COOLIFY_API_URL%/}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")"
+
+          echo "$response"
+          deployment_uuid="$(echo "$response" | jq -r '.deployments[0].deployment_uuid // empty')"
+
+          if [ -z "$deployment_uuid" ]; then
+            echo "Could not read deployment UUID from response"
+            exit 1
+          fi
+
+          echo "deployment_uuid=${deployment_uuid}" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for deployment result
+        env:
+          DEPLOYMENT_UUID: ${{ steps.trigger.outputs.deployment_uuid }}
+        run: |
+          set -euo pipefail
+
+          for attempt in $(seq 1 "${{ inputs.poll_attempts }}"); do
+            deployment="$(curl -fsS \
+              -H "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+              "${COOLIFY_API_URL%/}/api/v1/deployments/${DEPLOYMENT_UUID}")"
+            status="$(echo "$deployment" | jq -r '.status // "unknown"')"
+
+            echo "Attempt ${attempt}: ${status}"
+
+            case "$status" in
+              finished)
+                exit 0
+                ;;
+              failed|canceled)
+                echo "Deployment ended with status: ${status}"
+                echo "$deployment" | jq -r '.logs // ""' | jq -r 'fromjson? // [] | .[-20:][] | "\(.timestamp) \(.type): \(.output)"' || true
+                exit 1
+                ;;
+            esac
+
+            sleep "${{ inputs.poll_interval_seconds }}"
+          done
+
+          echo "Timed out waiting for deployment status"
+          exit 1

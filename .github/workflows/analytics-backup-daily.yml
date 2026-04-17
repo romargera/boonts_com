@@ -1,0 +1,33 @@
+name: Analytics Backup Daily
+
+on:
+  schedule:
+    - cron: "17 1 * * *"
+  workflow_dispatch:
+    inputs:
+      run_date:
+        description: "Optional date override in YYYY-MM-DD (default: yesterday)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: analytics-backup-main
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    uses: ./.github/workflows/reusable-analytics-backup.yml
+    with:
+      website_id: "291f20d1-b8f1-48cf-9631-4b8f9fb43253"
+      site_key: "boonts-main"
+      timezone: "Europe/Belgrade"
+      backup_branch: "analytics-data"
+      run_date: ${{ inputs.run_date || '' }}
+      fail_on_missing_secrets: false
+    secrets:
+      UMAMI_BASE_URL: ${{ secrets.UMAMI_BASE_URL }}
+      UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
+      UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}

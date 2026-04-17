@@ -1,0 +1,156 @@
+name: Reusable Analytics Backup
+
+on:
+  workflow_call:
+    inputs:
+      website_id:
+        description: Umami website UUID.
+        required: true
+        type: string
+      site_key:
+        description: Local key for snapshot folder names.
+        required: true
+        type: string
+      timezone:
+        description: IANA timezone for daily window boundaries.
+        required: false
+        default: Europe/Belgrade
+        type: string
+      run_date:
+        description: Override date in YYYY-MM-DD. Default is yesterday.
+        required: false
+        default: ""
+        type: string
+      backup_branch:
+        description: Git branch where daily snapshots are stored.
+        required: false
+        default: analytics-data
+        type: string
+      fail_on_missing_secrets:
+        description: Fail job if Umami secrets are missing.
+        required: false
+        default: false
+        type: boolean
+    secrets:
+      UMAMI_BASE_URL:
+        required: false
+      UMAMI_USERNAME:
+        required: false
+      UMAMI_PASSWORD:
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate secret availability
+        id: validate
+        env:
+          UMAMI_BASE_URL: ${{ secrets.UMAMI_BASE_URL }}
+          UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
+          UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          missing=0
+          for key in UMAMI_BASE_URL UMAMI_USERNAME UMAMI_PASSWORD; do
+            if [ -z "${!key:-}" ]; then
+              echo "::warning::Missing required secret: ${key}"
+              missing=1
+            fi
+          done
+
+          if [ "$missing" -eq 1 ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            if [ "${{ inputs.fail_on_missing_secrets }}" = "true" ]; then
+              echo "::error::Umami backup secrets are missing."
+              exit 1
+            fi
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Collect daily snapshot
+        if: steps.validate.outputs.configured == 'true'
+        id: snapshot
+        env:
+          UMAMI_BASE_URL: ${{ secrets.UMAMI_BASE_URL }}
+          UMAMI_USERNAME: ${{ secrets.UMAMI_USERNAME }}
+          UMAMI_PASSWORD: ${{ secrets.UMAMI_PASSWORD }}
+        run: |
+          set -euo pipefail
+
+          SNAPSHOT_OUT="${RUNNER_TEMP}/analytics_snapshot.json"
+          export SNAPSHOT_OUT
+          DATE_ARGS=()
+          if [ -n "${{ inputs.run_date }}" ]; then
+            DATE_ARGS=(--date "${{ inputs.run_date }}")
+          fi
+
+          python3 scripts/umami_daily_backup.py \
+            --base-url "${UMAMI_BASE_URL}" \
+            --username "${UMAMI_USERNAME}" \
+            --password "${UMAMI_PASSWORD}" \
+            --website-id "${{ inputs.website_id }}" \
+            --site-key "${{ inputs.site_key }}" \
+            --timezone "${{ inputs.timezone }}" \
+            --output "${SNAPSHOT_OUT}" \
+            "${DATE_ARGS[@]}"
+
+          snapshot_date="$(python3 -c 'import json, os; print(json.load(open(os.environ[\"SNAPSHOT_OUT\"], \"r\", encoding=\"utf-8\"))[\"date\"])')"
+
+          echo "snapshot_date=${snapshot_date}" >> "$GITHUB_OUTPUT"
+          echo "snapshot_path=${SNAPSHOT_OUT}" >> "$GITHUB_OUTPUT"
+
+      - name: Update backup branch
+        if: steps.validate.outputs.configured == 'true'
+        env:
+          BACKUP_BRANCH: ${{ inputs.backup_branch }}
+          SITE_KEY: ${{ inputs.site_key }}
+          SNAPSHOT_DATE: ${{ steps.snapshot.outputs.snapshot_date }}
+          SNAPSHOT_PATH: ${{ steps.snapshot.outputs.snapshot_path }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin "${BACKUP_BRANCH}" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/${BACKUP_BRANCH}"; then
+            git checkout -B "${BACKUP_BRANCH}" "origin/${BACKUP_BRANCH}"
+          else
+            git checkout --orphan "${BACKUP_BRANCH}"
+            git rm -rf . >/dev/null 2>&1 || true
+          fi
+
+          target_dir="analytics/daily/${SITE_KEY}"
+          mkdir -p "${target_dir}"
+          cp "${SNAPSHOT_PATH}" "${target_dir}/${SNAPSHOT_DATE}.json"
+          cp "${SNAPSHOT_PATH}" "${target_dir}/latest.json"
+
+          if [ ! -f README.md ]; then
+            printf '%s\n' \
+              '# Analytics Backup Branch' \
+              '' \
+              'This branch stores daily aggregated analytics snapshots.' \
+              'No credentials are stored in this branch.' \
+              > README.md
+          fi
+
+          git add README.md analytics/daily
+          if git diff --cached --quiet; then
+            echo "No analytics changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(analytics): backup ${SITE_KEY} ${SNAPSHOT_DATE}"
+          git push origin "${BACKUP_BRANCH}"
