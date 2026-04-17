@@ -106,7 +106,7 @@ jobs:
             --output "${SNAPSHOT_OUT}" \
             "${DATE_ARGS[@]}"
 
-          snapshot_date="$(python3 -c 'import json, os; print(json.load(open(os.environ[\"SNAPSHOT_OUT\"], \"r\", encoding=\"utf-8\"))[\"date\"])')"
+          snapshot_date="$(jq -r '.date' "${SNAPSHOT_OUT}")"
 
           echo "snapshot_date=${snapshot_date}" >> "$GITHUB_OUTPUT"
           echo "snapshot_path=${SNAPSHOT_OUT}" >> "$GITHUB_OUTPUT"
