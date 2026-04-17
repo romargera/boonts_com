@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "provider": "umami",
+  "site_key": "boonts-main",
+  "website_id": "291f20d1-b8f1-48cf-9631-4b8f9fb43253",
+  "date": "2026-04-16",
+  "timezone": "Europe/Belgrade",
+  "window": {
+    "start_at_ms": 1776290400000,
+    "end_at_ms": 1776376799999,
+    "start_at_utc": "2026-04-15T22:00:00Z",
+    "end_at_utc": "2026-04-16T21:59:59.999000Z"
+  },
+  "totals": {
+    "pageviews": 0,
+    "visitors": 0,
+    "visits": 0,
+    "bounces": 0,
+    "totaltime": 0
+  },
+  "pages": [],
+  "events": [],
+  "meta": {
+    "collected_at_utc": "2026-04-17T12:27:48.123139Z",
+    "endpoints": {
+      "totals": {
+        "endpoint": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/stats?startAt=1776290400000&endAt=1776376799999",
+        "url": "https://analytics.boonts.com/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/stats?startAt=1776290400000&endAt=1776376799999",
+        "attempts": [
+          {
+            "path": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/stats?startAt=1776290400000&endAt=1776376799999",
+            "status": 200
+          }
+        ]
+      },
+      "pages": {
+        "endpoint": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/events?type=url&startAt=1776290400000&endAt=1776376799999",
+        "url": "https://analytics.boonts.com/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/events?type=url&startAt=1776290400000&endAt=1776376799999",
+        "attempts": [
+          {
+            "path": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/metrics?type=url&startAt=1776290400000&endAt=1776376799999",
+            "status": 400
+          },
+          {
+            "path": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/event-data?type=url&startAt=1776290400000&endAt=1776376799999",
+            "status": 404
+          },
+          {
+            "path": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/events?type=url&startAt=1776290400000&endAt=1776376799999",
+            "status": 200
+          }
+        ]
+      },
+      "events": {
+        "endpoint": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/metrics?type=event&startAt=1776290400000&endAt=1776376799999",
+        "url": "https://analytics.boonts.com/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/metrics?type=event&startAt=1776290400000&endAt=1776376799999",
+        "attempts": [
+          {
+            "path": "/api/websites/291f20d1-b8f1-48cf-9631-4b8f9fb43253/metrics?type=event&startAt=1776290400000&endAt=1776376799999",
+            "status": 200
+          }
+        ]
+      }
+    }
+  }
+}
