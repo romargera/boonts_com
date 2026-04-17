@@ -1,12 +1,26 @@
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100svh;
   padding: 1.25rem;
   /* Safe area padding for iPhones with notch */
   padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
   padding-top: max(1.25rem, env(safe-area-inset-top));
+}
+
+body::before,
+body::after {
+  content: "";
+  display: block;
+}
+
+body::before {
+  flex: 1 1 0px;
+}
+
+body::after {
+  flex: 3 1 0px;
 }
 
 .card {

@@ -72,33 +72,4 @@
   transform: translateY(0);
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  cursor: pointer;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-speed);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow);
-  z-index: 10;
-}
 
-.theme-toggle:hover {
-  transform: scale(1.05);
-  color: var(--text-primary);
-  border-color: var(--text-secondary);
-}
-
-:root[data-theme="light"] .icon-sun { display: none; }
-:root[data-theme="dark"] .icon-moon { display: none; }
