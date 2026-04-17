@@ -70,7 +70,11 @@ def request_json(
         url = f"{base}{path}"
 
     body = None
-    headers = {"Accept": "application/json"}
+    headers = {
+        "Accept": "application/json",
+        # Some edge proxies block default urllib user agent values.
+        "User-Agent": "boonts-analytics-backup/1.0 (+https://boonts.com)",
+    }
     if payload is not None:
         body = json.dumps(payload).encode("utf-8")
         headers["Content-Type"] = "application/json"
