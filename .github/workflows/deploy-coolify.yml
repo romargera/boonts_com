@@ -1,0 +1,84 @@
+name: Deploy To Coolify
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "dist/**"
+      - ".github/workflows/deploy-coolify.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: coolify-deploy-main
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      COOLIFY_API_URL: ${{ secrets.COOLIFY_API_URL }}
+      COOLIFY_API_TOKEN: ${{ secrets.MAC_ROMAN_DEPLOY }}
+      COOLIFY_APP_UUID: ${{ secrets.COOLIFY_APP_UUID }}
+
+    steps:
+      - name: Validate secrets
+        run: |
+          set -euo pipefail
+          test -n "${COOLIFY_API_URL:-}" || (echo "Missing COOLIFY_API_URL secret" && exit 1)
+          test -n "${COOLIFY_API_TOKEN:-}" || (echo "Missing MAC_ROMAN_DEPLOY secret" && exit 1)
+          test -n "${COOLIFY_APP_UUID:-}" || (echo "Missing COOLIFY_APP_UUID secret" && exit 1)
+
+      - name: Trigger deployment
+        id: trigger
+        run: |
+          set -euo pipefail
+          response="$(curl -fsS -X POST \
+            -H "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d '{"force": true}' \
+            "${COOLIFY_API_URL%/}/api/v1/deploy?uuid=${COOLIFY_APP_UUID}")"
+
+          echo "$response"
+          deployment_uuid="$(echo "$response" | jq -r '.deployments[0].deployment_uuid // empty')"
+
+          if [ -z "$deployment_uuid" ]; then
+            echo "Could not read deployment UUID from response"
+            exit 1
+          fi
+
+          echo "deployment_uuid=${deployment_uuid}" >> "$GITHUB_OUTPUT"
+
+      - name: Wait for deployment result
+        env:
+          DEPLOYMENT_UUID: ${{ steps.trigger.outputs.deployment_uuid }}
+        run: |
+          set -euo pipefail
+
+          for attempt in $(seq 1 60); do
+            deployment="$(curl -fsS \
+              -H "Authorization: Bearer ${COOLIFY_API_TOKEN}" \
+              "${COOLIFY_API_URL%/}/api/v1/deployments/${DEPLOYMENT_UUID}")"
+            status="$(echo "$deployment" | jq -r '.status // "unknown"')"
+
+            echo "Attempt ${attempt}: ${status}"
+
+            case "$status" in
+              finished)
+                exit 0
+                ;;
+              failed|canceled)
+                echo "Deployment ended with status: ${status}"
+                echo "$deployment" | jq -r '.logs // ""' | jq -r 'fromjson? // [] | .[-20:][] | "\(.timestamp) \(.type): \(.output)"' || true
+                exit 1
+                ;;
+            esac
+
+            sleep 10
+          done
+
+          echo "Timed out waiting for deployment status"
+          exit 1
