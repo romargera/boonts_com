@@ -8,7 +8,7 @@ A high-performance personal business card and link hub built with intentional mi
 
 *   **Core**: Vanilla HTML5, CSS3, and ES6+ JavaScript.
 *   **Build System**: [Vite](https://vitejs.dev/) for optimized asset bundling and fast HMR.
-*   **Hosting**: Self-hosted via [Coolify](https://coolify.io/).
+*   **Hosting**: [GitHub Pages](https://pages.github.com/) with a custom domain (`boonts.com`).
 *   **Analytics**: Integrated with [Umami](https://umami.is/) for privacy-focused usage metrics.
 
 ## Getting Started
@@ -34,9 +34,25 @@ npm run build
 ## Infrastructure & DevOps
 
 ### CI/CD Pipeline
-The project utilizes a dual-stage GitHub Actions workflow:
-1.  **Sync**: Compiles source code and commits the production-ready `dist/` directory back to the repository on every push to `main`.
-2.  **Deploy**: Triggers a webhook deployment to the Coolify instance upon production build updates.
+The project is deployed by GitHub Actions:
+1.  **Build**: Installs dependencies and builds the site with `vite build`.
+2.  **Deploy**: Publishes `dist/` to GitHub Pages using `actions/deploy-pages`.
+
+### Custom Domain (`boonts.com`)
+GitHub Pages reads the domain from `public/CNAME` during build.  
+Required DNS records for apex domain setup:
+
+```text
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+AAAA  @    2606:50c0:8000::153
+AAAA  @    2606:50c0:8001::153
+AAAA  @    2606:50c0:8002::153
+AAAA  @    2606:50c0:8003::153
+CNAME www  romargera.github.io
+```
 
 ### Analytics Data Integrity
 A scheduled daily task (`scripts/analytics_daily_query.py`) fetches aggregated metrics from Umami and persists them to the `analytics-data` branch. This ensures a redundant, version-controlled backup of site performance data.
