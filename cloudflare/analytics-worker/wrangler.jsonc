@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "boonts-analytics",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-05-12",
+  "kv_namespaces": [
+    {
+      "binding": "BOONTS_EVENTS",
+      "id": "06a769c07a404aae9d8d740a62274b55"
+    }
+  ],
+  "workers_dev": true
+}

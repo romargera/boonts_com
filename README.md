@@ -9,7 +9,7 @@ A high-performance personal business card and link hub built with intentional mi
 *   **Core**: Vanilla HTML5, CSS3, and ES6+ JavaScript.
 *   **Build System**: [Vite](https://vitejs.dev/) for optimized asset bundling and fast HMR.
 *   **Hosting**: [GitHub Pages](https://pages.github.com/) with a custom domain (`boonts.com`).
-*   **Analytics**: Integrated with [Umami](https://umami.is/) for privacy-focused usage metrics.
+*   **Analytics**: Cloudflare Worker endpoint compatible with the existing Umami-style event names.
 
 ## Getting Started
 
@@ -62,11 +62,34 @@ Security disclosure metadata is published at:
 https://boonts.com/.well-known/security.txt
 ```
 
-### Analytics Data Integrity
-A scheduled daily task (`scripts/analytics_daily_query.py`) fetches aggregated metrics from Umami and persists them to the `analytics-data` branch. This ensures a redundant, version-controlled backup of site performance data.
+### Analytics
+The public site keeps the same event names that were previously used by Umami:
+
+```text
+pageview
+click-linkedin
+click-telegram
+click-whatsapp
+click-email
+scroll-25
+scroll-50
+scroll-75
+scroll-100
+```
+
+`analytics.boonts.com/script.js` is served by the Cloudflare Worker in `cloudflare/analytics-worker`. The Worker exposes a small Umami-compatible `window.umami.track(...)` API and writes only daily aggregate counters to Workers KV. It does not persist IP addresses or user agents.
 
 ```bash
-# Query local analytics data
+# Deploy the analytics Worker
+npm run deploy:analytics
+
+# Query Cloudflare event counts
+npm run analytics:events -- --days 30
+```
+
+The old Umami backup reader is still available for historical snapshots in the `analytics-data` branch:
+
+```bash
 python3 scripts/analytics_daily_query.py --site-key boonts-main --limit 30
 ```
 

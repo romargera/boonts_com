@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test test/analytics-worker.test.js && python3 test/test_cloudflare_events_query.py",
+    "deploy:analytics": "cd cloudflare/analytics-worker && npx wrangler deploy",
+    "analytics:events": "python3 scripts/cloudflare_events_query.py"
   },
   "devDependencies": {
     "vite": "^5.2.0"

@@ -1,5 +1,5 @@
-// Custom Umami Analytics Tracking - Scroll Depth
-// Clicking tracking is handled automatically by Umami via data-umami-event attributes
+// Custom analytics tracking - scroll depth.
+// Click tracking is handled by the Umami-compatible Cloudflare shim via data-umami-event attributes.
 
 if (typeof window !== 'undefined' && window.umami) {
   let trackedDepths = new Set();
