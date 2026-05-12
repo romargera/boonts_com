@@ -1,0 +1,4 @@
+Contact: mailto:roma.babunts@gmail.com
+Expires: 2027-05-12T23:59:00Z
+Preferred-Languages: en, ru
+Canonical: https://boonts.com/.well-known/security.txt

@@ -54,6 +54,14 @@ AAAA  @    2606:50c0:8003::153
 CNAME www  romargera.github.io
 ```
 
+Cloudflare is the authoritative DNS provider for `boonts.com`, but the public site is intentionally served directly by GitHub Pages DNS records. Keep these records DNS-only if the goal is simple static hosting. Enable Cloudflare proxying only when edge features such as WAF/Bot Fight Mode, Cloudflare-managed HSTS, or AI crawler blocking are required, and verify GitHub Pages HTTPS after the change.
+
+Security disclosure metadata is published at:
+
+```text
+https://boonts.com/.well-known/security.txt
+```
+
 ### Analytics Data Integrity
 A scheduled daily task (`scripts/analytics_daily_query.py`) fetches aggregated metrics from Umami and persists them to the `analytics-data` branch. This ensures a redundant, version-controlled backup of site performance data.
 
