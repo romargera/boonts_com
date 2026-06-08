@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SheSafe Privacy Policy</title>
-    <meta name="robots" content="noindex">
     <style>
       body {
         margin: 0;
@@ -13,11 +12,12 @@
         font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       }
       main {
-        max-width: 820px;
+        max-width: 860px;
         margin: 0 auto;
         padding: 40px 20px 64px;
       }
-      h1, h2 {
+      h1,
+      h2 {
         line-height: 1.2;
       }
       h1 {
@@ -26,63 +26,92 @@
       a {
         color: #8a4f5f;
       }
+      li {
+        margin: 6px 0;
+      }
     </style>
   </head>
   <body>
     <main>
       <h1>SheSafe Privacy Policy</h1>
-      <p>Last updated: 2026-06-04</p>
+      <p>Last updated: 2026-06-05</p>
 
-      <h2>1. What We Collect</h2>
-      <ul>
-        <li>Account identifiers: provider UID, optional email, display name.</li>
-        <li>Safety telemetry during active journeys: approximate or precise location, battery level, sound state, and last-online timestamps.</li>
-        <li>Journey context updates: text tied to a specific journey.</li>
-        <li>SOS evidence media: audio, photos, and video are not collected in the MVP.</li>
-        <li>Event logs: safety events for both primary and close-one recipients, including delivery and acknowledgement status.</li>
-      </ul>
+      <p>This Privacy Policy describes how SheSafe ("SheSafe", "we", "us", or "our") collects, uses, shares, and protects information in the SheSafe mobile app, public legal pages, and support channels. This document is intended to be a plain-language notice, not a promise that the app will prevent harm or replace emergency services.</p>
+      <p>SheSafe is a personal safety coordination tool. It is not an emergency dispatch service, medical service, law-enforcement service, or substitute for calling local emergency services in an immediate emergency.</p>
 
-      <h2>2. Why We Collect It</h2>
+      <h2>1. Information We Collect</h2>
+      <p>We collect only the information needed to operate the current release of the service and to support safety, account, security, and compliance workflows.</p>
       <ul>
-        <li>Deliver safety functionality such as live tracking, check-ins, and SOS escalation.</li>
-        <li>Enable close-one collaboration and visibility.</li>
-        <li>Investigate incidents and improve false-positive rates.</li>
-        <li>Meet legal and store compliance requirements.</li>
+        <li>Account and profile information, such as authentication-provider user ID, email address, display name, and versioned age/Terms/Privacy acceptance timestamps.</li>
+        <li>Trusted-circle and invite information, such as relationship records, invite status, expiry timestamps, and role or permission state.</li>
+        <li>Location and safety data during active journeys, check-ins, SOS flows, and related active safety sessions.</li>
+        <li>Journey status, alert level, timestamps, check-in status, battery level, sound state, last-online timestamps, and per-recipient safety-event delivery or audit status.</li>
+        <li>User-provided text context tied to a journey or safety event, plus support messages a user chooses to send.</li>
+        <li>Device and service-operation data, such as push token metadata, platform, app version, App Check/security logs, diagnostic logs, and data region.</li>
       </ul>
+      <p>The current release does not collect audio, photos, video, device address-book contacts, payment card data, or continuous background location outside active safety sessions. If a future release adds any of these categories, this Policy and store privacy disclosures must be updated before that release.</p>
 
-      <h2>3. Data Retention</h2>
+      <h2>2. How Location Sharing Works</h2>
+      <p>Location sharing is designed to be user-initiated and active-session based. SheSafe does not continuously track users outside active safety sessions in the current release.</p>
+      <p>Location and status may be shared with explicitly connected close ones only for the relevant journey, SOS, check-in, or safety event. Location shown in the app is the device location reported by the operating system and network providers; it may not match the person's actual physical location if the device is offline, left behind, shared with someone else, has location disabled, has low battery, or is affected by poor GPS, Wi-Fi, cellular, OS, Focus/DND, or permission settings.</p>
+
+      <h2>3. How We Use Information</h2>
       <ul>
-        <li>Active journey telemetry is retained for operational safety and incident review.</li>
-        <li>Completed journey context is retained for auditability until a user deletion request is processed.</li>
-        <li>Safety-event delivery and audit records are retained for 90 days unless account deletion removes relevant actor or recipient data earlier.</li>
-        <li>Invite codes expire after 24 hours and can be used once.</li>
-        <li>Account deletion removes account-owned profile, trusted-contact, journey, context, check-in, invite, and live-location records through a server-side deletion flow.</li>
+        <li>Provide account, onboarding, legal acceptance, and trusted-circle features.</li>
+        <li>Deliver active journey, check-in, SOS, and close-one safety workflows.</li>
+        <li>Send service notifications and PII-minimized push handoff payloads.</li>
+        <li>Prevent abuse, unauthorized access, false emergency misuse, and service disruption.</li>
+        <li>Provide user support and process account/privacy requests.</li>
+        <li>Maintain, debug, test, and improve service reliability.</li>
+        <li>Comply with applicable law, platform rules, and valid legal process.</li>
       </ul>
+      <p>The current release does not sell personal information. The current release does not use precise location, safety events, trusted-circle graph, or SOS context for targeted advertising. If a future release adds advertising, attribution, or another monetization model that materially changes how personal information is used or shared, this Policy, store privacy disclosures, and in-app notices must be updated before that release.</p>
 
       <h2>4. Sharing</h2>
+      <p>We share information only as needed for the service, support, security, legal compliance, or a user-requested safety workflow.</p>
       <ul>
-        <li>Data is shared only with explicitly connected close ones for relevant journeys or groups.</li>
-        <li>No public sharing.</li>
-        <li>Third-party processors include Firebase services and map/geocoding providers used to operate the app.</li>
-        <li>Public launch is blocked until processor DPAs, subprocessors, and EU/UK international-transfer mechanisms are documented.</li>
+        <li>A connected close one may receive relevant journey, check-in, SOS, status, and location information for the safety event in which they are a permitted recipient.</li>
+        <li>Close ones do not receive full account data, support messages, or unrelated journeys merely because they are connected.</li>
+        <li>We use service providers for authentication, database, server functions, push-notification delivery, App Check/security, legal-page hosting, support mailbox routing, and map/geocoding/tile services.</li>
+        <li>Analytics and crash-reporting SDKs are not enabled in the current mobile release unless a future release and store privacy disclosures say otherwise.</li>
+        <li>We may disclose information if required by applicable law, valid legal process, platform policy, or to protect the rights, safety, and security of users, SheSafe, or others.</li>
+        <li>SheSafe does not automatically dispatch police, ambulance, fire, or other public emergency responders in the current release.</li>
       </ul>
 
-      <h2>5. User Controls</h2>
+      <h2>5. Retention And Deletion</h2>
       <ul>
-        <li>Users can remove close ones.</li>
-        <li>Users can block or report a close one or submitted context through in-app controls and support escalation.</li>
-        <li>Users can request account deletion from the in-app Account & Privacy section.</li>
+        <li>Invite codes expire after 24 hours and can be used once.</li>
+        <li>Safety-event delivery and audit records are retained for 30 days unless account deletion removes relevant actor or recipient data earlier.</li>
+        <li>Push tokens are revoked on sign-out or account deletion where the app can identify the token.</li>
+        <li>Active journey metadata is retained for user history/statistics, but specific location coordinates (latitude/longitude) and destination address details are automatically nullified/wiped from the database 30 days after creation.</li>
+        <li>Journey context notes and SOS incident records are deleted after 30 days.</li>
+        <li>Support emails are retained according to the support mailbox provider's retention settings and operational needs.</li>
       </ul>
+      <p>Account deletion is designed to remove account-owned profile, trusted-contact, journey, context, check-in, invite, live-location, safety-event, outbox/delivery, and device-token records through server-side deletion flows where technically and legally permitted. Some limited records may be retained if reasonably necessary for security, fraud prevention, legal compliance, dispute handling, backup integrity, or to protect other users' safety/audit records.</p>
 
-      <h2>6. Security</h2>
-      <ul>
-        <li>Access is protected by Firebase Auth and security rules.</li>
-        <li>Event/action permissions are role-scoped and journey-scoped.</li>
-        <li>Sensitive actions are logged with actor, recipient, and timestamp.</li>
-      </ul>
+      <h2>6. Your Controls And Privacy Rights</h2>
+      <p>You can manage app permissions through your device settings. If location or notification permissions are disabled, some safety features may not work or may work less reliably.</p>
+      <p>Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, consent withdrawal, or information about processing. Some locations may also provide rights to opt out of sale, sharing, targeted advertising, profiling, or certain sensitive-data processing. SheSafe does not currently sell personal information or use personal information for targeted advertising.</p>
+      <p>To exercise a privacy right, request account deletion, or ask a privacy question, contact us at <a href="mailto:support@boonts.com">support@boonts.com</a>. We may need to verify your identity before processing a request. We will respond as required by applicable law and may decline or limit a request where permitted by law.</p>
 
-      <h2>7. Contact</h2>
-      <p>For privacy requests, support, and incidents, email <a href="mailto:sasha@boonts.com">sasha@boonts.com</a>.</p>
+      <h2>7. International Processing</h2>
+      <p>Information may be processed in countries other than where you live. Privacy and government-access laws in those countries may differ from those in your location. Where required, we use appropriate transfer safeguards, such as data-processing terms, standard contractual clauses, addenda, adequacy mechanisms, or comparable contractual and technical safeguards.</p>
+
+      <h2>8. Security</h2>
+      <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information. These include Firebase Auth, database security rules, App Check enforcement hooks, server-side authorization checks, PII-minimized push payloads, least-privilege operational access, and audit/event records for sensitive safety actions.</p>
+      <p>No system can be guaranteed to be fully secure, uninterrupted, or error-free. Users are responsible for maintaining control of their devices, accounts, and device permissions.</p>
+
+      <h2>9. Minors</h2>
+      <p>The current release is intended only for users who are 18 or older. It is not directed to children or teens. We do not knowingly collect personal information from users under 18. If we learn that an under-18 user has created an account or provided personal information, we may disable the account and delete information where required or appropriate.</p>
+
+      <h2>10. Third-Party Links And Services</h2>
+      <p>The app or legal pages may link to third-party websites, app stores, maps, support tools, or other services. Their privacy practices are governed by their own policies, not this Policy.</p>
+
+      <h2>11. Changes</h2>
+      <p>We may update this Policy from time to time. The "Last updated" date shows when the current version was published. If changes are material, we may provide additional notice where required by law or platform policy.</p>
+
+      <h2>12. Contact</h2>
+      <p>For privacy requests, support, and incidents, email <a href="mailto:support@boonts.com">support@boonts.com</a>.</p>
     </main>
   </body>
 </html>
