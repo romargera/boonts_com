@@ -49,6 +49,13 @@ if (typeof window !== 'undefined') {
           event_category: 'contact',
           event_label: eventName.replace('click-', '')
         });
+        
+        // Google Ads Conversion tracking for Google Calendar book a call button
+        if (eventName === 'click-gcal') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-962696895/ZM9VCJjNyL4cEL-thssD'
+          });
+        }
       }
     });
   });
