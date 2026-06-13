@@ -72,4 +72,24 @@
   transform: translateY(0);
 }
 
+.link-btn.primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.link-btn.primary svg {
+  color: #ffffff;
+}
+
+@media (hover: hover) {
+  .link-btn.primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: #ffffff;
+    box-shadow: 0 6px 16px var(--glow);
+  }
+}
+
+
 
