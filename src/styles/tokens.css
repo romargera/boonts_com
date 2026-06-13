@@ -22,6 +22,7 @@
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.08), inset 0 2px 4px rgba(255, 255, 255, 1); /* Pronounced shadow and reflection */
   --glow: rgba(26, 27, 200, 0.15);
   --icon-color: #1a1a1a;
+  --primary-hover-text: var(--accent);
 }
 
 :root[data-theme="dark"] {
@@ -36,6 +37,7 @@
   --shadow: 0 4px 12px rgba(0,0,0,0.2);
   --glow: rgba(26, 27, 200, 0.2);
   --icon-color: #f5f5f7;
+  --primary-hover-text: #ffffff;
 }
 
 /* User Accent is quite dark for dark mode. Let's make a slightly brighter variant for text/borders in dark mode if needed, though they asked for #1a1bc8, so we keep that true for backgrounds */

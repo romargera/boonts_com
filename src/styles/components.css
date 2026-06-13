@@ -73,21 +73,25 @@
 }
 
 .link-btn.primary {
-  background-color: var(--accent);
-  color: #ffffff;
+  background-color: transparent;
+  color: var(--accent);
   border-color: var(--accent);
+  grid-column: span 2;
 }
 
 .link-btn.primary svg {
-  color: #ffffff;
+  color: var(--accent);
 }
 
 @media (hover: hover) {
   .link-btn.primary:hover {
-    background-color: var(--accent-hover);
-    border-color: var(--accent-hover);
-    color: #ffffff;
+    background-color: transparent;
+    border-color: #ffffff;
+    color: var(--primary-hover-text);
     box-shadow: 0 6px 16px var(--glow);
+  }
+  .link-btn.primary:hover svg {
+    color: var(--primary-hover-text);
   }
 }
 
