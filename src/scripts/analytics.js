@@ -37,3 +37,20 @@ if (typeof window !== 'undefined' && window.umami) {
     }
   });
 }
+
+// Track button clicks for Google Tag (gtag.js)
+if (typeof window !== 'undefined') {
+  const contactButtons = document.querySelectorAll('.links .link-btn');
+  contactButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const eventName = button.getAttribute('data-umami-event');
+      if (eventName && typeof window.gtag === 'function') {
+        window.gtag('event', eventName, {
+          event_category: 'contact',
+          event_label: eventName.replace('click-', '')
+        });
+      }
+    });
+  });
+}
+
