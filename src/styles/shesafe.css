@@ -26,34 +26,62 @@ body {
               color var(--transition-speed) var(--transition-easing);
 }
 
-/* App Logo in Hero */
-.logo-img {
-  display: block;
-  width: 80px;
-  height: 80px;
-  border-radius: 18px;
-  object-fit: cover;
-  margin-bottom: 0.75rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+/* App Logo and Title Row */
+.logo-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Description container with text wrapping and floated sticker */
-.desc-container {
-  margin-top: 0.5rem;
+.logo-img {
+  display: block;
+  width: 40px; /* Reduced 2x */
+  height: 40px; /* Reduced 2x */
+  border-radius: 9px; /* squircle radius */
+  object-fit: cover;
+  border: 1px solid rgba(36, 73, 164, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.name {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(1.4rem, 5vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.name .brand-pink {
+  color: #EA51A1;
+}
+
+.name .brand-blue {
+  color: #2449A4;
+}
+
+.desc-text {
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--text-secondary);
-  text-align: left;
+  margin-top: 0.5rem;
+}
+
+/* App Feature Sticker styling - Centered at the bottom */
+.sticker-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .sticker-img {
-  float: right;
-  width: 192px; /* 160px * 1.2 */
+  display: block;
+  width: 192px; /* 1.2x size */
   height: auto;
-  margin-left: 1.25rem;
-  margin-bottom: 0.5rem;
   border-radius: 14px;
 }
 
