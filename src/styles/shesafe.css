@@ -1,6 +1,6 @@
-:root {
+:root, :root[data-theme="light"] {
   /* Override main light theme variables for shesafe branding */
-  --bg-primary: #F6EFE8; /* Matches the sticker background exactly */
+  --bg-primary: #F5EFE7; /* Matches the sticker background exactly */
   --bg-card: rgba(255, 255, 255, 0.9);
   --bg-hover: rgba(255, 255, 255, 1);
   --text-primary: #2449A4; /* brand blue */
@@ -38,18 +38,23 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-/* App Feature Sticker styling */
-.sticker-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0.75rem 0 1.25rem 0;
+/* Description container with text wrapping and floated sticker */
+.desc-container {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  text-align: left;
 }
 
 .sticker-img {
-  width: 160px; /* Reduced by 2x */
+  float: right;
+  width: 192px; /* 160px * 1.2 */
   height: auto;
-  border-radius: 12px;
+  margin-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  border-radius: 14px;
 }
 
 /* Store Badge Button Styles - Proportions like boonts.com link-btn */
