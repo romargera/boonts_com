@@ -49,7 +49,7 @@
       <div class="logo-title-row">
         <div class="logo-title-left">
           <img class="logo-img" src="/shesafe/logo_picture.png" alt="SheSafe Logo" width="40" height="40" loading="eager">
-          <h1 class="name"><span class="brand-pink">She</span><span class="brand-blue">Safe</span></h1>
+          <h1 class="name">SheSafe</h1>
         </div>
         <div class="lang-switch" role="navigation" aria-label="Language selector">
           <button class="lang-btn" data-lang="en">EN</button>
@@ -111,6 +111,19 @@
         title: "SheSafe — Seu copiloto de segurança pessoal"
       }
     };
+
+    function getURLQueryOrHashLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      if (langParam && translations[langParam.toLowerCase()]) {
+        return langParam.toLowerCase();
+      }
+      const hash = window.location.hash.replace('#', '');
+      if (hash && translations[hash.toLowerCase()]) {
+        return hash.toLowerCase();
+      }
+      return null;
+    }
 
     function getBrowserLanguage() {
       const lang = navigator.language || (navigator.languages && navigator.languages[0]) || 'en';

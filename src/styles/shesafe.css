@@ -57,14 +57,7 @@ body {
   margin-bottom: 0;
   letter-spacing: -0.02em;
   line-height: 1.2;
-}
-
-.name .brand-pink {
-  color: #EA51A1;
-}
-
-.name .brand-blue {
-  color: #2449A4;
+  color: #EA51A1; /* Make the whole title pink */
 }
 
 .desc-text {
@@ -73,6 +66,11 @@ body {
   line-height: 1.5;
   color: var(--text-secondary);
   margin-top: 0.5rem;
+  min-height: 90px; /* Fix height to prevent jumping on lang switch */
+}
+
+.links {
+  margin-top: 1.25rem; /* Shift download buttons one line lower */
 }
 
 /* App Feature Sticker styling - Centered at the bottom */
