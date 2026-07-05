@@ -1,0 +1,173 @@
+:root {
+  /* Override main light theme variables for shesafe branding */
+  --bg-primary: #F1ECE6; /* light sand/cream onboarding background */
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-hover: rgba(255, 255, 255, 1);
+  --text-primary: #2449A4; /* brand blue */
+  --text-secondary: #5886BA; /* secondary sage-blue */
+  --accent: #EA51A1; /* brand rose-pink */
+  --accent-hover: #d53a8a;
+  --border: rgba(36, 73, 164, 0.15);
+  --shadow: 0 8px 24px rgba(36, 73, 164, 0.08), inset 0 2px 4px rgba(255, 255, 255, 1);
+  --glow: rgba(234, 81, 161, 0.15);
+  --icon-color: #2449A4;
+  --primary-hover-text: #EA51A1;
+  --font-family: 'Outfit', -apple-system, sans-serif;
+  --font-size-link: 0.9375rem;
+  --transition-speed: 250ms;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #181a20;
+    --bg-card: rgba(30, 34, 45, 0.95);
+    --bg-hover: rgba(40, 46, 60, 1);
+    --text-primary: #ffffff;
+    --text-secondary: #a0c2e6;
+    --accent: #EA51A1;
+    --accent-hover: #f074b7;
+    --border: rgba(255, 255, 255, 0.1);
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --glow: rgba(234, 81, 161, 0.25);
+    --icon-color: #ffffff;
+    --primary-hover-text: #ffffff;
+  }
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) var(--transition-easing), 
+              color var(--transition-speed) var(--transition-easing);
+}
+
+/* App Logo in Hero */
+.avatar-shesafe {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 12px;
+  object-fit: cover;
+  vertical-align: middle;
+  margin-left: 8px;
+  transform: translateY(-0.1em);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px var(--glow);
+}
+
+/* App Feature Sticker styling */
+.sticker-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1rem 0;
+  perspective: 1000px;
+}
+
+.sticker-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(36, 73, 164, 0.15);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: rotateY(-3deg) rotateX(3deg);
+}
+
+.sticker-img:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+}
+
+/* Store Badge Button Styles */
+.store-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  background-color: #000000;
+  border: 1px solid #48484a;
+  border-radius: 10px;
+  padding: 0.35rem 0.85rem;
+  color: #ffffff !important;
+  text-decoration: none;
+  transition: transform var(--transition-speed) var(--transition-easing),
+              background-color var(--transition-speed) var(--transition-easing),
+              box-shadow var(--transition-speed) var(--transition-easing);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.store-btn svg {
+  height: 24px;
+  width: auto;
+  fill: #ffffff;
+  flex-shrink: 0;
+}
+
+.store-btn .store-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+}
+
+.store-btn .store-subtitle {
+  font-size: 8px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.store-btn .store-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.store-btn:hover {
+  transform: translateY(-2px);
+  background-color: #1a1a1c;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  border-color: #a6a6a6;
+}
+
+.store-btn:active {
+  transform: translateY(0);
+}
+
+/* Disabled/Coming Soon badge styles */
+.store-btn.disabled {
+  background-color: #1c1c1e;
+  border-color: #2c2c2e;
+  opacity: 0.7;
+  cursor: not-allowed;
+  position: relative;
+}
+
+.store-btn.disabled:hover {
+  transform: none;
+  background-color: #1c1c1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: #2c2c2e;
+}
+
+.store-btn .coming-soon-badge {
+  position: absolute;
+  top: -8px;
+  right: -4px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font-size: 7px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 6px rgba(234, 81, 161, 0.4);
+  line-height: 1;
+}
