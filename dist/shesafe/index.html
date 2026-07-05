@@ -38,10 +38,17 @@
   <!-- Stylesheets -->
   <script type="module" crossorigin src="/assets/analytics-Bn6ozEe-.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/analytics-DNY3agQo.css">
-  <link rel="stylesheet" crossorigin href="/assets/shesafe-D-uSG2j1.css">
+  <link rel="stylesheet" crossorigin href="/assets/shesafe-UJpebFtI.css">
 </head>
 <body>
   <main id="card" class="card" role="main">
+    <div class="lang-switch" role="navigation" aria-label="Language selector">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+    </div>
+
     <header class="hero">
       <div class="logo-title-row">
         <img class="logo-img" src="/shesafe/logo_picture.png" alt="SheSafe Logo" width="40" height="40" loading="eager">
@@ -76,5 +83,81 @@
     </section>
   </main>
 
+  <script>
+    const translations = {
+      en: {
+        desc: "Your personal safety copilot. Share your live location with close ones, send quick SOS alerts, and keep your trust circle updated on your journey.",
+        soon: "Soon",
+        title: "SheSafe — Your personal safety copilot"
+      },
+      ru: {
+        desc: "Твой персональный штурман безопасности. Делись геопозицией в реальном времени с близкими, отправляй быстрые SOS-оповещения и держи свой круг доверия в курсе пути.",
+        soon: "Скоро",
+        title: "SheSafe — Ты не одна на своем пути"
+      },
+      es: {
+        desc: "Tu copiloto de seguridad personal. Comparte tu ubicación en vivo con tus seres queridos, envía alertas rápidas de SOS y mantén a tu círculo de confianza al tanto de tu viaje.",
+        soon: "Pronto",
+        title: "SheSafe — Tu copiloto de seguridad personal"
+      },
+      pt: {
+        desc: "Seu copiloto de segurança pessoal. Compartilhe sua localização em tempo real com pessoas próximas, envie alertas de SOS rápidos e mantenha seu círculo de confiança atualizado sobre seu trajeto.",
+        soon: "Em breve",
+        title: "SheSafe — Seu copiloto de segurança pessoal"
+      }
+    };
+
+    function getBrowserLanguage() {
+      const lang = navigator.language || (navigator.languages && navigator.languages[0]) || 'en';
+      const short = lang.toLowerCase().substring(0, 2);
+      return translations[short] ? short : 'en';
+    }
+
+    function applyLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.title = t.title;
+      
+      const descMeta = document.querySelector('meta[name="description"]');
+      if (descMeta) descMeta.setAttribute('content', t.desc);
+      
+      const ogDescMeta = document.querySelector('meta[property="og:description"]');
+      if (ogDescMeta) ogDescMeta.setAttribute('content', t.desc);
+
+      const descTextEl = document.querySelector('.desc-text');
+      if (descTextEl) descTextEl.textContent = t.desc;
+
+      const soonBadgeEl = document.querySelector('.coming-soon-badge');
+      if (soonBadgeEl) soonBadgeEl.textContent = t.soon;
+
+      // Update active button state
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        if (btn.getAttribute('data-lang') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    function setLanguage(lang) {
+      localStorage.setItem('shesafe_lang', lang);
+      applyLanguage(lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let savedLang = localStorage.getItem('shesafe_lang');
+      if (!savedLang) {
+        savedLang = getBrowserLanguage();
+      }
+      applyLanguage(savedLang);
+
+      // Bind click handlers
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLanguage(btn.getAttribute('data-lang'));
+        });
+      });
+    });
+  </script>
 </body>
 </html>
