@@ -93,6 +93,22 @@ The old Umami backup reader is still available for historical snapshots in the `
 python3 scripts/analytics_daily_query.py --site-key boonts-main --limit 30
 ```
 
+## SheSafe Landing Page
+
+The SheSafe landing page is hosted at `https://boonts.com/shesafe/`.
+
+### Language Localization Parameters
+
+The landing page dynamically translates all interface strings (including title, description, and status badges) into one of the supported languages: English (`en`), Russian (`ru`), Spanish (`es`), or Portuguese (`pt`).
+
+You can override the browser's language detection and force a specific translation by appending a URL query parameter `?lang=<lang>` or a URL hash `#<lang>`.
+
+#### Examples:
+*   **English**: [https://boonts.com/shesafe/?lang=en](https://boonts.com/shesafe/?lang=en) or [https://boonts.com/shesafe/#en](https://boonts.com/shesafe/#en)
+*   **Russian**: [https://boonts.com/shesafe/?lang=ru](https://boonts.com/shesafe/?lang=ru) or [https://boonts.com/shesafe/#ru](https://boonts.com/shesafe/#ru)
+*   **Spanish**: [https://boonts.com/shesafe/?lang=es](https://boonts.com/shesafe/?lang=es) or [https://boonts.com/shesafe/#es](https://boonts.com/shesafe/#es)
+*   **Portuguese**: [https://boonts.com/shesafe/?lang=pt](https://boonts.com/shesafe/?lang=pt) or [https://boonts.com/shesafe/#pt](https://boonts.com/shesafe/#pt)
+
 ## License
 
 MIT © [Roman](https://github.com/romargera)

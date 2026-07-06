@@ -51,12 +51,6 @@
           <img class="logo-img" src="/shesafe/logo_picture.png" alt="SheSafe Logo" width="40" height="40" loading="eager">
           <h1 class="name">SheSafe</h1>
         </div>
-        <div class="lang-switch" role="navigation" aria-label="Language selector">
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-          <button class="lang-btn" data-lang="es">ES</button>
-          <button class="lang-btn" data-lang="pt">PT</button>
-        </div>
       </div>
       <p class="desc-text">
         Твой персональный штурман безопасности. Делись геопозицией в реальном времени с близкими, отправляй быстрые SOS-оповещения и держи свой круг доверия в курсе пути.
@@ -147,34 +141,19 @@
       const soonBadgeEl = document.querySelector('.coming-soon-badge');
       if (soonBadgeEl) soonBadgeEl.textContent = t.soon;
 
-      // Update active button state
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.getAttribute('data-lang') === lang) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-    }
-
-    function setLanguage(lang) {
-      localStorage.setItem('shesafe_lang', lang);
-      applyLanguage(lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      let savedLang = localStorage.getItem('shesafe_lang');
+      let savedLang = getURLQueryOrHashLanguage();
+      if (savedLang) {
+        localStorage.setItem('shesafe_lang', savedLang);
+      } else {
+        savedLang = localStorage.getItem('shesafe_lang');
+      }
       if (!savedLang) {
         savedLang = getBrowserLanguage();
       }
       applyLanguage(savedLang);
-
-      // Bind click handlers
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          setLanguage(btn.getAttribute('data-lang'));
-        });
-      });
     });
   </script>
 </body>

@@ -38,7 +38,7 @@
   <!-- Stylesheets -->
   <script type="module" crossorigin src="/assets/analytics-Bn6ozEe-.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/analytics-DNY3agQo.css">
-  <link rel="stylesheet" crossorigin href="/assets/shesafe-x8Nz_YM-.css">
+  <link rel="stylesheet" crossorigin href="/assets/shesafe-GmSfN499.css">
 </head>
 <body>
   <main id="card" class="card" role="main">
@@ -47,12 +47,6 @@
         <div class="logo-title-left">
           <img class="logo-img" src="/shesafe/logo_picture.png" alt="SheSafe Logo" width="40" height="40" loading="eager">
           <h1 class="name">SheSafe</h1>
-        </div>
-        <div class="lang-switch" role="navigation" aria-label="Language selector">
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="ru">RU</button>
-          <button class="lang-btn" data-lang="es">ES</button>
-          <button class="lang-btn" data-lang="pt">PT</button>
         </div>
       </div>
       <p class="desc-text">
@@ -143,34 +137,19 @@
       const soonBadgeEl = document.querySelector('.coming-soon-badge');
       if (soonBadgeEl) soonBadgeEl.textContent = t.soon;
 
-      // Update active button state
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.getAttribute('data-lang') === lang) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
-        }
-      });
-    }
-
-    function setLanguage(lang) {
-      localStorage.setItem('shesafe_lang', lang);
-      applyLanguage(lang);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      let savedLang = localStorage.getItem('shesafe_lang');
+      let savedLang = getURLQueryOrHashLanguage();
+      if (savedLang) {
+        localStorage.setItem('shesafe_lang', savedLang);
+      } else {
+        savedLang = localStorage.getItem('shesafe_lang');
+      }
       if (!savedLang) {
         savedLang = getBrowserLanguage();
       }
       applyLanguage(savedLang);
-
-      // Bind click handlers
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          setLanguage(btn.getAttribute('data-lang'));
-        });
-      });
     });
   </script>
 </body>
