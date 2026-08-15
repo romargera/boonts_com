@@ -31,6 +31,11 @@
     .result{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--fg)}
     .result.empty{color:var(--muted)}
     
+    .mic-btn{width:40px;height:40px;min-height:40px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--fg);display:inline-grid;place-items:center;padding:0;transition:all .18s ease;box-shadow:0 2px 6px oklch(0 0 0 / .04)}
+    .mic-btn:hover{background:var(--bg);border-color:var(--accent);color:var(--accent);transform:scale(1.06)}
+    .mic-btn.recording{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25);animation:micPulse 1.2s infinite ease-in-out}
+    @keyframes micPulse{0%{box-shadow:0 0 0 0 oklch(0.55 0.22 25 / .6)}70%{box-shadow:0 0 0 10px oklch(0.55 0.22 25 / 0)}100%{box-shadow:0 0 0 0 oklch(0.55 0.22 25 / 0)}}
+    
     /* Result Actions Floating Block (Text Wrap) */
     .result-actions{float:right;display:flex;flex-direction:column;gap:8px;align-items:center;margin:0 0 12px 16px;}
     .action-btn{width:40px;height:40px;min-height:40px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--fg);display:inline-grid;place-items:center;padding:0;transition:all .18s ease;box-shadow:0 2px 6px oklch(0 0 0 / .04)}
@@ -80,7 +85,7 @@
             <button class="swap" id="swap" type="button" data-od-id="swap-languages" aria-label="Поменять языки" title="Поменять языки" style="position:relative;width:44px;padding:0;overflow:hidden"><img src="image-2.png" alt="" aria-hidden="true" style="position:absolute;width:64px;height:auto;left:50%;top:50%;transform:translate(-50%,-50%)"></button>
             <details class="language-menu" id="target-language" data-value="ru" data-od-id="target-language-menu"><summary aria-label="Выбрать язык перевода">Русский</summary><div class="language-options" role="listbox" aria-label="Язык перевода"><button class="language-option" type="button" data-language="ru" aria-selected="true">Русский</button><button class="language-option" type="button" data-language="pig" aria-selected="false">Кабанчиковый</button><button class="language-option" type="button" data-language="investor" aria-selected="false">Инвесторский</button><button class="language-option" type="button" data-language="tax" aria-selected="false">Канцелярский</button><button class="language-option" type="button" data-language="motivation" aria-selected="false">Мотивационный</button><button class="language-option" type="button" data-language="linkedin" aria-selected="false">Проф. соц. сеть</button></div></details>
           </div>
-          <div class="work-grid"><div class="pane source-pane" data-od-id="source-pane"><textarea id="source" maxlength="1000" aria-label="Исходный текст" placeholder="Введите текст"></textarea><div class="pane-tools"><span class="meta" id="count">0 / 1000</span><div class="tool-group"><button class="tool" id="clear" type="button" hidden style="color:var(--muted);font-weight:400">Очистить</button></div></div></div>
+          <div class="work-grid"><div class="pane source-pane" data-od-id="source-pane"><textarea id="source" maxlength="1000" aria-label="Исходный текст" placeholder="Введите текст"></textarea><div class="pane-tools"><div style="display:flex;align-items:center;gap:10px"><button class="mic-btn" id="mic-btn" type="button" aria-label="Голосовой ввод" title="Голосовой ввод"><svg class="mic-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg><svg class="stop-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none"><rect x="4" y="4" width="16" height="16" rx="3"></rect></svg></button><button class="tool" id="clear" type="button" hidden style="color:var(--muted);font-weight:400">Очистить</button><span class="voice-status" id="voice-status" style="display:none;font-size:13px;color:oklch(0.55 0.22 25);font-weight:600">Говорите, пожалуйста</span></div><span class="meta" id="count">0 / 1000</span></div></div>
           <div class="pane result-pane" data-od-id="result-pane" aria-live="polite" hidden>
             <div style="flex:1">
               <div class="result-actions">
@@ -278,6 +283,144 @@
     document.querySelectorAll('.language-menu').forEach(menu=>{menu.querySelectorAll('[data-language]').forEach(option=>option.addEventListener('click',()=>{const other=menu===sourceLanguage?targetLanguage:sourceLanguage,previous=menu.dataset.value;if(option.dataset.language===other.dataset.value)setLanguage(other,previous);setLanguage(menu,option.dataset.language);menu.querySelector('summary').focus();if(source.value.trim())translate()}));menu.addEventListener('toggle',()=>{if(menu.open)document.querySelectorAll('.language-menu').forEach(other=>{if(other!==menu)other.open=false})})});document.addEventListener('click',event=>{event.target.closest('.language-menu')||document.querySelectorAll('.language-menu').forEach(menu=>menu.open=false)});
     document.getElementById('swap').addEventListener('click',()=>{clearTimeout(translateTimer);const language=sourceLanguage.dataset.value;setLanguage(sourceLanguage,targetLanguage.dataset.value);setLanguage(targetLanguage,language);trackEvent('swap_languages',{from:targetLanguage.dataset.value,to:sourceLanguage.dataset.value});if(lastPair&&!resultPane.hidden){const text=source.value;source.value=lastPair.result;renderResult(text);lastPair={source:source.value,result:text};clear.hidden=false;count.textContent=`${source.value.length} / 1000`}else if(source.value.trim()){translate()}source.focus()});
     document.querySelectorAll('[data-screen]').forEach(tab=>tab.addEventListener('click',()=>switchScreen(tab.dataset.screen)));document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>switchScreen(button.dataset.go)));
+    
+    // Voice Input & Recording Handler
+    const micBtn = document.getElementById('mic-btn');
+    const micIcon = micBtn.querySelector('.mic-icon');
+    const stopIcon = micBtn.querySelector('.stop-icon');
+    const voiceStatus = document.getElementById('voice-status');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    let recognition = null;
+    let isRecording = false;
+    let mediaRecorder = null;
+
+    function startVoiceRecording() {
+      clearTimeout(translateTimer);
+      if (currentAbortController) currentAbortController.abort();
+      source.value = '';
+      count.textContent = '0 / 1000';
+      clear.hidden = true;
+      resultPane.hidden = true;
+      result.textContent = 'Перевод';
+      result.classList.add('empty');
+      enableActionButtons(false);
+
+      isRecording = true;
+      micBtn.classList.add('recording');
+      micBtn.title = 'Остановить запись';
+      micIcon.style.display = 'none';
+      stopIcon.style.display = 'inline-block';
+      voiceStatus.textContent = 'Говорите, пожалуйста';
+      voiceStatus.style.display = 'inline-block';
+      source.placeholder = 'Говорите, пожалуйста...';
+      trackEvent('start_voice_recording');
+
+      if (SpeechRecognition) {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'ru-RU';
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        let finalTranscript = '';
+
+        recognition.onresult = (event) => {
+          let interim = '';
+          for (let i = event.resultIndex; i < event.results.length; ++i) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript + ' ';
+            } else {
+              interim += event.results[i][0].transcript;
+            }
+          }
+          const currentText = (finalTranscript + interim).trim();
+          if (currentText) {
+            source.value = currentText;
+            count.textContent = `${source.value.length} / 1000`;
+            clear.hidden = false;
+          }
+        };
+
+        recognition.onerror = (event) => {
+          if (event.error !== 'aborted') {
+            notify('Не удалось распознать речь');
+          }
+          stopVoiceRecording(false);
+        };
+
+        recognition.onend = () => {
+          if (isRecording) {
+            stopVoiceRecording(true);
+          }
+        };
+
+        try {
+          recognition.start();
+        } catch (e) {
+          stopVoiceRecording(false);
+        }
+      } else {
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+          mediaRecorder = new MediaRecorder(stream);
+          mediaRecorder.onstop = () => {
+            stream.getTracks().forEach(t => t.stop());
+            finishVoiceAnalysis();
+          };
+          mediaRecorder.start();
+        }).catch(() => {
+          notify('Нет доступа к микрофону');
+          stopVoiceRecording(false);
+        });
+      }
+    }
+
+    function stopVoiceRecording(processResults = true) {
+      if (!isRecording) return;
+      isRecording = false;
+
+      micBtn.classList.remove('recording');
+      micBtn.title = 'Голосовой ввод';
+      micIcon.style.display = 'inline-block';
+      stopIcon.style.display = 'none';
+      source.placeholder = 'Введите текст';
+
+      if (recognition) {
+        try { recognition.stop(); } catch (e) {}
+      }
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        try { mediaRecorder.stop(); } catch (e) {}
+      }
+
+      if (processResults) {
+        finishVoiceAnalysis();
+      } else {
+        voiceStatus.style.display = 'none';
+      }
+    }
+
+    function finishVoiceAnalysis() {
+      const text = source.value.trim();
+      if (text) {
+        voiceStatus.textContent = 'Анализируем голос...';
+        voiceStatus.style.display = 'inline-block';
+        setTimeout(() => {
+          voiceStatus.style.display = 'none';
+          count.textContent = `${source.value.length} / 1000`;
+          clear.hidden = false;
+          translate();
+        }, 450);
+      } else {
+        voiceStatus.style.display = 'none';
+      }
+    }
+
+    micBtn.addEventListener('click', () => {
+      if (isRecording) {
+        stopVoiceRecording(true);
+      } else {
+        startVoiceRecording();
+      }
+    });
     function getAdminKey() {
       const params = new URLSearchParams(window.location.search);
       const keyFromUrl = params.get('admin') || params.get('admin_key') || params.get('key');
