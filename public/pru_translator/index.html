@@ -246,9 +246,19 @@
       }
     }
 
-    function trackEvent(name, data) {
+    function getLangParams() {
+      return {
+        from: sourceLanguage ? (sourceLanguage.dataset.value || 'tax') : 'tax',
+        to: targetLanguage ? (targetLanguage.dataset.value || 'ru') : 'ru'
+      };
+    }
+
+    function trackEvent(name, data = {}) {
       if (window.umami && typeof window.umami.track === 'function') {
-        try { window.umami.track(name, data); } catch (e) {}
+        try {
+          const payload = { ...getLangParams(), ...data };
+          window.umami.track(name, payload);
+        } catch (e) {}
       }
     }
 
@@ -284,8 +294,21 @@
     function renderLists(){renderList(document.getElementById('history-list'),history,'history');renderList(document.getElementById('saved-list'),saved,'saved')}
     source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=isRecording||source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){if(currentAbortController)currentAbortController.abort();resultPane.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
     clear.addEventListener('click',()=>{clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;resultPane.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
-    share.addEventListener('click',async()=>{const title='Переводчик для предпринимателей';const fromLang=sourceLanguage.dataset.value;const toLang=targetLanguage.dataset.value;const query=source.value.trim();const params=new URLSearchParams({from:fromLang,to:toLang,text:query});const url=`https://boonts.com/pru_translator/?${params.toString()}`;const text=`${title}:\n${url}`;let copied=false;try{await navigator.clipboard.writeText(text);copied=true}catch(error){}trackEvent('share_translation');try{if(navigator.share)await navigator.share({title,text,url});else notify(copied?'Ссылка скопирована':'Не удалось скопировать ссылку')}catch(error){if(error.name!=='AbortError')notify(copied?'Ссылка скопирована':'Не удалось поделиться')}});
-    document.querySelectorAll('.language-menu').forEach(menu=>{menu.querySelectorAll('[data-language]').forEach(option=>option.addEventListener('click',()=>{const other=menu===sourceLanguage?targetLanguage:sourceLanguage,previous=menu.dataset.value;if(option.dataset.language===other.dataset.value)setLanguage(other,previous);setLanguage(menu,option.dataset.language);menu.querySelector('summary').focus();if(source.value.trim())translate()}));menu.addEventListener('toggle',()=>{if(menu.open)document.querySelectorAll('.language-menu').forEach(other=>{if(other!==menu)other.open=false})})});document.addEventListener('click',event=>{event.target.closest('.language-menu')||document.querySelectorAll('.language-menu').forEach(menu=>menu.open=false)});
+    share.addEventListener('click',async()=>{
+      const fromLang=sourceLanguage.dataset.value;
+      const toLang=targetLanguage.dataset.value;
+      const query=source.value.trim();
+      const title='Переводчик для предпринимателей';
+      const params=new URLSearchParams({from:fromLang,to:toLang,text:query});
+      const url=`https://boonts.com/pru_translator/?${params.toString()}`;
+      const shareText=`${title}:\n${url}`;
+      trackEvent('share_translation');
+      if(navigator.share){
+        try{await navigator.share({title,url});return}catch(error){if(error.name==='AbortError')return}
+      }
+      try{await navigator.clipboard.writeText(shareText);notify('Ссылка скопирована')}catch(error){notify('Не удалось скопировать ссылку')}
+    });
+    document.querySelectorAll('.language-menu').forEach(menu=>{menu.querySelectorAll('[data-language]').forEach(option=>option.addEventListener('click',()=>{const other=menu===sourceLanguage?targetLanguage:sourceLanguage,previous=menu.dataset.value;if(option.dataset.language===other.dataset.value)setLanguage(other,previous);setLanguage(menu,option.dataset.language);trackEvent('change_language',{changed_menu:menu===sourceLanguage?'source':'target'});menu.querySelector('summary').focus();if(source.value.trim())translate()}));menu.addEventListener('toggle',()=>{if(menu.open)document.querySelectorAll('.language-menu').forEach(other=>{if(other!==menu)other.open=false})})});document.addEventListener('click',event=>{event.target.closest('.language-menu')||document.querySelectorAll('.language-menu').forEach(menu=>menu.open=false)});
     document.getElementById('swap').addEventListener('click',()=>{clearTimeout(translateTimer);const language=sourceLanguage.dataset.value;setLanguage(sourceLanguage,targetLanguage.dataset.value);setLanguage(targetLanguage,language);trackEvent('swap_languages',{from:targetLanguage.dataset.value,to:sourceLanguage.dataset.value});if(lastPair&&!resultPane.hidden){const text=source.value;source.value=lastPair.result;renderResult(text);lastPair={source:source.value,result:text};clear.hidden=false;count.textContent=`${source.value.length} / 1000`}else if(source.value.trim()){translate()}source.focus()});
     document.querySelectorAll('[data-screen]').forEach(tab=>tab.addEventListener('click',()=>switchScreen(tab.dataset.screen)));document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>switchScreen(button.dataset.go)));
     
@@ -340,6 +363,7 @@
             source.value = currentText;
             count.textContent = `${source.value.length} / 1000`;
             clear.hidden = true;
+            trackEvent('voice_recognition_success', { text_length: currentText.length });
           }
         };
 
@@ -347,6 +371,7 @@
           if (event.error !== 'aborted') {
             notify('Не удалось распознать речь');
           }
+          trackEvent('voice_recognition_error', { error: event.error });
           stopVoiceRecording(false);
         };
 
@@ -371,6 +396,7 @@
           mediaRecorder.start();
         }).catch(() => {
           notify('Нет доступа к микрофону');
+          trackEvent('voice_recognition_error', { error: 'no_mic_permission' });
           stopVoiceRecording(false);
         });
       }
@@ -379,6 +405,8 @@
     function stopVoiceRecording(processResults = true) {
       if (!isRecording) return;
       isRecording = false;
+
+      trackEvent('stop_voice_recording', { process_results: processResults });
 
       micBtn.classList.remove('recording');
       micBtn.title = 'Голосовой ввод';
