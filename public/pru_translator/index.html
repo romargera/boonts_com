@@ -117,7 +117,7 @@
       </p>
       <button type="button" onclick="closeLimitModal(); openModal('Войти','Авторизация будет доступна в полной версии сервиса.'); trackEvent('open_login');" style="width: 100%; min-height: 48px; font-size: 16px; font-weight: 700; background: var(--accent); color: var(--surface); border: 0; border-radius: var(--pill); margin-bottom: 16px; cursor: pointer;">Войти</button>
       <p style="font-size: 13px; line-height: 1.4; color: var(--muted); margin: 0;">
-        Для того, чтобы тестировать дальше - увеличить лимиты, <a id="admin-bypass-link" href="?admin=romargera_test_secret_2026" style="color: var(--accent); font-weight: 700; text-decoration: underline;">перейдите по этой ссылке</a>
+        Для того, чтобы тестировать дальше - увеличить лимиты, <a id="admin-bypass-link" href="javascript:void(0)" onclick="activateAdminBypass()" style="color: var(--accent); font-weight: 700; text-decoration: underline;">перейдите по этой ссылке</a>
       </p>
     </div>
   </div>
@@ -286,6 +286,18 @@
 
     function openModal(title,copyText){document.getElementById('modal-title').textContent=title;document.getElementById('modal-copy').textContent=copyText;modal.classList.add('open');document.getElementById('modal-close').focus()}function closeModal(){modal.classList.remove('open')}
     function closeLimitModal(){const limitModalEl=document.getElementById('limit-modal');if(limitModalEl)limitModalEl.classList.remove('open')}
+    function activateAdminBypass() {
+      const secretKey = 'romargera_test_secret_2026';
+      localStorage.setItem('pru_admin_key', secretKey);
+      const url = new URL(window.location.href);
+      url.searchParams.set('admin', secretKey);
+      window.history.replaceState({}, '', url.toString());
+      closeLimitModal();
+      notify('Режим тестирования без лимитов активирован');
+      if (source.value.trim()) {
+        translate();
+      }
+    }
     document.getElementById('feedback').addEventListener('click',()=>{openModal('Обратная связь','Спасибо за интерес. В этой демонстрационной версии форма отправки пока не подключена.'); trackEvent('open_feedback');});document.getElementById('modal-close').addEventListener('click',closeModal);modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
     document.addEventListener('keydown',event=>{
       if(event.key==='Escape'){
