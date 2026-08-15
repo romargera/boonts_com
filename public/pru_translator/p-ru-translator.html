@@ -309,8 +309,15 @@
     const urlParams = new URLSearchParams(window.location.search);
     const initialFrom = urlParams.get('from') || 'tax';
     const initialTo = urlParams.get('to') || 'ru';
+    const initialText = urlParams.get('text') || urlParams.get('q');
     setLanguage(sourceLanguage, initialFrom);
     setLanguage(targetLanguage, initialTo);
+    if (initialText) {
+      source.value = initialText;
+      count.textContent = initialText.length;
+      clear.hidden = false;
+      translate();
+    }
     renderLists();
   </script>
 </body>
