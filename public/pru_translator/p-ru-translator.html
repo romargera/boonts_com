@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3f3f3">
+  <link rel="icon" type="image/png" href="Logo.png">
+  <script src="marked.umd.js"></script>
+  <!-- Umami Analytics (Self-Hosted Umami Dashboard at https://umami.boonts.com) -->
+  <script async src="https://umami.boonts.com/script.js" data-website-id="pru-translator" defer></script>
+  <style>
+    :root{
+      --bg:oklch(0.964 0 89.9);--surface:oklch(1 0 89.9);--fg:oklch(0.256 0 89.9);
+      --muted:oklch(0.686 0.027 298.4);--border:oklch(0.855 0 89.9);--accent:oklch(0.585 0.192 292.7);
+      --accent-hover:oklch(0.515 0.192 292.7);--accent-soft:oklch(0.93 0.04 292.7);
+      --display:Georgia,"Times New Roman",serif;--body:"Avenir Next",Manrope,"Helvetica Neue",sans-serif;--mono:SFMono-Regular,Consolas,"Liberation Mono",monospace;
+      --shadow:0 18px 60px oklch(0.25 0.03 292 / .08);--pill:999px;
+    }
+    *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-width:320px;min-height:100dvh;background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.45}
+    button,textarea,select{font:inherit;color:inherit}button{cursor:pointer}button,textarea,select{outline:none}.app{min-height:100dvh;display:flex;flex-direction:column;overflow-x:hidden}
+    .app{background:radial-gradient(circle at 76% 68%,oklch(0.93 0.035 292.7 / .56),transparent 34%),radial-gradient(circle at 14% 52%,oklch(1 0 0 / .78),transparent 38%),var(--bg)}
+    .header{height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding:4px 16px;background:var(--bg);position:sticky;top:0;z-index:5}
+    .brand{display:flex;align-items:center;gap:9px;min-width:0}.brand-symbol{width:32px;height:32px;flex:0 0 32px;object-fit:contain}.brand-wordmark{width:clamp(104px,31vw,160px);height:23px;object-fit:contain;object-position:left center}.header-actions{display:flex;align-items:center;gap:6px;flex:0 0 auto}.login-button,.menu-button{min-height:44px;border:0;border-radius:var(--pill);font-weight:400}.login-button{height:30px;min-height:30px;padding:0 20px;background:var(--accent-soft);color:var(--accent)}.login-button:hover{background:var(--accent);color:var(--surface)}.menu-button{width:44px;display:grid;place-items:center;padding:0;background:transparent}.menu-button:hover{background:var(--surface)}.menu-button img{width:32px;height:auto;display:block}
+    main{width:min(920px,100%);margin:0 auto;flex:1;padding:18px 0 64px}.mode-tabs{display:flex;gap:8px;overflow-x:auto;padding:0 16px 16px;scrollbar-width:none}.mode-tabs::-webkit-scrollbar{display:none}.mode-tab{min-height:44px;flex:0 0 auto;border:1px solid var(--border);border-radius:var(--pill);background:var(--surface);padding:0 18px;font-weight:750;color:var(--fg)}.mode-tab:hover{border-color:var(--fg)}.mode-tab.active{border-color:var(--fg);background:var(--fg);color:var(--surface)}
+    .screen{display:none}.screen.active{display:block}.translator{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface)}.language-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;min-height:64px;padding:0 18px;border-bottom:1px solid var(--border)}
+    .language{font-size:16px;font-weight:750}.language-menu{position:relative;min-width:0}.language-menu summary{min-width:0;min-height:44px;display:grid;place-items:center;overflow:hidden;padding:0 4px;border-radius:var(--pill);color:oklch(0.62 0.19 258);font-size:16px;font-weight:750;list-style:none;cursor:pointer;text-overflow:ellipsis;white-space:nowrap}.language-menu summary::-webkit-details-marker{display:none}.language-menu summary:hover{background:var(--bg)}.language-options{position:absolute;top:calc(100% + 6px);z-index:9;display:grid;gap:2px;width:max-content;min-width:190px;max-width:min(240px,calc(100vw - 32px));padding:6px;border:1px solid var(--border);border-radius:18px;background:var(--surface);box-shadow:var(--shadow)}.language-menu:first-child .language-options{left:0}.language-menu:last-child .language-options{right:0}.language-option{min-height:44px;border:0;border-radius:12px;background:transparent;padding:0 12px;text-align:left;color:var(--fg);font-weight:400}.language-option:hover{background:var(--bg);color:var(--fg)}.language-option[aria-selected="true"]{background:var(--accent-soft);color:var(--accent);font-weight:700}.language-menu summary:focus-visible,.language-option:focus-visible{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--accent)}.translator:has(.language-menu[open]){overflow:visible}.swap{min-height:44px;border:0;border-radius:var(--pill);background:transparent;padding:0 12px;color:var(--muted);font-size:12px;font-weight:750}.swap:hover{background:var(--bg);color:var(--fg)}
+    .work-grid{display:grid}.pane{min-width:0;min-height:230px;padding:22px 18px 14px;display:flex;flex-direction:column}.pane+.pane{border-top:1px solid var(--border)}.source-pane{background:var(--surface)}.result-pane{background:var(--accent-soft)}
+    textarea{width:100%;min-height:145px;flex:1;border:0;padding:0;resize:none;background:transparent;font-size:32px;line-height:1.2;letter-spacing:-.02em}.result{min-height:145px;flex:1;font:400 38px/1.12 var(--body);letter-spacing:-.035em;white-space:pre-wrap;overflow-wrap:anywhere}.result.empty{color:var(--muted);font-size:28px}
+    
+    /* Result Actions Floating Block (Text Wrap) */
+    .result-actions{float:right;display:flex;flex-direction:column;gap:8px;align-items:center;margin:0 0 12px 16px;}
+    .action-btn{width:40px;height:40px;min-height:40px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--fg);display:inline-grid;place-items:center;padding:0;transition:all .18s ease;box-shadow:0 2px 6px oklch(0 0 0 / .04)}
+    .action-btn:hover:not(:disabled){background:var(--bg);border-color:var(--accent);color:var(--accent);transform:scale(1.06)}
+    .action-btn:disabled{opacity:.38;cursor:not-allowed}
+    .action-btn.active-like{background:oklch(0.6 0.18 145);color:#fff;border-color:oklch(0.6 0.18 145)}
+    .action-btn.active-dislike{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25)}
+
+    /* Markdown Formatting inside Output Result */
+    .result p{margin:0 0 .5em 0}
+    .result p:last-child{margin-bottom:0}
+    .result h1,.result h2,.result h3,.result h4{margin:.5em 0 .2em;font-family:var(--display);line-height:1.15;letter-spacing:-.03em}
+    .result h1{font-size:1.15em}
+    .result h2{font-size:1.05em}
+    .result h3{font-size:1em}
+    .result ul,.result ol{margin:.4em 0;padding-left:1.3em;font-size:0.92em}
+    .result li{margin-bottom:.25em}
+    .result code{font-family:var(--mono);font-size:0.82em;background:oklch(0 0 0 / .07);padding:2px 6px;border-radius:6px;word-break:break-word}
+    .result pre{background:oklch(0 0 0 / .08);padding:12px;border-radius:12px;overflow-x:auto;font-family:var(--mono);font-size:0.75em;margin:.5em 0}
+    .result pre code{background:transparent;padding:0}
+    .result blockquote{border-left:3px solid var(--accent);margin:.5em 0;padding-left:12px;color:var(--muted);font-style:italic}
+    
+    .pane-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}.meta{color:var(--muted);font:11px var(--mono)}.tool-group{display:flex;gap:4px}.tool{min-height:44px;border:0;border-radius:var(--pill);background:transparent;padding:0 12px;color:var(--fg);font-weight:700}.tool:hover{background:oklch(1 0 0 / .74)}.tool:disabled{opacity:.42;cursor:not-allowed;background:transparent}
+    .translate-row{padding:14px 16px;background:var(--surface)}.primary{width:100%;min-height:52px;border:1px solid var(--accent);border-radius:var(--pill);background:var(--accent);color:var(--surface);font-weight:750}.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+    .feedback{display:block;width:max-content;max-width:calc(100% - 32px);margin:14px 16px 0 auto;border:0;background:transparent;color:var(--muted);font-size:12px;font-style:italic}.feedback:hover{color:var(--fg);text-decoration:underline}
+    .utilities{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:min(360px,calc(100% - 32px));margin:42px auto 0}.utility{min-height:110px;border:1px solid var(--border);border-radius:28px;background:var(--surface);padding:18px 12px;font-weight:750;color:var(--muted)}.utility:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+    .collection{padding:4px 16px}.collection-head{margin:16px 0 24px}.collection-head h1{margin:0 0 8px;font:400 42px/1 var(--display);letter-spacing:-.04em}.collection-head p{margin:0;color:var(--muted)}.list{display:grid;gap:10px}.list-empty{padding:42px 24px;border:1px dashed var(--border);border-radius:24px;color:var(--muted);text-align:center;background:var(--surface)}
+    .entry{border:1px solid var(--border);border-radius:22px;background:var(--surface);padding:18px}.entry-source{font-size:16px}.entry-result{margin-top:8px;font:26px/1.2 var(--display);color:var(--accent)}.entry-meta{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:16px;color:var(--muted);font:11px var(--mono)}.entry button{min-height:44px;border:0;border-radius:var(--pill);background:var(--bg);padding:0 14px;font:700 12px var(--body)}.entry button:hover{background:var(--fg);color:var(--surface)}
+    .modal{position:fixed;inset:0;z-index:10;display:grid;place-items:end center;padding:16px;background:oklch(0.15 0 0 / .32);opacity:0;pointer-events:none;transition:opacity .2s ease}.modal.open{opacity:1;pointer-events:auto}.modal-card{width:min(520px,100%);border-radius:28px;background:var(--surface);padding:24px;box-shadow:var(--shadow);transform:translateY(20px);transition:transform .2s ease}.modal.open .modal-card{transform:translateY(0)}.modal h2{margin:0 0 12px;font:400 34px/1 var(--display)}.modal p{margin:0 0 20px;color:var(--muted)}.secondary{width:100%;min-height:48px;border:1px solid var(--border);border-radius:var(--pill);background:var(--surface);font-weight:750}.secondary:hover{background:var(--fg);border-color:var(--fg);color:var(--surface)}
+    .toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));z-index:12;transform:translate(-50%,100px);border-radius:var(--pill);background:var(--fg);color:var(--surface);padding:12px 18px;font-size:13px;transition:transform .22s ease}.toast.show{transform:translate(-50%,0)}
+    button:focus-visible,textarea:focus-visible,select:focus-visible{box-shadow:0 0 0 3px var(--surface),0 0 0 6px var(--accent)}
+    @media(min-width:720px){.header{height:52px;padding:4px clamp(28px,5vw,64px)}.header-actions{gap:10px}.login-button{padding-inline:26px}main{padding:28px 28px 88px}.mode-tabs{padding-inline:0}.translator{border:1px solid var(--border);border-radius:32px;overflow:hidden;box-shadow:var(--shadow)}.language-bar{padding-inline:24px}.work-grid{grid-template-columns:1fr 1fr}.pane{min-height:330px;padding:26px 24px 18px}.pane+.pane{border-top:0;border-left:1px solid var(--border)}textarea,.result{min-height:230px}.translate-row{display:flex;justify-content:flex-end;padding:18px 22px}.primary{width:auto;min-width:190px;padding-inline:28px}.feedback{margin-right:0}.utilities{margin-top:54px}.collection{padding-inline:0}.modal{place-items:center}.modal-card{padding:30px}}
+    @media(max-width:390px){.mode-tab{padding-inline:15px}.pane{min-height:218px}textarea{font-size:29px}.result{font-size:34px}.utilities{gap:12px;margin-top:34px}}
+    @media(max-width:350px){.header{gap:8px;padding-inline:12px}.brand-wordmark{width:90px!important;transform:scale(1.16)!important}.header-actions{gap:2px}.login-button{padding-inline:15px}}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header" data-od-id="site-header"><div class="brand" data-od-id="brand-lockup"><img class="brand-symbol" src="Logo.png" alt=""><img class="brand-wordmark" src="Logo_big.png" alt="предприниматель — приложение точка банк" style="height:32px;transform:scale(1.21);transform-origin:left center"></div><div class="header-actions" data-od-id="header-actions"><button class="login-button" type="button" data-od-id="login-button" onclick="openModal('Войти','Авторизация будет доступна в полной версии сервиса.'); trackEvent('open_login');">Войти</button><button class="menu-button" type="button" data-od-id="burger-menu" aria-label="Открыть меню" title="Меню" onclick="openModal('Меню','Переводчик, ИИ Ассистент и другие инструменты предпринимателя будут собраны здесь.'); trackEvent('open_menu');"><img src="image-4.png" alt="" aria-hidden="true"></button></div></header>
+    <main data-od-id="translator-app">
+      <section class="screen active" id="translate-screen" data-od-id="translate-screen">
+        <div class="translator" data-od-id="translator-interface">
+          <div class="language-bar" data-od-id="language-selector">
+            <details class="language-menu" id="source-language" data-value="tax" data-od-id="source-language-menu"><summary aria-label="Выбрать исходный язык">Канцелярский</summary><div class="language-options" role="listbox" aria-label="Исходный язык"><button class="language-option" type="button" data-language="ru" aria-selected="false">Русский</button><button class="language-option" type="button" data-language="pig" aria-selected="false">Кабанчиковый</button><button class="language-option" type="button" data-language="investor" aria-selected="false">Инвесторский</button><button class="language-option" type="button" data-language="tax" aria-selected="true">Канцелярский</button><button class="language-option" type="button" data-language="motivation" aria-selected="false">Мотивационный</button></div></details>
+            <button class="swap" id="swap" type="button" data-od-id="swap-languages" aria-label="Поменять языки" title="Поменять языки" style="position:relative;width:44px;padding:0;overflow:hidden"><img src="image-2.png" alt="" aria-hidden="true" style="position:absolute;width:64px;height:auto;left:50%;top:50%;transform:translate(-50%,-50%)"></button>
+            <details class="language-menu" id="target-language" data-value="ru" data-od-id="target-language-menu"><summary aria-label="Выбрать язык перевода">Русский</summary><div class="language-options" role="listbox" aria-label="Язык перевода"><button class="language-option" type="button" data-language="ru" aria-selected="true">Русский</button><button class="language-option" type="button" data-language="pig" aria-selected="false">Кабанчиковый</button><button class="language-option" type="button" data-language="investor" aria-selected="false">Инвесторский</button><button class="language-option" type="button" data-language="tax" aria-selected="false">Канцелярский</button><button class="language-option" type="button" data-language="motivation" aria-selected="false">Мотивационный</button></div></details>
+          </div>
+          <div class="work-grid"><div class="pane source-pane" data-od-id="source-pane"><textarea id="source" maxlength="1000" aria-label="Исходный текст" placeholder="Введите текст"></textarea><div class="pane-tools"><span class="meta" id="count">0 / 1000</span><div class="tool-group"><button class="tool" id="clear" type="button" hidden style="color:var(--muted);font-weight:400">Очистить</button></div></div></div>
+          <div class="pane result-pane" data-od-id="result-pane" aria-live="polite" hidden>
+            <div style="flex:1">
+              <div class="result-actions">
+                <button class="action-btn" id="share" type="button" disabled aria-label="Поделиться" title="Поделиться">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"></path></svg>
+                </button>
+                <button class="action-btn" id="copy-btn" type="button" disabled aria-label="Копировать" title="Копировать">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <button class="action-btn" id="like-btn" type="button" disabled aria-label="Нравится" title="Нравится">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                </button>
+                <button class="action-btn" id="dislike-btn" type="button" disabled aria-label="Не нравится" title="Не нравится">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"></path></svg>
+                </button>
+              </div>
+              <div class="result empty" id="result">Перевод</div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <button class="feedback" id="feedback" type="button" style="position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));z-index:4;transform:translateX(-50%);margin:0;padding:6px 10px;background:var(--bg);border-radius:var(--pill);white-space:nowrap">Юридический текст</button>
+        <div class="utilities" data-od-id="quick-navigation"></div>
+      </section>
+      <section class="screen collection" id="history-screen" data-od-id="history-screen"><div class="collection-head"><h1>История</h1><p>Последние переводы хранятся только в этом браузере.</p></div><div class="list" id="history-list"></div></section>
+      <section class="screen collection" id="saved-screen" data-od-id="saved-screen"><div class="collection-head"><h1>Сохранённое</h1><p>Фразы, к которым хочется вернуться.</p></div><div class="list" id="saved-list"></div></section>
+      <button type="button" data-od-id="ai-assistant-sticky" onclick="openModal('ИИ Ассистент','Переводим пользователя в Ассистент с диплинком. В чате ответ на вопрос «Что еще умеет ИИ Ассистент?»'); trackEvent('open_ai_assistant');" style="position:fixed;left:50%;bottom:calc(58px + env(safe-area-inset-bottom));z-index:4;transform:translateX(-50%);min-height:48px;max-width:calc(100% - 32px);padding:0 22px;border:0;border-radius:var(--pill);background:var(--accent);color:var(--surface);box-shadow:var(--shadow);font-weight:400;white-space:nowrap">Что еще умеет ИИ Ассистент?</button>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-card"><h2 id="modal-title">О переводчике</h2><p id="modal-copy">Кабанчиковый — шуточный демо-диалект. Все переводы выполняются локально.</p><button class="secondary" id="modal-close" type="button">Понятно</button></div></div>
+  <div class="modal" id="limit-modal" role="dialog" aria-modal="true" aria-labelledby="limit-title" style="z-index: 100;">
+    <div class="modal-card" style="text-align: center; padding: 32px 24px; border-radius: 28px; max-width: 440px;">
+      <div style="font-size: 48px; line-height: 1; margin-bottom: 16px;">⚠️</div>
+      <h2 id="limit-title" style="font-size: 24px; line-height: 1.2; margin: 0 0 12px; font-weight: 700; font-family: var(--display);">Превышен лимит использования перевода</h2>
+      <p style="font-size: 16px; line-height: 1.5; color: var(--muted); margin: 0;">
+        Обратитесь к <a href="https://t.me/romargera" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">https://t.me/romargera</a>
+      </p>
+    </div>
+  </div>
+  <script>
+    const source=document.getElementById('source'),clear=document.getElementById('clear'),sourceLanguage=document.getElementById('source-language'),targetLanguage=document.getElementById('target-language'),resultPane=document.querySelector('[data-od-id="result-pane"]'),result=document.getElementById('result'),count=document.getElementById('count'),share=document.getElementById('share'),copyBtn=document.getElementById('copy-btn'),likeBtn=document.getElementById('like-btn'),dislikeBtn=document.getElementById('dislike-btn'),toast=document.getElementById('toast'),modal=document.getElementById('info-modal');
+    const dialect=['хрю','рю','фыр','хрум'];let lastPair=null,translateTimer;let history=JSON.parse(localStorage.getItem('pru-history')||'[]'),saved=JSON.parse(localStorage.getItem('pru-saved')||'[]');
+    
+    function enableActionButtons(enabled) {
+      share.disabled = !enabled;
+      copyBtn.disabled = !enabled;
+      likeBtn.disabled = !enabled;
+      dislikeBtn.disabled = !enabled;
+    }
+
+    function renderResult(text) {
+      if (window.marked && typeof window.marked.parse === 'function') {
+        result.innerHTML = window.marked.parse(text);
+      } else {
+        result.textContent = text;
+      }
+    }
+
+    function pigWord(word){const letters=[...word],base=letters.slice(0,Math.min(2,letters.length)).join('').toLowerCase(),score=letters.reduce((sum,char)=>sum+char.charCodeAt(0),0),sound=dialect[score%dialect.length],translated=letters.length<3?sound:base+sound;return word[0]===word[0].toUpperCase()?translated[0].toUpperCase()+translated.slice(1):translated}
+    function toPig(text){return text.replace(/[А-Яа-яЁё]+/g,pigWord)}
+    function toTarget(text,language){return language==='pig'?toPig(text):language==='investor'?`Инвестиционный тезис: ${text}. Следующий шаг — оценить потенциал роста, экономику и масштабируемость.`:language==='tax'?`Сообщаем следующее: ${text}. Просим учитывать указанную информацию в установленном порядке.`:language==='marketplace'?`${text}. Ключевые преимущества: понятное предложение, удобный выбор и готовность к заказу.`:`Всё получится! ${text} Главное — начать с первого шага и двигаться дальше.`}
+    const languageLabels={ru:'Русский',pig:'Кабанчиковый',investor:'Инвесторский',tax:'Канцелярский',motivation:'Мотивационный'};
+    function syncUrlParams() {
+      if (!sourceLanguage || !targetLanguage || !sourceLanguage.dataset.value || !targetLanguage.dataset.value) return;
+      const url = new URL(window.location.href);
+      url.searchParams.set('from', sourceLanguage.dataset.value);
+      url.searchParams.set('to', targetLanguage.dataset.value);
+      window.history.replaceState({}, '', url.pathname + url.search);
+    }
+    function setLanguage(menu,value){
+      if (!languageLabels[value]) value = menu === sourceLanguage ? 'tax' : 'ru';
+      menu.dataset.value=value;
+      menu.querySelector('summary').textContent=languageLabels[value];
+      menu.querySelectorAll('[data-language]').forEach(option=>option.setAttribute('aria-selected',String(option.dataset.language===value)));
+      menu.open=false;
+      syncUrlParams();
+    }
+    function notify(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)}
+    function persist(){localStorage.setItem('pru-history',JSON.stringify(history.slice(0,20)));localStorage.setItem('pru-saved',JSON.stringify(saved.slice(0,20)))}
+    let currentAbortController = null;
+    async function translate(){
+      const text = source.value.trim();
+      if (!text) {
+        resultPane.hidden = true;
+        enableActionButtons(false);
+        return;
+      }
+      resultPane.hidden = false;
+      result.classList.remove('empty');
+      result.style.opacity = '0.5';
+      result.textContent = 'Переводим через Gemini...';
+      enableActionButtons(false);
+
+      if (currentAbortController) {
+        currentAbortController.abort();
+      }
+      currentAbortController = new AbortController();
+
+      const sourceLang = sourceLanguage.dataset.value;
+      const targetLang = targetLanguage.dataset.value;
+
+      try {
+        const apiEndpoint = (window.location.hostname.endsWith('boonts.com') && !window.location.hostname.startsWith('pru-translator'))
+          ? 'https://pru-translator.pages.dev/api/translate'
+          : '/api/translate';
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-admin-key': getAdminKey()
+          },
+          signal: currentAbortController.signal,
+          body: JSON.stringify({ text, sourceLang, targetLang, adminKey: getAdminKey() })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          const errMsg = errData.error || `HTTP error ${response.status}`;
+          throw new Error(errMsg);
+        }
+
+        const data = await response.json();
+        const translated = data.translation || toTarget(text, targetLang);
+        
+        result.style.opacity = '1';
+        renderResult(translated);
+        enableActionButtons(true);
+        trackEvent('translate', { from: sourceLang, to: targetLang });
+
+        lastPair = { source: text, result: translated };
+        history.unshift({ ...lastPair, time: new Date().toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) });
+        history = history.slice(0, 20);
+        persist();
+        renderLists();
+      } catch (error) {
+        if (error.name === 'AbortError') return;
+        result.style.opacity = '1';
+        if (error.message.includes('t.me/romargera') || error.message.includes('лимит') || error.message.includes('429')) {
+          const limitModalEl = document.getElementById('limit-modal');
+          if (limitModalEl) limitModalEl.classList.add('open');
+          enableActionButtons(false);
+          return;
+        }
+        console.warn('Gemini LLM API error, using local fallback:', error);
+        const fallbackTranslated = sourceLang === targetLang || targetLang === 'ru' ? text : toTarget(text, targetLang);
+        renderResult(fallbackTranslated);
+        enableActionButtons(true);
+      }
+    }
+
+    function trackEvent(name, data) {
+      if (window.umami && typeof window.umami.track === 'function') {
+        try { window.umami.track(name, data); } catch (e) {}
+      }
+    }
+
+    copyBtn.addEventListener('click', async () => {
+      if (!lastPair || !lastPair.result) return;
+      try {
+        await navigator.clipboard.writeText(lastPair.result);
+        notify('Текст скопирован в буфер обмена');
+        trackEvent('copy_translation');
+      } catch (err) {
+        notify('Не удалось скопировать');
+      }
+    });
+
+    likeBtn.addEventListener('click', () => {
+      likeBtn.classList.toggle('active-like');
+      dislikeBtn.classList.remove('active-dislike');
+      const isActive = likeBtn.classList.contains('active-like');
+      if (isActive) trackEvent('feedback_like');
+      notify(isActive ? 'Спасибо за оценку! 👍' : 'Отзыв отменён');
+    });
+
+    dislikeBtn.addEventListener('click', () => {
+      dislikeBtn.classList.toggle('active-dislike');
+      likeBtn.classList.remove('active-like');
+      const isActive = dislikeBtn.classList.contains('active-dislike');
+      if (isActive) trackEvent('feedback_dislike');
+      notify(isActive ? 'Спасибо за отзыв, улучшим перевод! 👎' : 'Отзыв отменён');
+    });
+
+    function switchScreen(name){document.querySelectorAll('.screen').forEach(screen=>screen.classList.toggle('active',screen.id===`${name}-screen`));document.querySelectorAll('[data-screen]').forEach(tab=>tab.classList.toggle('active',tab.dataset.screen===name));if(name!=='translate')renderLists()}
+    function renderList(target,items,kind){target.innerHTML='';if(!items.length){target.innerHTML='<div class="list-empty">Здесь пока ничего нет</div>';return}items.forEach((item,index)=>{const card=document.createElement('article');card.className='entry';card.innerHTML=`<div class="entry-source"></div><div class="entry-result"></div><div class="entry-meta"><span>${item.time||'Сохранено'}</span><button type="button">${kind==='saved'?'Удалить':'Повторить'}</button></div>`;card.querySelector('.entry-source').textContent=item.source;card.querySelector('.entry-result').innerHTML=window.marked&&typeof window.marked.parse==='function'?window.marked.parse(item.result):item.result;card.querySelector('button').addEventListener('click',()=>{if(kind==='saved'){saved.splice(index,1);persist();renderLists()}else{source.value=item.source;clear.hidden=false;count.textContent=`${source.value.length} / 1000`;switchScreen('translate');source.focus()}});target.appendChild(card)})}
+    function renderLists(){renderList(document.getElementById('history-list'),history,'history');renderList(document.getElementById('saved-list'),saved,'saved')}
+    source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){resultPane.hidden=true;enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
+    clear.addEventListener('click',()=>{clearTimeout(translateTimer);source.value='';clear.hidden=true;resultPane.hidden=true;result.textContent='Перевод';result.classList.add('empty');enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
+    share.addEventListener('click',async()=>{const title='Переводчик для предпринимателей',url=`https://predprinimatel.ru/chat/translator/?query=${encodeURIComponent(source.value.trim())}`,text=`${title}: ${url}`;let copied=false;try{await navigator.clipboard.writeText(text);copied=true}catch(error){}trackEvent('share_translation');try{if(navigator.share)await navigator.share({title,text:title,url});else notify(copied?'Ссылка скопирована':'Не удалось скопировать ссылку')}catch(error){if(error.name!=='AbortError')notify('Не удалось поделиться')}});
+    document.querySelectorAll('.language-menu').forEach(menu=>{menu.querySelectorAll('[data-language]').forEach(option=>option.addEventListener('click',()=>{const other=menu===sourceLanguage?targetLanguage:sourceLanguage,previous=menu.dataset.value;if(option.dataset.language===other.dataset.value)setLanguage(other,previous);setLanguage(menu,option.dataset.language);menu.querySelector('summary').focus();if(source.value.trim())translate()}));menu.addEventListener('toggle',()=>{if(menu.open)document.querySelectorAll('.language-menu').forEach(other=>{if(other!==menu)other.open=false})})});document.addEventListener('click',event=>{event.target.closest('.language-menu')||document.querySelectorAll('.language-menu').forEach(menu=>menu.open=false)});
+    document.getElementById('swap').addEventListener('click',()=>{clearTimeout(translateTimer);const language=sourceLanguage.dataset.value;setLanguage(sourceLanguage,targetLanguage.dataset.value);setLanguage(targetLanguage,language);trackEvent('swap_languages',{from:targetLanguage.dataset.value,to:sourceLanguage.dataset.value});if(lastPair&&!resultPane.hidden){const text=source.value;source.value=lastPair.result;renderResult(text);lastPair={source:source.value,result:text};clear.hidden=false;count.textContent=`${source.value.length} / 1000`}else if(source.value.trim()){translate()}source.focus()});
+    document.querySelectorAll('[data-screen]').forEach(tab=>tab.addEventListener('click',()=>switchScreen(tab.dataset.screen)));document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>switchScreen(button.dataset.go)));
+    function getAdminKey() {
+      const params = new URLSearchParams(window.location.search);
+      const keyFromUrl = params.get('admin') || params.get('admin_key') || params.get('key');
+      if (keyFromUrl) {
+        localStorage.setItem('pru_admin_key', keyFromUrl);
+        return keyFromUrl;
+      }
+      return localStorage.getItem('pru_admin_key') || '';
+    }
+
+    function openModal(title,copyText){document.getElementById('modal-title').textContent=title;document.getElementById('modal-copy').textContent=copyText;modal.classList.add('open');document.getElementById('modal-close').focus()}function closeModal(){modal.classList.remove('open')}
+    document.getElementById('feedback').addEventListener('click',()=>{openModal('Обратная связь','Спасибо за интерес. В этой демонстрационной версии форма отправки пока не подключена.'); trackEvent('open_feedback');});document.getElementById('modal-close').addEventListener('click',closeModal);modal.addEventListener('click',event=>{if(event.target===modal)closeModal()});
+    document.addEventListener('keydown',event=>{
+      if(event.key==='Escape'){
+        const limitModalEl = document.getElementById('limit-modal');
+        if(limitModalEl && limitModalEl.classList.contains('open')) return;
+        if(modal.classList.contains('open')) closeModal();
+      }
+    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialFrom = urlParams.get('from') || 'tax';
+    const initialTo = urlParams.get('to') || 'ru';
+    setLanguage(sourceLanguage, initialFrom);
+    setLanguage(targetLanguage, initialTo);
+    renderLists();
+  </script>
+</body>
+</html>
