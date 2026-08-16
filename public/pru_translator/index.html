@@ -33,14 +33,18 @@
     #source[contenteditable]:empty::before{content:attr(data-placeholder);color:var(--muted);pointer-events:none;display:block}
     .result.empty{color:var(--muted)}
     
-    .clear-btn,.mic-btn,.action-btn{width:32px;height:32px;min-height:32px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--muted);display:inline-grid;place-items:center;padding:0;transition:all .18s ease;box-shadow:0 2px 6px oklch(0 0 0 / .04)}
+    .clear-btn,.mic-btn,.action-btn{width:32px;height:32px;min-height:32px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--muted);display:inline-grid;place-items:center;padding:0;box-shadow:0 2px 6px oklch(0 0 0 / .04);outline:none!important}
     .clear-btn{float:right;margin:0 18px 6px 12px}
     .clear-btn[hidden],.share-top-btn[hidden],.result-actions[hidden],.action-btn[hidden],[hidden]{display:none!important}
     .share-top-btn{float:right;margin:0 18px 6px 12px}
     .result-pane:has(.result.empty) .share-top-btn,.result-pane:has(.result.empty) .result-actions{display:none!important}
-    @media(hover:hover){.clear-btn:hover,.mic-btn:hover:not(.recording),.action-btn:hover:not(:disabled){background:var(--bg);border-color:var(--accent);color:var(--fg);transform:scale(1.06)}}
-    .clear-btn:active,.mic-btn:active:not(.recording),#share:active,#copy-btn:active,.clear-btn.tap-active,.mic-btn.tap-active,#share.tap-active,#copy-btn.tap-active{background:var(--bg);border-color:var(--accent);color:var(--accent);transform:scale(0.94);transition:all 0.05s ease!important}
-    .clear-btn,.mic-btn,#share,#copy-btn{transition:all 0.15s ease}
+    
+    .clear-btn,.mic-btn,#share,#copy-btn{border-color:var(--border);background:var(--surface);color:var(--muted);transition:all 0.2s ease}
+    .clear-btn:focus,.clear-btn:focus-visible,.mic-btn:focus,.mic-btn:focus-visible,#share:focus,#share:focus-visible,#copy-btn:focus,#copy-btn:focus-visible{outline:none!important;box-shadow:none!important}
+    @media(hover:hover) and (pointer:fine){
+      .clear-btn:hover,.mic-btn:hover:not(.recording),#share:hover:not(:disabled),#copy-btn:hover:not(:disabled){border-color:var(--accent);color:var(--fg);background:var(--bg);transform:scale(1.06)}
+    }
+    .clear-btn.is-clicked,.mic-btn.is-clicked,#share.is-clicked,#copy-btn.is-clicked,.clear-btn:active,.mic-btn:active:not(.recording),#share:active,#copy-btn:active{border-color:var(--accent)!important;color:var(--accent)!important;background:var(--bg)!important;transform:scale(0.93)!important}
     
     .mic-btn.recording{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25);animation:micPulse 1.2s infinite ease-in-out}
     .mic-btn .stop-icon{display:none!important}
@@ -280,20 +284,23 @@
       }
     }
 
-    function triggerFastFeedback(btn) {
+    function flashClickFeedback(btn) {
       if (!btn) return;
-      btn.classList.add('tap-active');
+      btn.classList.add('is-clicked');
       setTimeout(() => {
-        btn.classList.remove('tap-active');
+        btn.classList.remove('is-clicked');
         try { btn.blur(); } catch (e) {}
-      }, 200);
+        if (document.activeElement === btn) {
+          try { document.activeElement.blur(); } catch (e) {}
+        }
+      }, 250);
     }
 
-    copyBtn.addEventListener('click', async function() {
-      triggerFastFeedback(this);
+    copyBtn.addEventListener('click', function() {
+      flashClickFeedback(this);
       if (!lastPair || !lastPair.result) return;
       try {
-        await navigator.clipboard.writeText(lastPair.result);
+        navigator.clipboard.writeText(lastPair.result);
         notify('Текст скопирован в буфер обмена');
         trackEvent('copy_translation');
       } catch (err) {
@@ -321,9 +328,9 @@
     function renderList(target,items,kind){target.innerHTML='';if(!items.length){target.innerHTML='<div class="list-empty">Здесь пока ничего нет</div>';return}items.forEach((item,index)=>{const card=document.createElement('article');card.className='entry';card.innerHTML=`<div class="entry-source"></div><div class="entry-result"></div><div class="entry-meta"><span>${item.time||'Сохранено'}</span><button type="button">${kind==='saved'?'Удалить':'Повторить'}</button></div>`;card.querySelector('.entry-source').textContent=item.source;card.querySelector('.entry-result').innerHTML=window.marked&&typeof window.marked.parse==='function'?window.marked.parse(item.result):item.result;card.querySelector('button').addEventListener('click',()=>{if(kind==='saved'){saved.splice(index,1);persist();renderLists()}else{source.value=item.source;clear.hidden=false;count.textContent=`${source.value.length} / 1000`;switchScreen('translate');source.focus()}});target.appendChild(card)})}
     function renderLists(){renderList(document.getElementById('history-list'),history,'history');renderList(document.getElementById('saved-list'),saved,'saved')}
     source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=isRecording||source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){if(currentAbortController)currentAbortController.abort();result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
-    clear.addEventListener('click',function(){triggerFastFeedback(this);clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
+    clear.addEventListener('click',function(){flashClickFeedback(this);clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
     share.addEventListener('click',async function(){
-      triggerFastFeedback(this);
+      flashClickFeedback(this);
       const fromLang=sourceLanguage.dataset.value;
       const toLang=targetLanguage.dataset.value;
       const query=source.value.trim();
