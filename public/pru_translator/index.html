@@ -41,6 +41,9 @@
     .clear-btn:hover,.mic-btn:hover:not(.recording),.action-btn:hover:not(:disabled){background:var(--bg);border-color:var(--accent);color:var(--fg);transform:scale(1.06)}
     
     .mic-btn.recording{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25);animation:micPulse 1.2s infinite ease-in-out}
+    .mic-btn .stop-icon{display:none!important}
+    .mic-btn.recording .mic-icon{display:none!important}
+    .mic-btn.recording .stop-icon{display:block!important}
     @keyframes micPulse{0%{box-shadow:0 0 0 0 oklch(0.55 0.22 25 / .6)}70%{box-shadow:0 0 0 10px oklch(0.55 0.22 25 / 0)}100%{box-shadow:0 0 0 0 oklch(0.55 0.22 25 / 0)}}
     
     /* Result Actions (Bottom-Right Corner Row) */
@@ -348,8 +351,6 @@
       isRecording = true;
       micBtn.classList.add('recording');
       micBtn.title = 'Остановить запись';
-      micIcon.style.display = 'none';
-      stopIcon.style.display = 'inline-block';
       source.placeholder = 'Говорите, пожалуйста...';
       trackEvent('start_voice_recording');
 
@@ -422,8 +423,6 @@
 
       micBtn.classList.remove('recording');
       micBtn.title = 'Голосовой ввод';
-      micIcon.style.display = 'inline-block';
-      stopIcon.style.display = 'none';
 
       if (recognition) {
         try { recognition.stop(); } catch (e) {}
