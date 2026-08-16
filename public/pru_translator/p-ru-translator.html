@@ -92,7 +92,7 @@
             <details class="language-menu" id="target-language" data-value="ru" data-od-id="target-language-menu"><summary aria-label="Выбрать язык перевода">Русский</summary><div class="language-options" role="listbox" aria-label="Язык перевода"><button class="language-option" type="button" data-language="ru" aria-selected="true">Русский</button><button class="language-option" type="button" data-language="pig" aria-selected="false">Кабанчиковый</button><button class="language-option" type="button" data-language="investor" aria-selected="false">Инвесторский</button><button class="language-option" type="button" data-language="tax" aria-selected="false">Канцелярский</button><button class="language-option" type="button" data-language="motivation" aria-selected="false">Мотивационный</button><button class="language-option" type="button" data-language="linkedin" aria-selected="false">Проф. соц. сеть</button></div></details>
           </div>
           <div class="work-grid"><div class="pane source-pane" data-od-id="source-pane"><div class="input-wrapper"><button class="clear-btn" id="clear" type="button" aria-label="Очистить текст" title="Очистить" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button><div id="source" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Исходный текст" data-placeholder="Введите текст"></div></div><div class="pane-tools"><div style="display:flex;align-items:center;gap:10px"><button class="mic-btn" id="mic-btn" type="button" aria-label="Голосовой ввод" title="Голосовой ввод"><svg class="mic-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg><svg class="stop-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none"><rect x="4" y="4" width="16" height="16" rx="3"></rect></svg></button></div><span class="meta" id="count">0 / 1000</span></div></div>
-          <div class="pane result-pane" data-od-id="result-pane" aria-live="polite" hidden>
+          <div class="pane result-pane" data-od-id="result-pane" aria-live="polite">
             <div class="result-wrapper">
               <button class="action-btn share-top-btn" id="share" type="button" disabled hidden aria-label="Поделиться" title="Поделиться">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"></path></svg>
@@ -191,11 +191,12 @@
     async function translate(){
       const text = source.value.trim();
       if (!text) {
-        resultPane.hidden = true;
+        result.textContent = 'Перевод';
+        result.classList.add('empty');
+        result.style.opacity = '1';
         enableActionButtons(false);
         return;
       }
-      resultPane.hidden = false;
       result.classList.remove('empty');
       result.style.opacity = '0.5';
       result.textContent = 'Переводим...';
@@ -304,8 +305,8 @@
     function switchScreen(name){document.querySelectorAll('.screen').forEach(screen=>screen.classList.toggle('active',screen.id===`${name}-screen`));document.querySelectorAll('[data-screen]').forEach(tab=>tab.classList.toggle('active',tab.dataset.screen===name));if(name!=='translate')renderLists()}
     function renderList(target,items,kind){target.innerHTML='';if(!items.length){target.innerHTML='<div class="list-empty">Здесь пока ничего нет</div>';return}items.forEach((item,index)=>{const card=document.createElement('article');card.className='entry';card.innerHTML=`<div class="entry-source"></div><div class="entry-result"></div><div class="entry-meta"><span>${item.time||'Сохранено'}</span><button type="button">${kind==='saved'?'Удалить':'Повторить'}</button></div>`;card.querySelector('.entry-source').textContent=item.source;card.querySelector('.entry-result').innerHTML=window.marked&&typeof window.marked.parse==='function'?window.marked.parse(item.result):item.result;card.querySelector('button').addEventListener('click',()=>{if(kind==='saved'){saved.splice(index,1);persist();renderLists()}else{source.value=item.source;clear.hidden=false;count.textContent=`${source.value.length} / 1000`;switchScreen('translate');source.focus()}});target.appendChild(card)})}
     function renderLists(){renderList(document.getElementById('history-list'),history,'history');renderList(document.getElementById('saved-list'),saved,'saved')}
-    source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=isRecording||source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){if(currentAbortController)currentAbortController.abort();resultPane.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
-    clear.addEventListener('click',()=>{clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;resultPane.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
+    source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=isRecording||source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){if(currentAbortController)currentAbortController.abort();result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
+    clear.addEventListener('click',()=>{clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
     share.addEventListener('click',async()=>{
       const fromLang=sourceLanguage.dataset.value;
       const toLang=targetLanguage.dataset.value;
@@ -321,7 +322,7 @@
       try{await navigator.clipboard.writeText(shareText);notify('Ссылка скопирована')}catch(error){notify('Не удалось скопировать ссылку')}
     });
     document.querySelectorAll('.language-menu').forEach(menu=>{menu.querySelectorAll('[data-language]').forEach(option=>option.addEventListener('click',()=>{const other=menu===sourceLanguage?targetLanguage:sourceLanguage,previous=menu.dataset.value;if(option.dataset.language===other.dataset.value)setLanguage(other,previous);setLanguage(menu,option.dataset.language);trackEvent('change_language',{changed_menu:menu===sourceLanguage?'source':'target'});menu.querySelector('summary').focus();if(source.value.trim())translate()}));menu.addEventListener('toggle',()=>{if(menu.open)document.querySelectorAll('.language-menu').forEach(other=>{if(other!==menu)other.open=false})})});document.addEventListener('click',event=>{event.target.closest('.language-menu')||document.querySelectorAll('.language-menu').forEach(menu=>menu.open=false)});
-    document.getElementById('swap').addEventListener('click',()=>{clearTimeout(translateTimer);const language=sourceLanguage.dataset.value;setLanguage(sourceLanguage,targetLanguage.dataset.value);setLanguage(targetLanguage,language);trackEvent('swap_languages',{from:targetLanguage.dataset.value,to:sourceLanguage.dataset.value});if(lastPair&&!resultPane.hidden){const text=source.value;source.value=lastPair.result;renderResult(text);lastPair={source:source.value,result:text};clear.hidden=false;count.textContent=`${source.value.length} / 1000`}else if(source.value.trim()){translate()}source.focus()});
+    document.getElementById('swap').addEventListener('click',()=>{clearTimeout(translateTimer);const language=sourceLanguage.dataset.value;setLanguage(sourceLanguage,targetLanguage.dataset.value);setLanguage(targetLanguage,language);trackEvent('swap_languages',{from:targetLanguage.dataset.value,to:sourceLanguage.dataset.value});if(lastPair&&!result.classList.contains('empty')){const text=source.value;source.value=lastPair.result;renderResult(text);lastPair={source:source.value,result:text};clear.hidden=false;count.textContent=`${source.value.length} / 1000`}else if(source.value.trim()){translate()}source.focus()});
     document.querySelectorAll('[data-screen]').forEach(tab=>tab.addEventListener('click',()=>switchScreen(tab.dataset.screen)));document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>switchScreen(button.dataset.go)));
     
     // Voice Input & Recording Handler
@@ -340,7 +341,6 @@
       source.value = '';
       count.textContent = '0 / 1000';
       clear.hidden = true;
-      resultPane.hidden = true;
       result.textContent = 'Перевод';
       result.classList.add('empty');
       enableActionButtons(false);
