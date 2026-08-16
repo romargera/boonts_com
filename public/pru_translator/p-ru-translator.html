@@ -39,6 +39,8 @@
     .share-top-btn{float:right;margin:0 18px 6px 12px}
     .result-pane:has(.result.empty) .share-top-btn,.result-pane:has(.result.empty) .result-actions{display:none!important}
     .clear-btn:hover,.mic-btn:hover:not(.recording),.action-btn:hover:not(:disabled){background:var(--bg);border-color:var(--accent);color:var(--fg);transform:scale(1.06)}
+    .clear-btn,.mic-btn,#share,#copy-btn{transition:all 0.05s ease!important}
+    .clear-btn:active,.mic-btn:active:not(.recording),#share:active,#copy-btn:active{transform:scale(0.92)!important;transition:all 0.02s ease!important}
     
     .mic-btn.recording{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25);animation:micPulse 1.2s infinite ease-in-out}
     .mic-btn .stop-icon{display:none!important}
@@ -278,7 +280,8 @@
       }
     }
 
-    copyBtn.addEventListener('click', async () => {
+    copyBtn.addEventListener('click', async function() {
+      this.blur();
       if (!lastPair || !lastPair.result) return;
       try {
         await navigator.clipboard.writeText(lastPair.result);
@@ -309,8 +312,9 @@
     function renderList(target,items,kind){target.innerHTML='';if(!items.length){target.innerHTML='<div class="list-empty">Здесь пока ничего нет</div>';return}items.forEach((item,index)=>{const card=document.createElement('article');card.className='entry';card.innerHTML=`<div class="entry-source"></div><div class="entry-result"></div><div class="entry-meta"><span>${item.time||'Сохранено'}</span><button type="button">${kind==='saved'?'Удалить':'Повторить'}</button></div>`;card.querySelector('.entry-source').textContent=item.source;card.querySelector('.entry-result').innerHTML=window.marked&&typeof window.marked.parse==='function'?window.marked.parse(item.result):item.result;card.querySelector('button').addEventListener('click',()=>{if(kind==='saved'){saved.splice(index,1);persist();renderLists()}else{source.value=item.source;clear.hidden=false;count.textContent=`${source.value.length} / 1000`;switchScreen('translate');source.focus()}});target.appendChild(card)})}
     function renderLists(){renderList(document.getElementById('history-list'),history,'history');renderList(document.getElementById('saved-list'),saved,'saved')}
     source.addEventListener('input',()=>{count.textContent=`${source.value.length} / 1000`;clear.hidden=isRecording||source.value.length===0;clearTimeout(translateTimer);if(!source.value.trim()){if(currentAbortController)currentAbortController.abort();result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);return}translateTimer=setTimeout(translate,600)});
-    clear.addEventListener('click',()=>{clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
-    share.addEventListener('click',async()=>{
+    clear.addEventListener('click',function(){this.blur();clearTimeout(translateTimer);if(currentAbortController)currentAbortController.abort();source.value='';clear.hidden=true;result.textContent='Перевод';result.classList.add('empty');result.style.opacity='1';enableActionButtons(false);count.textContent='0 / 1000';trackEvent('clear_text');source.focus()});
+    share.addEventListener('click',async function(){
+      this.blur();
       const fromLang=sourceLanguage.dataset.value;
       const toLang=targetLanguage.dataset.value;
       const query=source.value.trim();
