@@ -35,8 +35,9 @@
     
     .clear-btn,.mic-btn,.action-btn{width:32px;height:32px;min-height:32px;border-radius:var(--pill);border:1px solid var(--border);background:var(--surface);color:var(--muted);display:inline-grid;place-items:center;padding:0;transition:all .18s ease;box-shadow:0 2px 6px oklch(0 0 0 / .04)}
     .clear-btn{float:right;margin:0 18px 6px 12px}
-    .clear-btn[hidden]{display:none!important}
+    .clear-btn[hidden],.share-top-btn[hidden],.result-actions[hidden]{display:none!important}
     .share-top-btn{float:right;margin:0 18px 6px 12px}
+    .result-pane:has(.result.empty) .share-top-btn,.result-pane:has(.result.empty) .result-actions{display:none!important}
     .clear-btn:hover,.mic-btn:hover:not(.recording),.action-btn:hover:not(:disabled){background:var(--bg);border-color:var(--accent);color:var(--fg);transform:scale(1.06)}
     
     .mic-btn.recording{background:oklch(0.55 0.22 25);color:#fff;border-color:oklch(0.55 0.22 25);animation:micPulse 1.2s infinite ease-in-out}
@@ -93,13 +94,13 @@
           <div class="work-grid"><div class="pane source-pane" data-od-id="source-pane"><div class="input-wrapper"><button class="clear-btn" id="clear" type="button" aria-label="Очистить текст" title="Очистить" hidden><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button><div id="source" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Исходный текст" data-placeholder="Введите текст"></div></div><div class="pane-tools"><div style="display:flex;align-items:center;gap:10px"><button class="mic-btn" id="mic-btn" type="button" aria-label="Голосовой ввод" title="Голосовой ввод"><svg class="mic-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg><svg class="stop-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none"><rect x="4" y="4" width="16" height="16" rx="3"></rect></svg></button></div><span class="meta" id="count">0 / 1000</span></div></div>
           <div class="pane result-pane" data-od-id="result-pane" aria-live="polite" hidden>
             <div class="result-wrapper">
-              <button class="action-btn share-top-btn" id="share" type="button" disabled aria-label="Поделиться" title="Поделиться">
+              <button class="action-btn share-top-btn" id="share" type="button" disabled hidden aria-label="Поделиться" title="Поделиться">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="18" cy="5" r="2.5"></circle><circle cx="6" cy="12" r="2.5"></circle><circle cx="18" cy="19" r="2.5"></circle><path d="m8.2 10.8 7.6-4.5M8.2 13.2l7.6 4.5"></path></svg>
               </button>
               <div class="result empty" id="result">Перевод</div>
             </div>
             <div class="pane-tools" style="justify-content:flex-end">
-              <div class="result-actions">
+              <div class="result-actions" hidden>
                 <button class="action-btn" id="copy-btn" type="button" disabled aria-label="Копировать" title="Копировать">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 </button>
@@ -146,9 +147,12 @@
     
     function enableActionButtons(enabled) {
       share.disabled = !enabled;
+      share.hidden = !enabled;
       copyBtn.disabled = !enabled;
       likeBtn.disabled = !enabled;
       dislikeBtn.disabled = !enabled;
+      const resultActions = document.querySelector('.result-actions');
+      if (resultActions) resultActions.hidden = !enabled;
     }
 
     function renderResult(text) {
