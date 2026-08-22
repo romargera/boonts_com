@@ -1,6 +1,6 @@
-# Roman Babunts — Profile
+# Roman Babunts — Profile & Projects
 
-> Canonical profile page for Roman Babunts (also written as Roman Babuntc, Роман Бабунц).
+> Canonical profile page and projects overview for Roman Babunts (also written as Roman Babuntc, Роман Бабунц).
 
 ## Primary URL
 - https://boonts.com/
@@ -10,9 +10,14 @@
 - Alternate names: Roman Babuntc, Роман Бабунц
 - Role: Product Leader, Growth Product Manager
 - Focus: B2B/B2B2C product strategy, monetization, experimentation, retention
+- Track record: $100M+ incremental revenue at Yandex, ivi, Semrush, Yota
 - Languages: English, Russian
 
+## Key Products & Projects
+- SheSafe: Personal safety copilot iOS application for real-time location sharing, SOS alerts, and trust circle coordination. Landing page: https://boonts.com/shesafe/
+
 ## Verified links
+- SheSafe App Landing: https://boonts.com/shesafe/
 - LinkedIn: https://www.linkedin.com/in/oempolice/
 - Telegram: https://t.me/rbabunts
 - WhatsApp: https://wa.me/79643704318
