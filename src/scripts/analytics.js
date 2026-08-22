@@ -58,4 +58,17 @@ if (typeof window !== 'undefined') {
       }
     });
   });
+
+  // Auto-update footer copyright year
+  const updateYear = () => {
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.current-year').forEach((el) => {
+      el.textContent = year;
+    });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateYear);
+  } else {
+    updateYear();
+  }
 }
