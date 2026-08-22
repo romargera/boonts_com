@@ -1,6 +1,6 @@
 :root, :root[data-theme="light"] {
   /* Override main light theme variables for shesafe branding */
-  --bg-primary: #F5EFE7; /* Matches the sticker background exactly */
+  --bg-primary: #F6EFE7; /* Matches the sticker background exactly */
   --bg-card: rgba(255, 255, 255, 0.9);
   --bg-hover: rgba(255, 255, 255, 1);
   --text-primary: #2449A4; /* brand blue */
