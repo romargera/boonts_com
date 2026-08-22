@@ -199,6 +199,38 @@ a.company-link:hover {
   text-decoration: underline;
 }
 
+/* Horizontal Social Icons Row in Footer */
+.site-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+:root[data-theme="dark"] .site-footer-socials a {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.site-footer-socials a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--glow);
+}
+
 .site-footer-bottom {
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
