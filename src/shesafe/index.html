@@ -161,15 +161,28 @@
 
       const soonBadgeEl = document.querySelector('.coming-soon-badge');
       if (soonBadgeEl) soonBadgeEl.textContent = t.soon;
+    }
 
+    function safeGetStorage(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function safeSetStorage(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {}
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       let savedLang = getURLQueryOrHashLanguage();
       if (savedLang) {
-        localStorage.setItem('shesafe_lang', savedLang);
+        safeSetStorage('shesafe_lang', savedLang);
       } else {
-        savedLang = localStorage.getItem('shesafe_lang');
+        savedLang = safeGetStorage('shesafe_lang');
       }
       if (!savedLang) {
         savedLang = getBrowserLanguage();
