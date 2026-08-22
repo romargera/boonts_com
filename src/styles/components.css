@@ -182,6 +182,11 @@ a.company-link:hover {
   gap: 0.4rem;
 }
 
+.site-footer-links li {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
 .site-footer-links a {
   color: var(--text-primary);
   text-decoration: none;
