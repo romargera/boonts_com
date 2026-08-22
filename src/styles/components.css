@@ -147,11 +147,10 @@ a.company-link:hover {
   width: 100%;
   margin-top: 2rem;
   padding: 1.5rem;
-  background: var(--bg-card);
+  background: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: var(--radius-btn);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
