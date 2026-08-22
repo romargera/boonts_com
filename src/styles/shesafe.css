@@ -1,6 +1,6 @@
-:root, :root[data-theme="light"] {
-  /* Override main light theme variables for shesafe branding */
-  --bg-primary: #F6EFE7; /* Matches the sticker background exactly */
+:root, :root[data-theme="light"], :root[data-theme="dark"] {
+  /* Override main light & dark theme variables for shesafe branding */
+  --bg-primary: #F6EFE7 !important; /* Matches the sticker background exactly */
   --bg-card: rgba(255, 255, 255, 0.9);
   --bg-hover: rgba(255, 255, 255, 1);
   --text-primary: #2449A4; /* brand blue */
@@ -18,9 +18,9 @@
   --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body {
+html, body {
   font-family: var(--font-family);
-  background-color: var(--bg-primary) !important; /* Force to match the sticker background color */
+  background-color: #F6EFE7 !important; /* Force to match the sticker background color */
   color: var(--text-primary);
   transition: background-color var(--transition-speed) var(--transition-easing), 
               color var(--transition-speed) var(--transition-easing);
