@@ -1,0 +1,7 @@
+OP AUTHORS:
+
+- ops by cables user pandur (https://cables.gl/user/pandur)
+- cables by undefined development (http://undev.studio)
+- glmatrix by toji (https://github.com/toji/gl-matrix)
+
+cables is built on open source software and community contributions, check https://cables.gl/support

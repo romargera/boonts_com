@@ -96,5 +96,30 @@
   }
 }
 
+.cables-footer {
+  width: 100%;
+  height: 220px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  position: relative;
+}
 
 
+#canvascontainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#glcanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  border: none;
+}

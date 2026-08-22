@@ -74,15 +74,15 @@
   }
   </script>
   
-  <!-- Umami-compatible Cloudflare analytics shim -->
-  <script defer src="https://analytics.boonts.com/script.js" data-website-id="291f20d1-b8f1-48cf-9631-4b8f9fb43253"></script>
+  <!-- Umami analytics script from self-hosted VPS -->
+  <script defer src="https://umami.boonts.com/script.js" data-website-id="291f20d1-b8f1-48cf-9631-4b8f9fb43253"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <script type="module" crossorigin src="/assets/analytics-Bn6ozEe-.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/analytics-DNY3agQo.css">
+  <script type="module" crossorigin src="/assets/analytics-PaiOW3sG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/analytics-D3-E-lUM.css">
 </head>
 <body>
   <main id="card" class="card" role="main">
@@ -124,7 +124,31 @@
         <span>Email</span>
       </a>
     </nav>
+
+    <footer class="cables-footer" aria-label="3D Interactive Experience">
+      <div id="canvascontainer">
+        <canvas id="glcanvas" tabindex="1"></canvas>
+      </div>
+    </footer>
   </main>
   
+  <script type="text/javascript" src="/cables/patch.js?v=5" async></script>
+  <script type="text/javascript">
+    function showError(initiator, ...args) {
+      console.error("[" + initiator + "]", ...args);
+    }
+    document.addEventListener("CABLES.jsLoaded", function (event) {
+      CABLES.patch = new CABLES.Patch({
+        patch: CABLES.exportedPatch,
+        "prefixAssetPath": "/cables/",
+        "assetPath": "/cables/",
+        "jsPath": "/cables/",
+        "glCanvasId": "glcanvas",
+        "glCanvasResizeToWindow": false,
+        "onError": showError,
+        "canvas": { "alpha": true, "premultipliedAlpha": true }
+      });
+    });
+  </script>
 </body>
 </html>
