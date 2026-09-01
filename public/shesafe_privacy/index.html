@@ -112,12 +112,12 @@
 <h3>Analytics, device, browser, and service-operation information</h3>
 
 <ul>
-  <li>app version, platform, operating-system and User-Agent information, IP address, approximate network-derived region, language, browser or device type, referrer, page views, session timestamps, and diagnostic or security logs;</li>
+  <li>app version, platform, operating-system and User-Agent information, IP address, approximate network-derived region, language, browser or device type, referrer, screen views, session timestamps, a random app-instance identifier, and diagnostic or security logs;</li>
   <li>PII-minimized product events, such as onboarding steps, authentication method, journey or SOS actions, invite outcomes, safety-layer use, permission results, and account-deletion requests; and</li>
   <li>website interaction data, such as pages viewed, link clicks, scroll depth, cookie or online identifiers, advertising measurement, and, where enabled, session-replay or similar interaction data.</li>
 </ul>
 
-<p>The mobile analytics payload policy is designed to exclude names, email addresses, phone numbers, free text, street addresses, precise coordinates, trusted-circle graphs, and SOS content. Network providers may nevertheless receive IP address, User-Agent, and transport metadata needed to deliver a request.</p>
+<p>Google Analytics for Firebase mobile collection is disabled by default and is enabled only after you choose to share app analytics during onboarding or in Settings. The mobile analytics payload policy is designed to exclude account, journey, safety-event and other stable internal identifiers, names, email addresses, phone numbers, free text, street addresses, precise coordinates, trusted-circle graphs, and SOS content. Google may nevertheless receive a random app-instance identifier, IP address, device/app metadata, approximate network-derived region, and transport metadata needed to provide analytics.</p>
 
 <h3>Information stored only on your device</h3>
 
@@ -188,9 +188,11 @@
 
 <ul>
   <li>Supabase for authentication, database, Realtime, Edge Functions, and authorization;</li>
-  <li>Apple and Google for app distribution, sign-in, device services, APNs or FCM push delivery, and related platform operations;</li>
+  <li>Apple and Google for app distribution, sign-in, device services, APNs or FCM push delivery, aggregated store/acquisition analytics, and related platform operations;</li>
   <li>MapLibre software and OpenFreeMap, OpenStreetMap/Overpass operators, and public travel-advisory sources for map and safety context;</li>
-  <li>self-hosted Umami for mobile and website analytics;</li>
+  <li>Google Analytics for Firebase for consented, PII-minimized mobile product analytics on iOS and Android;</li>
+  <li>Apple App Store Connect Analytics and Google Play Console analytics for store, acquisition, installation, retention, usage, and quality metrics made available by the relevant platform under its own privacy controls;</li>
+  <li>self-hosted Umami for website analytics;</li>
   <li>Google Analytics and Google Ads, and Yandex Metrica/Webvisor, for website traffic, interaction, advertising measurement, and related analytics where enabled;</li>
   <li>Cloudflare and GitHub Pages for DNS, routing, security, hosting, and public pages; and</li>
   <li>Cloudflare Email Routing and Google email services for support.</li>
@@ -208,7 +210,9 @@
 
 <h2>7. Analytics, Cookies, Advertising, And Sale/Sharing</h2>
 
-<p>Mobile product analytics are intended to be pseudonymous and PII-minimized. We do not use precise location, journey or Date Mode text, trusted-circle data, or SOS content for targeted advertising or cross-app tracking.</p>
+<p>Mobile product analytics are optional, pseudonymous, and PII-minimized. Google Analytics for Firebase collection starts only if you opt in and can be disabled again in Settings. Disabling it stops future app analytics collection and asks the SDK to reset its locally held app-instance analytics data. We do not set a Firebase user ID or send account IDs, precise location, journey or Date Mode text, trusted-circle data, safety-event IDs, or SOS content to analytics. Ad storage, ad-user-data use, ad personalization, Android Advertising ID, iOS IDFA, and cross-app tracking are disabled for the mobile integration. SheSafe does not request Apple&#39;s App Tracking Transparency permission for this analytics.</p>
+
+<p>Apple and Google may separately produce store-level acquisition, installation, retention, session, crash, and quality statistics through App Store Connect and Google Play Console. Those platform statistics are governed by the user&#39;s device/store privacy choices and the platform provider&#39;s terms. Apple usage reports may be limited to users who chose to share diagnostics and usage data with developers.</p>
 
 <p>The SheSafe website may use cookies, pixels, scripts, online identifiers, and similar technologies from Umami, Google, and Yandex for audience measurement, interaction analysis, advertising attribution or remarketing, and, where enabled, session replay. These providers may receive IP address, cookie or device identifiers, browser and device data, page URL, referrer, and interaction events. Use browser controls, content blockers, available provider opt-outs, or contact support@boonts.com to object or make an applicable opt-out request.</p>
 
@@ -245,8 +249,9 @@
   <li>end an active journey or SOS session and remove a trusted relationship;</li>
   <li>avoid submitting optional text or a community report;</li>
   <li>manage website cookies through your browser and available provider controls;</li>
+  <li>enable or disable optional mobile product analytics in SheSafe Settings;</li>
   <li>sign out, request account deletion in Settings, or email support@boonts.com; and</li>
-  <li>contact us to object to or ask about mobile analytics where applicable.</li>
+  <li>contact us to object to or ask about analytics where applicable.</li>
 </ul>
 
 <p>Revoking a permission or consent does not affect earlier lawful processing and may make safety features unavailable or unreliable. A local uninstall does not by itself delete server records; use the in-app deletion flow or contact us.</p>
