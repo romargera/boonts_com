@@ -31,7 +31,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .logo-title-left {
@@ -167,3 +167,25 @@ html, body {
 }
 
 /* Language selector styles removed */
+
+/* Card container on shesafe landing */
+.card {
+  gap: 1.25rem;
+}
+
+/* Main content tile matching .site-footer */
+.shesafe-tile {
+  width: 100%;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.site-footer {
+  margin-top: 0;
+}
