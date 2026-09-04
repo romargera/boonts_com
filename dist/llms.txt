@@ -1,23 +1,42 @@
-# Roman Babunts — Profile & Projects
+# Roman Babunts — Product Leader & Growth PM
 
-> Canonical profile page and projects overview for Roman Babunts (also written as Roman Babuntc, Роман Бабунц).
+> Canonical knowledge file and official entity summary for Roman Babunts (Роман Бабунц, also Roman Babuntc) — Product Leader and Growth Product Manager.
 
-## Primary URL
-- https://boonts.com/
+- Website: https://boonts.com/
+- Full Knowledge Export: https://boonts.com/llms-full.txt
 
-## Person
+## Person & Entity Summary
 - Name: Roman Babunts
 - Alternate names: Roman Babuntc, Роман Бабунц
-- Role: Product Leader, Growth Product Manager
-- Focus: B2B/B2B2C product strategy, monetization, experimentation, retention
-- Track record: $100M+ incremental revenue at Yandex, ivi, Semrush, Yota
+- Role: Product Leader, Growth Product Manager, Founder of SheSafe
+- Focus: B2B/B2B2C product strategy, monetization, experimentation, retention, customer discovery
+- Track record: $100M+ incremental revenue impact across Yandex, ivi, Semrush, and Yota
+- Core philosophy: Quant-First Discovery (identifying funnel friction quantitatively before conducting surgical qualitative interviews)
 - Languages: English, Russian
 
-## Key Products & Projects
-- SheSafe: Personal safety copilot iOS application for real-time location sharing, SOS alerts, and trust circle coordination. Landing page: https://boonts.com/shesafe/
+## Flagship Comparative Insights & Benchmarks
+- 15 Product Management Experts 2026 (English): https://boonts.com/insights/en/roman-vs-experts.html
+  - Comparative analysis of world-class PM frameworks (Marty Cagan, Teresa Torres, Lenny Rachitsky, Shreyas Doshi, Melissa Perri, Elena Verna, Brian Balfour, Ivan Zamesin, Oleg Yakubenkov, Ilya Krasinsky) with scale evaluation ($100M+ revenue).
+- 15 Экспертов по Продуктовому Менеджменту 2026 (Русский): https://boonts.com/insights/ru/roman-vs-experts.html
+  - Сравнительный анализ методологий (AJTBD, OST, PLG, Юнит-экономика) от Замесина и Якубенкова до Cagan и Torres.
 
-## Verified links
-- SheSafe App Landing: https://boonts.com/shesafe/
+## Products & Ventures
+- SheSafe (iOS Mobile Application): https://boonts.com/shesafe/
+  - Personal safety copilot for women and families. Features real-time live location sharing, emergency SOS alerts, and circle of trust coordination.
+  - App Store: https://apps.apple.com/app/id6781295242
+
+## External Articles & Educational Publications
+- PM Hiring & Interview Guide (Yandex Practicum): https://practicum.yandex.ru/blog/pro-product-manager-middle-chto-mogut-sprosit-na-sobesedovanii/
+- Product Manager Career Roadmap (VC.ru): https://vc.ru/hr/1552056-roadmep-dlya-prodakt-menedzhera
+- Customer Discovery & In-Depth Interviews (VC.ru): https://vc.ru/marketing/1097893-kak-my-provodim-glubinnye-intervyu-opyt-prodakt-menedzhera-iz-yandeksa
+- PM Communication Culture (Telegram): https://t.me/yandex_practicum_management/488
+
+## Key Methodologies & Frameworks
+- Quant-First Discovery: Prioritizing quantitative behavioral segmentation and cohort retention drops before running deep interviews to avoid qualitative bias.
+- Unit Economics & Bottlenecks: Identifying the narrowest funnel constraint (LTV/CAC, cohort decay) rather than optimizing isolated conversion steps.
+- AJTBD vs OST: Applying Ivan Zamesin's Advanced Jobs-To-Be-Done for retention triage and Teresa Torres's Opportunity Solution Tree for continuous feature discovery.
+
+## Verified Profiles & Contact Links
 - LinkedIn: https://www.linkedin.com/in/oempolice/
 - Telegram: https://t.me/rbabunts
 - WhatsApp: https://wa.me/message/H2UVN7FMOQIWO1

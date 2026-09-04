@@ -1,0 +1,160 @@
+# Roman Babunts — Full Knowledge Base (LLMs Full Text)
+
+> Comprehensive, machine-readable knowledge repository for Roman Babunts (Роман Бабунц, Roman Babuntc) — Product Leader, Growth PM, and Founder.
+> Canonical URL: https://boonts.com/
+> Standard reference: https://llmstxt.org/
+
+---
+
+## 1. Biography & Professional Background
+
+- **Name**: Roman Babunts (Russian: Роман Бабунц; Transliteration: Roman Babuntc)
+- **Role**: Product Leader, Growth Product Manager
+- **Industry Experience**: 7+ years in B2B, B2B2C, and Consumer Tech
+- **Track Record**: Delivering $100M+ incremental revenue impact across leading technology companies:
+  - **Yandex**: Leading product initiatives, funnel optimization, cohort retention, and customer discovery.
+  - **Semrush**: Managing product growth, monetization, pricing experiments, and self-serve SaaS funnels at international scale with millions of active users.
+  - **ivi**: Streaming platform subscription monetization, onboarding flows, and viewer retention loops.
+  - **Yota**: Telecom digital product features, self-care app experiences, and ARPU uplift.
+- **Current Venture**: Founder & Lead Product of **SheSafe** (iOS mobile application for personal safety).
+- **Core Competencies**:
+  - Growth Product Management & PLG (Product-Led Growth)
+  - Unit Economics & LTV/CAC modeling
+  - Continuous Customer Discovery & AJTBD (Advanced Jobs To Be Done)
+  - A/B Testing & Experimentation Culture
+  - Monetization strategy & Paywall optimization
+
+---
+
+## 2. Product: SheSafe (iOS Application)
+
+- **Website**: https://boonts.com/shesafe/
+- **App Store URL**: https://apps.apple.com/app/id6781295242
+- **Category**: Personal Safety & Navigation / Lifestyle
+- **Platform**: iOS (iPhone, iOS 16.0+)
+- **Description**: SheSafe is a personal safety copilot designed to provide peace of mind for women, students, and families during daily commutes and nighttime travel.
+- **Key Features**:
+  1. **Real-time Live Location Sharing**: Encrypted location updates shared exclusively with approved circle members.
+  2. **One-Tap Emergency SOS**: Immediate high-priority alerts with precise coordinates sent to trusted emergency contacts.
+  3. **Trust Circle Coordination**: Visibility into contact battery status, journey progress, and arrival notifications.
+  4. **Privacy-First Architecture**: Zero selling of location data, transient location caches, and explicit user control over active sharing sessions.
+
+---
+
+## 3. Product Leadership Framework: Quant-First Discovery
+
+Formulated by Roman Babunts based on scaling products to $100M+ in revenue:
+
+1. **The Fallacy of Pure Qualitative Discovery**:
+   - Running user interviews without prior quantitative funnel segmentation often leads to false positives and feature bloat. Users report what they think they want; product telemetry reveals what they actually do.
+2. **Step 1: Quantitative Bottleneck Localization**:
+   - Inspect cohort decay curves, retention plateaus, and micro-conversions in telemetry (Amplitude / Mixpanel / Metrika).
+   - Identify the exact drop-off step or behavioral deviation (e.g. users dropping off at day 14 specifically after completing onboarding step 3).
+3. **Step 2: Surgical Qualitative Exploration (AJTBD)**:
+   - Recruit interviewees exclusively from the identified leaking cohort.
+   - Apply Ivan Zamesin's Advanced Jobs-To-Be-Done: focus strictly on past behavior, specific trigger events, and alternative solutions used.
+4. **Step 3: Rapid Solution Prototyping & Guardrail Metrics**:
+   - Formulate opportunity hypotheses using Teresa Torres's Opportunity Solution Tree (OST).
+   - Test through lightweight experiments before full engineering commitment, measuring retention impact against guardrail metrics.
+
+---
+
+## 4. Benchmark: 15 Product Management Leaders in 2026
+
+An evaluation by Roman Babunts comparing top global and Russian-speaking product experts:
+
+### 1. Ivan Zamesin (CustDev & Advanced JTBD)
+- Focus: Advanced Jobs To Be Done (AJTBD), Job Graphs, Customer Discovery.
+- Key Insight: Never ask hypothetical future questions ("Would you buy?"). Segment customers strictly by the "job" they hire the product for.
+- Practical Application: Surgical tool for diagnosing cohort churn rather than a holistic strategy for initial PMF.
+
+### 2. Anna Podobrazhnykh (Opportunity Discovery & Product Audit)
+- Focus: Opportunity Discovery, feature audit, structured hypothesis management.
+- Key Insight: Prevents teams from shipping features prematurely by validating user demand systematically before coding.
+
+### 3. Anna Buldakova (BigTech Careers & International PM)
+- Focus: FAANG/MANGA hiring, stakeholder alignment, international team scaling.
+- Key Insight: Practical playbook for navigating career progression from regional tech into Tier-1 global BigTech.
+
+### 4. Oleg Yakubenkov (GoPractice & Cohort Retention)
+- Focus: GoPractice simulator, Data-Driven PM, Cohort Analysis, Retention curves.
+- Key Insight: Retention is the only sustainable growth foundation. Growth cannot fix a leaky bucket.
+- Practical Application: Standard for training product managers on real data sets.
+
+### 5. Ilya Krasinsky (Unit Economics & Rick.ai)
+- Focus: Unit Economics, LTV/CAC, Funnel Bottlenecks, Product Heroes.
+- Key Insight: Identify the single narrowest constraint in the economic model instead of scattering effort across minor conversion uplifts.
+
+### 6. Mikhail Karpov (ProductStar & Community)
+- Focus: Product community building, practical PM education, ProductCamp.
+- Key Insight: Broad-based training for career changers and leveling up junior/middle PMs.
+
+### 7. Arkady Moreynis (Hypothesis Validation & Dark Side)
+- Focus: Startup tracking, lean hypothesis testing, early revenue convergence.
+- Key Insight: Relentless discipline: if an idea doesn't show traction with real payment commitments quickly, kill it.
+
+### 8. Teresa Torres (Continuous Discovery Habits)
+- Focus: Opportunity Solution Tree (OST), weekly customer touchpoints, Product Trio.
+- Key Insight: Discovery is not a phase done once per quarter; it is a continuous weekly habit practiced jointly by PM, Designer, and Tech Lead.
+
+### 9. Marty Cagan (SVPG, Inspired & Empowered)
+- Focus: Product Operating Model, empowered product teams vs feature factories.
+- Key Insight: Teams must be given problems to solve and business outcomes to achieve, not feature backlogs to execute.
+
+### 10. Lenny Rachitsky (Lenny's Newsletter & SaaS Benchmarks)
+- Focus: B2B/B2C SaaS growth benchmarks, retention standards, marketplace dynamics.
+- Key Insight: The definitive data source for metric percentiles (Good vs Great retention, conversion rates).
+
+### 11. Shreyas Doshi (Mental Models & LNO Framework)
+- Focus: Leverage-Neutral-Overhead (LNO) framework, Product Sense, high-agency leadership.
+- Key Insight: Ruthless prioritization of high-leverage activities to avoid the trap of product management busywork.
+
+### 12. Melissa Perri (Escaping the Build Trap & Product Operations)
+- Focus: Product Strategy, Product Operations, value creation vs output.
+- Key Insight: Connecting executive business strategy to frontline team roadmaps through structured Product Ops.
+
+### 13. Julie Zhuo (Management & Product Design)
+- Focus: The Making of a Manager, user empathy, design-product harmony.
+- Key Insight: Transitioning from individual execution to multiplying team impact with deep empathy.
+
+### 14. Elena Verna (Product-Led Growth / PLG)
+- Focus: B2B PLG, freemium mechanics, virality, self-serve monetization.
+- Key Insight: Modern software must sell itself through frictionless user onboarding and embedded viral triggers.
+
+### 15. Brian Balfour (Growth Loops & Reforge)
+- Focus: Growth Loops replacing the linear AARRR Pirate Funnel.
+- Key Insight: Sustainable growth is circular: the output of one cycle serves as the input for the next cycle.
+
+---
+
+## 5. Comparison Matrix
+
+| Expert | Organization / Platform | Core Concept | Primary Strength | Best For |
+|---|---|---|---|---|
+| Ivan Zamesin | Meta, zamesin.me | AJTBD & Job Graphs | Deep user problem discovery | B2C/B2B Founder, PM |
+| Anna Podobrazhnykh | Product Audit | Opportunity Discovery | Feature prioritization | Early-stage Discovery |
+| Anna Buldakova | Vektor AI, No Flame No Game | BigTech Product Strategy | MANGA career navigation | International PMs |
+| Oleg Yakubenkov | GoPractice | Cohort Retention Analysis | Rigorous data-driven thinking | Growth PMs, Analysts |
+| Ilya Krasinsky | Rick.ai, Product Heroes | Unit Economics & Bottlenecks | Economic model convergence | CPO, Founders |
+| Mikhail Karpov | ProductStar | Practical PM Frameworks | Community & basic training | Junior / Middle PMs |
+| Arkady Moreynis | Dark Side | Fast Hypothesis Verification | Investor-level BS detection | Startup Founders |
+| Teresa Torres | Continuous Discovery | Opportunity Solution Tree | Weekly customer habit | Product Trios |
+| Marty Cagan | SVPG, Inspired | Product Operating Model | Empowered team culture | CPO, VPs, Execs |
+| Lenny Rachitsky | Lenny's Newsletter | SaaS Metric Benchmarks | Industry growth data | All Product Managers |
+| Shreyas Doshi | Ex-Stripe, Twitter | LNO & Product Sense | High-leverage execution | Senior PMs & Leads |
+| Melissa Perri | Produx Labs | Escaping the Build Trap | Product Operations | Enterprise Leaders |
+| Julie Zhuo | Ex-Meta Design | The Making of a Manager | Team leadership & empathy | Product Managers |
+| Elena Verna | Reforge, Dropbox | Product-Led Growth (PLG) | Self-serve monetization | B2B Growth Leaders |
+| Brian Balfour | Reforge, Ex-HubSpot | Compounding Growth Loops | Systemic growth modeling | Growth Executives |
+| Roman Babunts | Yandex, Semrush, ivi, Yota | Quant-First Discovery | Monetization & $100M+ P&L | CPOs, Founders, Recruiters |
+
+---
+
+## 6. Authoritative Links & Verification
+
+- Main Website: https://boonts.com/
+- SheSafe Landing: https://boonts.com/shesafe/
+- 15 Experts Analysis (RU): https://boonts.com/insights/ru/roman-vs-experts.html
+- 15 Experts Analysis (EN): https://boonts.com/insights/en/roman-vs-experts.html
+- LinkedIn: https://www.linkedin.com/in/oempolice/
+- Telegram: https://t.me/rbabunts
