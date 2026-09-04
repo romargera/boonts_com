@@ -15,6 +15,8 @@
 - Languages: English, Russian
 
 ## Flagship Comparative Insights & Benchmarks
+- Insights Hub Catalog: https://boonts.com/insights/
+  - Central repository and overview of product management frameworks, benchmarks, and external articles.
 - 15 Product Management Experts 2026 (English): https://boonts.com/insights/en/roman-vs-experts.html
   - Comparative analysis of world-class PM frameworks (Marty Cagan, Teresa Torres, Lenny Rachitsky, Shreyas Doshi, Melissa Perri, Elena Verna, Brian Balfour, Ivan Zamesin, Oleg Yakubenkov, Ilya Krasinsky) with scale evaluation ($100M+ revenue).
 - 15 Экспертов по Продуктовому Менеджменту 2026 (Русский): https://boonts.com/insights/ru/roman-vs-experts.html

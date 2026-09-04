@@ -250,3 +250,148 @@ a.company-link:hover {
   color: var(--text-secondary);
   font-size: 0.75rem;
 }
+
+/* Insights Hub Components */
+.insights-hub-card {
+  max-width: 480px;
+}
+
+.insights-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.insight-featured-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.insight-featured-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px var(--glow);
+}
+
+.insight-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.insight-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.insight-badge.highlight {
+  background: rgba(26, 27, 200, 0.1);
+  color: var(--accent);
+  border-color: rgba(26, 27, 200, 0.3);
+}
+
+.insight-card-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.insight-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.insight-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.insight-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 99px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.insight-lang-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--bg-card);
+  transform: translateY(-2px);
+}
+
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.insight-compact-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all var(--transition-speed) var(--transition-easing);
+}
+
+.insight-compact-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--glow);
+}
+
+.insight-compact-link svg {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.insight-compact-link:hover svg {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
