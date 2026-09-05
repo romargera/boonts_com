@@ -117,8 +117,7 @@ No. Starting with data can help an existing product with reliable telemetry. Res
 How do I choose without a universal ranking?
 State the decision and the missing evidence first. Then choose material that helps obtain that evidence and check its limitations in your product.
 Discuss your next step
-Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
-Discuss a product role
+Looking for a perspective on a growth challenge? Let's talk.
 Discuss a growth challenge
 
 ## Кого читать о продукте: 15 авторов и выбор подхода — Roman Babunts
@@ -193,8 +192,7 @@ FAQ
 Как выбрать подход без универсального рейтинга?
 Сначала сформулируйте решение и недостающее доказательство. Затем выберите материал, который помогает получить это доказательство, и проверьте ограничения на своём продукте.
 Обсудить задачу
-Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
-Обсудить продуктовую роль
+Нужен взгляд на задачу роста? Давайте обсудим.
 Обсудить задачу роста
 
 ## SheSafe — Your Personal Safety Copilot
@@ -275,8 +273,7 @@ Continuous Discovery Терезы Торрес помогает поддержи
 Результат: что узнали, какая неопределённость осталась и что делаем дальше.
 Это авторский рабочий шаблон, а не обещание гарантированного роста. Подборка дополнительных подходов: 15 авторов о продукте и росте.
 Обсудить задачу
-Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
-Обсудить продуктовую роль
+Нужен взгляд на задачу роста? Давайте обсудим.
 Обсудить задачу роста
 
 ## Data and interviews in Product Discovery: choose your next step — Roman Babunts
@@ -325,6 +322,5 @@ Test: method, sample, timeframe, criterion and owner.
 Result: what we learned, what remains uncertain and what happens next.
 This is my working template, not a promise of growth. For further approaches, see 15 authors on product management and growth.
 Discuss your next step
-Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
-Discuss a product role
+Looking for a perspective on a growth challenge? Let's talk.
 Discuss a growth challenge
