@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SheSafe invitation</title>
+    <link rel="stylesheet" href="/join/invite.css" />
+    <script defer src="/join/vendor/qrcode.js"></script>
+    <script defer src="/join/invite.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="brand">SheSafe<span class="brand-dot" aria-hidden="true">●</span></span>
+        <select id="language" aria-label="Language / Язык">
+          <option value="en">EN</option>
+          <option value="ru">RU</option>
+        </select>
+      </header>
+      <section class="card" aria-labelledby="title">
+        <span class="eyebrow" data-text="eyebrow">A little closer. A little safer.</span>
+        <h1 id="title">Open this invitation on your phone</h1>
+        <p id="intro">Scan the QR code with your phone’s camera. Open the link on a mobile device with SheSafe installed.</p>
+        <div id="invite" hidden>
+          <div id="desktop" hidden>
+            <div id="qr" role="img" aria-label="QR code for this SheSafe invitation"></div>
+            <p class="caption" data-text="scan">Use your phone’s camera to scan</p>
+          </div>
+          <div class="code-block">
+            <span class="caption" data-text="codeLabel">Invitation code</span>
+            <code id="code"></code>
+          </div>
+          <a id="open" class="button primary" hidden rel="noreferrer" data-text="open">Open in SheSafe</a>
+          <p id="open-help" class="caption" hidden data-text="openHelp">If the app does not open, try this link in Safari or Chrome.</p>
+          <button id="copy" class="button secondary" type="button" data-text="copy">Copy invitation link</button>
+          <p id="copy-status" class="caption" role="status" aria-live="polite"></p>
+        </div>
+        <div id="install" class="install">
+          <h2 data-text="installTitle">Don’t have SheSafe yet?</h2>
+          <p data-text="installHelp">Once the app is available, install it on your phone and open this invitation again. Your code will be filled in for confirmation.</p>
+          <div class="stores">
+            <a id="ios-store" class="store-link" rel="noreferrer" data-text="iosStore">App Store · coming soon</a>
+            <a id="android-store" class="store-link" rel="noreferrer" data-text="androidStore">Google Play · coming soon</a>
+          </div>
+        </div>
+        <noscript><p>Enable JavaScript to display your invitation QR code. You can also open this same link on a phone with SheSafe installed.<br />Включите JavaScript для QR-кода или откройте эту же ссылку на телефоне с установленным SheSafe.</p></noscript>
+      </section>
+      <footer data-text="footer">Your circle of care, always close.</footer>
+    </main>
+  </body>
+</html>
