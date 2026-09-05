@@ -18,7 +18,9 @@ test("client script preserves the existing Umami-compatible API surface", () => 
 
   assert.match(script, /window\.umami/);
   assert.match(script, /data-umami-event/);
-  assert.match(script, /sendBeacon/);
+  assert.match(script, /credentials: "omit"/);
+  assert.match(script, /keepalive: true/);
+  assert.doesNotMatch(script, /navigator\.sendBeacon/);
   assert.match(script, /api\/send/);
 });
 

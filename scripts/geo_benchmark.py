@@ -21,7 +21,8 @@ def sample(item,repeat,model):
         c=(raw.get('candidates') or [{}])[0]; answer='\n'.join(p.get('text','') for p in c.get('content',{}).get('parts',[]))
         g=c.get('groundingMetadata',{})
         result.update(answer=answer,finish_reason=c.get('finishReason'),search_queries=g.get('webSearchQueries',[]),citations=[v['web'] for v in g.get('groundingChunks',[]) if 'web' in v])
-        result['brand_mentioned']=any(x in answer.lower() for x in ['roman babunts','roman babuntc','роман бабунц','boonts.com'])
+        result['roman_mentioned']=any(x in answer.lower() for x in ['roman babunts','roman babuntc','роман бабунц','boonts.com'])
+        result['brand_mentioned']=(('shesafe' in answer.lower() or 'she safe' in answer.lower()) if item['id'].endswith('03') else result['roman_mentioned'])
         result['direct_boonts_citation']=any(urlsplit(v.get('uri','')).hostname=='boonts.com' for v in result['citations'])
         result['redirect_citations_unresolved']=sum(urlsplit(v.get('uri','')).hostname=='vertexaisearch.cloud.google.com' for v in result['citations'])
     except HTTPError as error:
@@ -45,13 +46,19 @@ def main():
             if previous.get('status')==200 and previous.get('model')==a.model and previous.get('prompt')==row['prompt']:
                 results.append(previous)
             else:jobs.append((row,repeat))
-    lock=threading.Lock();next_start=[0.0]
+    lock=threading.Lock();next_start=[0.0];quota_stop=threading.Event()
     def limited(job):
         with lock:
+            if quota_stop.is_set():
+                return {'id':job[0]['id'],'repeat':job[1],'status':'skipped_daily_quota'}
             wait=max(0,next_start[0]-time.monotonic())
             if wait:time.sleep(wait)
             next_start[0]=time.monotonic()+14
-        return sample(*job,a.model)
+        result=sample(*job,a.model)
+        details=result.get('error',{}).get('error',{}).get('details',[]) if isinstance(result.get('error'),dict) else []
+        if any('PerDay' in v.get('quotaId','') for d in details for v in d.get('violations',[])):
+            quota_stop.set()
+        return result
     with ThreadPoolExecutor(max_workers=2) as pool:results+=list(pool.map(limited,jobs))
     private_json(ROOT/'seo/private/geo-pilot.json',{'captured_at_utc':datetime.now(timezone.utc).isoformat(),'results':results,'limits':'API pilot only; prompts mentioning the brand are separate from nonbrand. Google redirect citations require resolution before citation-rate scoring. A tool-enabled response may not actually search; inspect search_queries and finish_reason. Failed/truncated responses are not negative visibility.'})
 if __name__=='__main__':main()

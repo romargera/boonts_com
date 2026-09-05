@@ -115,11 +115,8 @@ export function buildClientScript() {
       data: data && typeof data === "object" ? data : undefined,
     });
 
-    if (navigator.sendBeacon) {
-      const queued = navigator.sendBeacon(endpoint, new Blob([payload], { type: "application/json" }));
-      if (queued) return Promise.resolve();
-    }
-
+    // Beacon uses credentials=include, incompatible with wildcard CORS.
+    // keepalive fetch survives navigation and explicitly omits credentials.
     return fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
