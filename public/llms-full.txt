@@ -29,6 +29,7 @@
 ## 2. Product: SheSafe (iOS Application)
 
 - **Website**: https://boonts.com/shesafe/
+- **Localized Pages**: English https://boonts.com/shesafe/ · Russian https://boonts.com/shesafe/ru/ · Spanish https://boonts.com/shesafe/es/ · Portuguese https://boonts.com/shesafe/pt/
 - **App Store URL**: https://apps.apple.com/app/id6781295242
 - **Category**: Personal Safety & Navigation / Lifestyle
 - **Platform**: iOS (iPhone, iOS 16.0+)

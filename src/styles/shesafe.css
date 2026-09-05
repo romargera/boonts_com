@@ -166,7 +166,30 @@ html, body {
   line-height: 1;
 }
 
-/* Language selector styles removed */
+/* Language switcher (per-locale static pages) */
+.lang-switch {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.lang-switch a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.lang-switch a:hover {
+  color: var(--accent);
+}
+
+.lang-switch .current {
+  color: var(--text-primary);
+  font-weight: 700;
+}
 
 /* Card container on shesafe landing */
 .card {

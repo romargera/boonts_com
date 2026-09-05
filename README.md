@@ -97,17 +97,17 @@ python3 scripts/analytics_daily_query.py --site-key boonts-main --limit 30
 
 The SheSafe landing page is hosted at `https://boonts.com/shesafe/`.
 
-### Language Localization Parameters
+### Language Localization
 
-The landing page dynamically translates all interface strings (including title, description, and status badges) into one of the supported languages: English (`en`), Russian (`ru`), Spanish (`es`), or Portuguese (`pt`).
+Each supported language is a fully static, independently built and crawlable page at its own URL, rather than a client-side translation applied on top of a single URL. Every page carries a self-referencing canonical and a full `hreflang` block (including `x-default`) pointing at the others, and all four are listed with reciprocal alternates in `sitemap.xml`.
 
-You can override the browser's language detection and force a specific translation by appending a URL query parameter `?lang=<lang>` or a URL hash `#<lang>`.
+#### Locale URLs:
+*   **English** (canonical/default): [https://boonts.com/shesafe/](https://boonts.com/shesafe/)
+*   **Russian**: [https://boonts.com/shesafe/ru/](https://boonts.com/shesafe/ru/)
+*   **Spanish**: [https://boonts.com/shesafe/es/](https://boonts.com/shesafe/es/)
+*   **Portuguese**: [https://boonts.com/shesafe/pt/](https://boonts.com/shesafe/pt/)
 
-#### Examples:
-*   **English**: [https://boonts.com/shesafe/?lang=en](https://boonts.com/shesafe/?lang=en) or [https://boonts.com/shesafe/#en](https://boonts.com/shesafe/#en)
-*   **Russian**: [https://boonts.com/shesafe/?lang=ru](https://boonts.com/shesafe/?lang=ru) or [https://boonts.com/shesafe/#ru](https://boonts.com/shesafe/#ru)
-*   **Spanish**: [https://boonts.com/shesafe/?lang=es](https://boonts.com/shesafe/?lang=es) or [https://boonts.com/shesafe/#es](https://boonts.com/shesafe/#es)
-*   **Portuguese**: [https://boonts.com/shesafe/?lang=pt](https://boonts.com/shesafe/?lang=pt) or [https://boonts.com/shesafe/#pt](https://boonts.com/shesafe/#pt)
+A language switcher on each page links to the other three locales.
 
 ## License
 

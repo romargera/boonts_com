@@ -25,6 +25,7 @@
 ## Products & Ventures
 - SheSafe (iOS Mobile Application): https://boonts.com/shesafe/
   - Personal safety copilot for women and families. Features real-time live location sharing, emergency SOS alerts, and circle of trust coordination.
+  - Localized pages: English https://boonts.com/shesafe/ · Russian https://boonts.com/shesafe/ru/ · Spanish https://boonts.com/shesafe/es/ · Portuguese https://boonts.com/shesafe/pt/
   - App Store: https://apps.apple.com/app/id6781295242
 
 ## External Articles & Educational Publications
