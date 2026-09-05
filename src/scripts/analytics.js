@@ -50,7 +50,7 @@ if (typeof window !== 'undefined') {
         });
 
         // Google Ads Conversion tracking for Google Calendar book a call button
-        if (eventName === 'click-gcal') {
+        if (eventName === 'click-gcal' || eventName === 'click-gcal-hiring' || eventName === 'click-gcal-consulting') {
           window.gtag('event', 'conversion', {
             send_to: 'AW-962696895/ZM9VCJjNyL4cEL-thssD',
           });

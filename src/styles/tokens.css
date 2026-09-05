@@ -1,3 +1,11 @@
+/* Outfit, SIL Open Font License; same-origin font avoids a blocking remote CSS hop. */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/outfit-latin.woff2') format('woff2');
+}
 :root {
   --font-family: 'Outfit', -apple-system, sans-serif;
   --font-size-name: clamp(1.25rem, 4vw, 1.75rem);

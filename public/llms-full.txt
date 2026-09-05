@@ -1,161 +1,330 @@
-# Roman Babunts — Full Knowledge Base (LLMs Full Text)
+# boonts.com — reader-facing page text
 
-> Comprehensive, machine-readable knowledge repository for Roman Babunts (Роман Бабунц, Roman Babuntc) — Product Leader, Growth PM, and Founder.
-> Canonical URL: https://boonts.com/
-> Standard reference: https://llmstxt.org/
+> Generated from the same HTML delivered to readers. This export does not independently verify biographies, results, or product claims. Navigation, scripts and footers are omitted. Follow each source URL for formatting and references.
 
----
+## Roman Babunts — Product Leader & Growth PM | Ex-Yandex, Semrush, ivi
 
-## 1. Biography & Professional Background
+Source: https://boonts.com/
+Language: en
 
-- **Name**: Roman Babunts (Russian: Роман Бабунц; Transliteration: Roman Babuntc)
-- **Role**: Product Leader, Growth Product Manager
-- **Industry Experience**: 7+ years in B2B, B2B2C, and Consumer Tech
-- **Track Record**: Delivering $100M+ incremental revenue impact across leading technology companies:
-  - **Yandex**: Leading product initiatives, funnel optimization, cohort retention, and customer discovery.
-  - **Semrush**: Managing product growth, monetization, pricing experiments, and self-serve SaaS funnels at international scale with millions of active users.
-  - **ivi**: Streaming platform subscription monetization, onboarding flows, and viewer retention loops.
-  - **Yota**: Telecom digital product features, self-care app experiences, and ARPU uplift.
-- **Current Venture**: Founder & Lead Product of **SheSafe** (iOS mobile application for personal safety).
-- **Core Competencies**:
-  - Growth Product Management & PLG (Product-Led Growth)
-  - Unit Economics & LTV/CAC modeling
-  - Continuous Customer Discovery & AJTBD (Advanced Jobs To Be Done)
-  - A/B Testing & Experimentation Culture
-  - Monetization strategy & Paywall optimization
+Hi 👋, I'm Roman Babunts
+Product Leader with 7+ years balancing growth 📈 and product quality 🤌, with product experience at
+Yandex,
+ivi,
+Semrush,
+Yota,
+SheSafe.
+I enjoy cycling 🚴 and vibe coding 💻
 
----
+## Product & Growth Insights — Roman Babunts
 
-## 2. Product: SheSafe (iOS Application)
+Source: https://boonts.com/insights/
+Language: en
 
-- **Website**: https://boonts.com/shesafe/
-- **Localized Pages**: English https://boonts.com/shesafe/ · Russian https://boonts.com/shesafe/ru/ · Spanish https://boonts.com/shesafe/es/ · Portuguese https://boonts.com/shesafe/pt/
-- **App Store URL**: https://apps.apple.com/app/id6781295242
-- **Category**: Personal Safety & Navigation / Lifestyle
-- **Platform**: iOS (iPhone, iOS 16.0+)
-- **Description**: SheSafe is a personal safety copilot designed to provide peace of mind for women, students, and families during daily commutes and nighttime travel.
-- **Key Features**:
-  1. **Real-time Live Location Sharing**: Encrypted location updates shared exclusively with approved circle members.
-  2. **One-Tap Emergency SOS**: Immediate high-priority alerts with precise coordinates sent to trusted emergency contacts.
-  3. **Trust Circle Coordination**: Visibility into contact battery status, journey progress, and arrival notifications.
-  4. **Privacy-First Architecture**: Zero selling of location data, transient location caches, and explicit user control over active sharing sessions.
+Product Insights
+Curated mental models, growth frameworks, cohort analytics, and customer discovery guides by
+Roman Babunts, drawing on 7+ years of product leadership.
+🌟 Product Guides
+Data and interviews in Product Discovery
+Choose the missing evidence before choosing a method. A worked conversion example and a reusable decision record.
+Read in English Читать на русском
+2026 Edition
+Primary sources
+Frameworks Matrix
+15 product management authors: choose a framework for your decision
+Comparative evaluation of key leaders and methodologies (AJTBD, OST, PLG, Unit Economics) from Marty Cagan, Teresa Torres, and Lenny Rachitsky to Ivan Zamesin and Oleg Yakubenkov.
+🇬🇧 Read in English
+🇷🇺 Читать на русском
+📚 Guides & External Publications
+PM Hiring & Interview Guide
+Yandex Practicum • What do they ask Middle/Senior PMs?
+Product Manager Career Roadmap
+VC.ru • Skills, growth trajectories, and competencies
+Customer Discovery: In-Depth Interviews
+VC.ru • Hands-on discovery experience at Yandex
+PM Communication & Stakeholders
+Yandex Practicum Management • BigTech alignment culture
 
----
+## 15 product management authors: choose a framework for your decision — Roman Babunts
 
-## 3. Product Leadership Framework: Quant-First Discovery
+Source: https://boonts.com/insights/en/roman-vs-experts.html
+Language: en
 
-Formulated by Roman Babunts based on scaling products to $100M+ in revenue:
+15 product management authors: choose a framework for your decision
+Roman Babunts · 2026-08-23 · Updated: 2026-09-05
+How to use this guide
+This is an editorial reading selection, not a ranking of professional results. Links point to author projects and primary sources; application questions and limitations are my editorial interpretation. Mentioning someone does not imply collaboration or endorsement. Sources were checked on September 5, 2026; this guide excludes current job titles and unverified quotations.
+1. Ivan Zamesin
+AJTBD examines desired transitions, connected Jobs and segment selection. A behavioral cohort can help recruit participants; it does not by itself establish a shared Job-based segment.
+AJTBD canon
+2. Anna Podobrazhnykh
+Her website presents Product Discovery training and evaluation of product opportunities. A useful starting question is how to formulate a hypothesis and explain why a team should investigate it.
+Продукт и точка
+3. Anna Buldakova
+No Flame No Game covers product management, strategy and teams. Use it to prepare for a role transition, then check the expectations of the particular company you are joining.
+No Flame No Game
+4. Oleg Yakubenkov
+GoPractice publishes learning simulators and articles on product analytics, retention and growth. In your own analysis, define the return event, observation window and cohort membership explicitly: different retention definitions answer different questions.
+GoPractice
+5. Ilya Krasinsky
+Product Heroes, by Ilya Krasinsky and Kristina Burmistrova, covers product economics and metrics. For your own model, distinguish revenue from contribution margin and observed LTV from forecasts; test whether the decision survives changes in assumptions.
+Product Heroes
+6. Mikhail Karpov
+Karpov appears on the ProductStar speaker page. Use that as a starting point for his educational material. When choosing training, match the syllabus to a specific skill gap and an opportunity to apply it in your product.
+ProductStar
+7. Arkady Moreynis
+Fast Founder discusses startups and business models. Treat examples as hypotheses to investigate in your own market. My editorial questions are who pays, for what outcome, and why the purchase would recur; these are not a quotation from Moreynis.
+Fast Founder
+8. Teresa Torres
+Continuous Discovery connects regular customer contact with product decisions. An Opportunity Solution Tree links an outcome to opportunities, solutions and assumption tests. A tree makes reasoning visible; it does not turn an assumption into evidence.
+Product Talk
+9. Marty Cagan
+At SVPG, Cagan describes value, usability, feasibility and business viability risks. Use this framework to identify unanswered questions. A promising prototype conversion rate alone does not resolve delivery cost or operational constraints.
+The Four Big Risks
+10. Lenny Rachitsky
+The newsletter and podcast cover product, growth and careers. Use interviews to explore possible approaches. Before adopting a benchmark, compare metric definitions, market and sampling; another company’s median is not automatically your target.
+Lenny’s Newsletter
+11. Shreyas Doshi
+A starting point for Doshi’s material on product work and professional development. When applying a prioritization model, state the desired outcome, constraints and the opportunity cost of the alternatives you decline.
+Author website
+12. Melissa Perri
+Perri’s website presents Escaping the Build Trap and Product Operations. They offer starting points for discussing product strategy and operating practices. In your team, separate feature output from changes in customer behavior and product economics.
+Escaping the Build Trap / Product Operations
+13. Julie Zhuo
+Author of The Making of a Manager and The Looking Glass. Management writing becomes particularly relevant when your work shifts from individual execution to developing a team. Ask which decisions and feedback you now need to enable through other people.
+The Making of a Manager
+14. Elena Verna
+Her newsletter covers B2B growth, product-led strategies and careers. When evaluating PLG, investigate whether users can reach value and buy independently. Enterprise procurement and security requirements may still require sales involvement.
+Elena’s Growth Scoop
+15. Brian Balfour
+The Reforge growth loops article is co-written by Brian Balfour, Casey Winters, Kevin Kwok and Andrew Chen. A loop describes how one iteration’s output produces input for the next. A funnel remains useful for diagnosing a step within that system.
+Growth Loops are the New Funnels
+My approach: connect data and research
+For an existing product with usable telemetry, a quantitative signal helps select a research question. Interviews then investigate decision context, and an experiment tests the effect of a change. When a product or reliable events do not exist yet, research can begin with the market and customer Jobs. This is a workflow for particular conditions, not a universal methodology.
+Data and interviews in Product Discovery: a worked example and decision template
+Choose by the decision
+| Decision | Start with
+| Understand Jobs and opportunities | Zamesin, Torres, Podobrazhnykh
+| Examine economics and growth | GoPractice, Krasinsky, Verna, Reforge
+| Organize product work | Cagan, Perri
+| Develop a career and team | Buldakova, Zhuo, Doshi, Karpov
+| Explore examples | Rachitsky, Moreynis
+FAQ
+Can analytics replace interviews?
+No. Analytics describes observed behavior; interviews help investigate decision context and reasons. Neither method alone establishes the causal effect of a new feature.
+Should discovery always start with quantitative data?
+No. Starting with data can help an existing product with reliable telemetry. Researching a new market can begin with customer Jobs and interviews.
+How do I choose without a universal ranking?
+State the decision and the missing evidence first. Then choose material that helps obtain that evidence and check its limitations in your product.
+Discuss your next step
+Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
+Discuss a product role
+Discuss a growth challenge
 
-1. **The Fallacy of Pure Qualitative Discovery**:
-   - Running user interviews without prior quantitative funnel segmentation often leads to false positives and feature bloat. Users report what they think they want; product telemetry reveals what they actually do.
-2. **Step 1: Quantitative Bottleneck Localization**:
-   - Inspect cohort decay curves, retention plateaus, and micro-conversions in telemetry (Amplitude / Mixpanel / Metrika).
-   - Identify the exact drop-off step or behavioral deviation (e.g. users dropping off at day 14 specifically after completing onboarding step 3).
-3. **Step 2: Surgical Qualitative Exploration (AJTBD)**:
-   - Recruit interviewees exclusively from the identified leaking cohort.
-   - Apply Ivan Zamesin's Advanced Jobs-To-Be-Done: focus strictly on past behavior, specific trigger events, and alternative solutions used.
-4. **Step 3: Rapid Solution Prototyping & Guardrail Metrics**:
-   - Formulate opportunity hypotheses using Teresa Torres's Opportunity Solution Tree (OST).
-   - Test through lightweight experiments before full engineering commitment, measuring retention impact against guardrail metrics.
+## Кого читать о продукте: 15 авторов и выбор подхода — Roman Babunts
 
----
+Source: https://boonts.com/insights/ru/roman-vs-experts.html
+Language: ru
 
-## 4. Benchmark: 15 Product Management Leaders in 2026
+Кого читать о продукте: 15 авторов и выбор подхода
+Roman Babunts · 2026-08-23 · Обновлено: 2026-09-05
+Как пользоваться подборкой
+Это редакционная подборка материалов, а не рейтинг профессиональных результатов. Ссылки ведут на авторские проекты и первоисточники; практические вопросы и ограничения ниже — мой редакционный разбор. Упоминание человека не означает сотрудничества или рекомендации с его стороны. Источники проверены 5 сентября 2026 года; текущие должности и неподтверждённые цитаты в подборку не включены.
+1. Иван Замесин
+AJTBD: исследование желаемого перехода человека, связанных Jobs и выбора сегмента. Поведенческая когорта может помочь набрать респондентов, но сама по себе не определяет сегмент по Jobs.
+AJTBD canon
+2. Анна Подображных
+На авторском сайте представлены обучение Product Discovery и работа с потенциалом продуктовых идей. Начать можно с разбора того, как сформулировать и защитить продуктовую гипотезу.
+Продукт и точка
+3. Анна Булдакова
+Авторский проект о продакт-менеджменте, стратегии и работе с командами. Материалы можно использовать для подготовки к переходу в новую роль; требования конкретной компании всё равно стоит проверять отдельно.
+No Flame No Game
+4. Олег Якубенков
+GoPractice публикует материалы и симуляторы по продуктовой аналитике, удержанию и росту. В практической работе полезно отдельно определить событие возврата, окно наблюдения и состав когорты: разные определения retention отвечают на разные вопросы.
+GoPractice
+5. Илья Красинский
+Образовательная программа Ильи Красинского и Кристины Бурмистровой посвящена экономике продукта и метрикам. Для своей модели стоит различать выручку и маржинальный доход, наблюдаемый LTV и прогноз, а также проверять чувствительность вывода к допущениям.
+Product Heroes
+6. Михаил Карпов
+Карпов представлен на странице спикеров ProductStar. Это отправная точка для знакомства с его образовательными материалами. Выбирая обучение, сопоставляйте программу с конкретным пробелом в навыках и возможностью применить их в своём продукте.
+ProductStar
+7. Аркадий Морейнис
+Fast Founder разбирает стартапы и бизнес-модели. Такие разборы полезны как источник гипотез для собственного рынка. Мой редакционный вопрос к любой идее: кто платит, за какой результат и почему покупка повторится? Это не цитата Морейниса.
+Fast Founder
+8. Тереза Торрес
+Continuous Discovery связывает регулярное взаимодействие с клиентами с решениями продуктовой команды. Opportunity Solution Tree помогает связать результат, возможности, решения и проверки допущений. Дерево делает логику видимой, но не превращает предположение в доказанный факт.
+Product Talk
+9. Марти Каган
+В SVPG Каган выделяет риски ценности, удобства использования, реализуемости и жизнеспособности для бизнеса. Эта схема помогает проверить, какой вопрос команда ещё не закрыла. Хорошая конверсия прототипа сама по себе не отвечает на вопросы себестоимости и эксплуатации.
+The Four Big Risks
+10. Ленни Рачицки
+Рассылка и подкаст объединяют материалы о продукте, росте и карьере. Используйте интервью как источник вариантов решения, а бенчмарки — как повод проверить собственные определения метрик, рынок и выборку. Чужая медиана не становится целевым значением автоматически.
+Lenny’s Newsletter
+11. Шреяс Доши
+Отправная точка для авторских материалов Шреяса Доши о продуктовой работе и профессиональном развитии. При переносе любой модели приоритизации в команду явно задавайте ожидаемый результат, ограничения и стоимость отказа от альтернатив.
+Author website
+12. Мелисса Перри
+На сайте Перри представлены книги Escaping the Build Trap и Product Operations. Они дают отправные точки для разговора о продуктовой стратегии и организации работы. В своей команде полезно отделять количество выпущенных функций от изменений в поведении клиентов и экономике продукта.
+Escaping the Build Trap / Product Operations
+13. Джули Чжо
+Автор The Making of a Manager и рассылки The Looking Glass. Материалы о менеджменте особенно уместны, когда работа меняется от личного выполнения задач к развитию команды. Практический вопрос: какие решения и обратную связь теперь нужно обеспечивать через других людей?
+The Making of a Manager
+14. Елена Верна
+Авторская рассылка посвящена B2B-росту, product-led стратегиям и карьере. При выборе PLG важно исследовать возможность самостоятельного получения ценности и покупки. Корпоративные закупки и требования безопасности могут потребовать участия продаж даже при сильном продукте.
+Elena’s Growth Scoop
+15. Брайан Бальфур
+Статья Reforge о циклах роста написана совместно Брайаном Бальфуром, Кейси Уинтерсом, Кевином Квоком и Эндрю Ченом. Цикл описывает, как результат одной итерации создаёт вход для следующей. Воронка при этом остаётся полезной для диагностики отдельного шага.
+Growth Loops are the New Funnels
+Мой подход: связать данные и исследование
+Для существующего продукта с надёжной аналитикой количественный сигнал помогает выбрать вопрос исследования. Затем интервью раскрывают контекст решения, а эксперимент проверяет эффект изменения. Если продукта или надёжных событий ещё нет, исследование можно начать с рынка и клиентских Jobs. Это рабочая последовательность для определённых условий, а не универсальная методология.
+Данные и интервью в Product Discovery: пример и шаблон решения
+Выбор по задаче
+| Задача | Начать с
+| Понять Jobs и возможности | Замесин, Торрес, Подображных
+| Проверить экономику и рост | GoPractice, Красинский, Верна, Reforge
+| Организовать продуктовую работу | Каган, Перри
+| Развивать карьеру и команду | Булдакова, Чжо, Доши, Карпов
+| Найти разборы и примеры | Рачицки, Морейнис
+FAQ
+Можно ли заменить интервью аналитикой?
+Нет. Аналитика показывает наблюдаемое поведение; интервью помогают понять обстоятельства и причины решения. Ни один из методов сам по себе не доказывает причинный эффект новой функции.
+Нужно ли всегда начинать с количественных данных?
+Нет. Начать с данных полезно для существующего продукта с надёжной телеметрией. Исследование нового рынка может начинаться с клиентских Jobs и интервью.
+Как выбрать подход без универсального рейтинга?
+Сначала сформулируйте решение и недостающее доказательство. Затем выберите материал, который помогает получить это доказательство, и проверьте ограничения на своём продукте.
+Обсудить задачу
+Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
+Обсудить продуктовую роль
+Обсудить задачу роста
 
-An evaluation by Roman Babunts comparing top global and Russian-speaking product experts:
+## SheSafe — Your Personal Safety Copilot
 
-### 1. Ivan Zamesin (CustDev & Advanced JTBD)
-- Focus: Advanced Jobs To Be Done (AJTBD), Job Graphs, Customer Discovery.
-- Key Insight: Never ask hypothetical future questions ("Would you buy?"). Segment customers strictly by the "job" they hire the product for.
-- Practical Application: Surgical tool for diagnosing cohort churn rather than a holistic strategy for initial PMF.
+Source: https://boonts.com/shesafe/
+Language: en
 
-### 2. Anna Podobrazhnykh (Opportunity Discovery & Product Audit)
-- Focus: Opportunity Discovery, feature audit, structured hypothesis management.
-- Key Insight: Prevents teams from shipping features prematurely by validating user demand systematically before coding.
+SheSafe
+Your personal safety copilot. Share your live location with close ones, send quick SOS alerts, and keep your trust circle updated on your journey.
 
-### 3. Anna Buldakova (BigTech Careers & International PM)
-- Focus: FAANG/MANGA hiring, stakeholder alignment, international team scaling.
-- Key Insight: Practical playbook for navigating career progression from regional tech into Tier-1 global BigTech.
+## SheSafe — Твой личный помощник по безопасности
 
-### 4. Oleg Yakubenkov (GoPractice & Cohort Retention)
-- Focus: GoPractice simulator, Data-Driven PM, Cohort Analysis, Retention curves.
-- Key Insight: Retention is the only sustainable growth foundation. Growth cannot fix a leaky bucket.
-- Practical Application: Standard for training product managers on real data sets.
+Source: https://boonts.com/shesafe/ru/
+Language: ru
 
-### 5. Ilya Krasinsky (Unit Economics & Rick.ai)
-- Focus: Unit Economics, LTV/CAC, Funnel Bottlenecks, Product Heroes.
-- Key Insight: Identify the single narrowest constraint in the economic model instead of scattering effort across minor conversion uplifts.
+SheSafe
+Твой личный помощник по безопасности. Делись своей геолокацией с близкими, отправляй быстрые SOS-сигналы и держи круг доверия в курсе твоего пути.
 
-### 6. Mikhail Karpov (ProductStar & Community)
-- Focus: Product community building, practical PM education, ProductCamp.
-- Key Insight: Broad-based training for career changers and leveling up junior/middle PMs.
+## SheSafe — Tu Copiloto Personal de Seguridad
 
-### 7. Arkady Moreynis (Hypothesis Validation & Dark Side)
-- Focus: Startup tracking, lean hypothesis testing, early revenue convergence.
-- Key Insight: Relentless discipline: if an idea doesn't show traction with real payment commitments quickly, kill it.
+Source: https://boonts.com/shesafe/es/
+Language: es
 
-### 8. Teresa Torres (Continuous Discovery Habits)
-- Focus: Opportunity Solution Tree (OST), weekly customer touchpoints, Product Trio.
-- Key Insight: Discovery is not a phase done once per quarter; it is a continuous weekly habit practiced jointly by PM, Designer, and Tech Lead.
+SheSafe
+Tu copiloto personal de seguridad. Comparte tu ubicación en vivo con tus seres queridos, envía alertas SOS rápidas y mantén a tu círculo de confianza al tanto de tu recorrido.
 
-### 9. Marty Cagan (SVPG, Inspired & Empowered)
-- Focus: Product Operating Model, empowered product teams vs feature factories.
-- Key Insight: Teams must be given problems to solve and business outcomes to achieve, not feature backlogs to execute.
+## SheSafe — Seu Copiloto Pessoal de Segurança
 
-### 10. Lenny Rachitsky (Lenny's Newsletter & SaaS Benchmarks)
-- Focus: B2B/B2C SaaS growth benchmarks, retention standards, marketplace dynamics.
-- Key Insight: The definitive data source for metric percentiles (Good vs Great retention, conversion rates).
+Source: https://boonts.com/shesafe/pt/
+Language: pt
 
-### 11. Shreyas Doshi (Mental Models & LNO Framework)
-- Focus: Leverage-Neutral-Overhead (LNO) framework, Product Sense, high-agency leadership.
-- Key Insight: Ruthless prioritization of high-leverage activities to avoid the trap of product management busywork.
+SheSafe
+Seu copiloto pessoal de segurança. Compartilhe sua localização em tempo real com seus entes queridos, envie alertas SOS rápidos e mantenha seu círculo de confiança atualizado sobre seu trajeto.
 
-### 12. Melissa Perri (Escaping the Build Trap & Product Operations)
-- Focus: Product Strategy, Product Operations, value creation vs output.
-- Key Insight: Connecting executive business strategy to frontline team roadmaps through structured Product Ops.
+## Данные и интервью в Product Discovery: как выбрать следующий шаг — Roman Babunts
 
-### 13. Julie Zhuo (Management & Product Design)
-- Focus: The Making of a Manager, user empathy, design-product harmony.
-- Key Insight: Transitioning from individual execution to multiplying team impact with deep empathy.
+Source: https://boonts.com/insights/ru/data-and-interviews.html
+Language: ru
 
-### 14. Elena Verna (Product-Led Growth / PLG)
-- Focus: B2B PLG, freemium mechanics, virality, self-serve monetization.
-- Key Insight: Modern software must sell itself through frictionless user onboarding and embedded viral triggers.
+Данные и интервью в Product Discovery: как выбрать следующий шаг
+Roman Babunts · 2026-09-05 · Обновлено: 2026-09-05
+Короткий ответ
+Начинайте Product Discovery с того доказательства, которого не хватает для решения. Аналитика помогает установить, где и у кого изменилось поведение. Интервью помогают восстановить обстоятельства выбора. Эксперимент проверяет, меняет ли предлагаемое решение результат. Последовательность зависит от вопроса: наличие дашборда не делает данные обязательным первым шагом.
+Как выбрать первый шаг
+| Ситуация | Первый шаг | Чего он не доказывает
+| Есть продукт, просела активация | Проверить события, знаменатель, окно и состав трафика | Причину отказа конкретного человека
+| Новый рынок без пользователей | Исследовать Jobs, существующие решения и обстоятельства выбора | Размер платёжеспособного спроса на ваш продукт
+| Понятна проблема, спорим о решении | Выделить самое рискованное допущение и выбрать проверку | Долгосрочный эффект по одному успешному прототипу
+Пример: конверсия выросла с 32% до 52%
+Учебный пример: числа придуманы для расчёта и не описывают мой проект. Активация — доля новых аккаунтов, завершивших целевое действие за семь дней. Сравниваем две полностью дозревшие недельные когорты; определения событий не менялись.
+| Источник | До: аккаунты / активации | После: аккаунты / активации
+| A | 200 / 160 = 80% | 500 / 410 = 82%
+| B | 800 / 160 = 20% | 500 / 110 = 22%
+| Всего | 1 000 / 320 = 32% | 1 000 / 520 = 52%
+Общий рост — 20 процентных пунктов. Однако внутри каждого источника изменение составляет только 2 п.п. Если применить новые конверсии к прежнему составу трафика, получим 0,2 × 82% + 0,8 × 22% = 34%.
+Разложение с весами исходного периода: 34% − 32% = 2 п.п. связаны с изменением конверсий внутри источников; 52% − 34% = 18 п.п. — с изменением долей источников при новых конверсиях. Это точное арифметическое разложение для выбранного порядка, а не оценка причинного вклада продукта и маркетинга. Другой порядок разложения может иначе распределить взаимодействие факторов.
+Из таблицы нельзя заключить, что новая функция дала +20 п.п. Даже +2 п.п. внутри групп могут объясняться сезонностью, изменением аудитории или случайностью. Для причинного вывода нужен подходящий дизайн исследования.
+Проверка данных до интерпретации
+Зафиксируйте единицу анализа: человек, аккаунт или организация. Не смешивайте её с сессией.
+Сравните одинаковые окна наблюдения и исключите недозревшие когорты.
+Проверьте потери событий, повторы, фильтры ботов и изменения согласия на аналитику.
+Разделите изменение состава аудитории и изменение поведения внутри сопоставимых групп.
+Запишите объём выборки и неопределённость. Отсутствие заметного различия не доказывает равенство вариантов.
+Как перейти от сигнала к интервью
+В примере полезно исследовать успешно активировавшиеся и неактивировавшиеся аккаунты из обоих источников. Такой набор даёт сравнение, но не превращает четыре группы в сегменты по Jobs. Сегмент нужно обосновать общей структурой задач и обстоятельств, а не меткой источника.
+Попросите восстановить последний конкретный эпизод: что происходило до поиска решения, чего человек хотел добиться, что уже пробовал, как выбирал и где остановился. Не предлагайте респонденту вашу причинную версию в вопросе. Зафиксируйте случаи, которые противоречат гипотезе, и тех, кто отказался от интервью: ответы согласившихся могут быть смещены.
+В авторском каноне AJTBD Ивана Замесина исследуются желаемые переходы и связанные Jobs. Интервью о прошлом опыте помогает понять эту структуру. Оно не заменяет проверку распространённости найденной проблемы.
+Как выбрать проверку решения
+Сначала определите риск. Люди не видят ценности, не понимают интерфейс, решение трудно реализовать или оно не сходится по экономике? Четыре риска SVPG помогают разделить эти вопросы. Прототип может проверить понимание интерфейса; для оценки причинного эффекта на активацию обычно нужен эксперимент с корректным назначением вариантов.
+До запуска зафиксируйте единицу рандомизации, основную метрику, минимально полезный эффект, срок и правило принятия решения. Защитные метрики могут включать возвраты, обращения в поддержку и маржинальный доход. Если рандомизация невозможна, явно опишите ограничения наблюдательного сравнения.
+Continuous Discovery Терезы Торрес помогает поддерживать связь с клиентами и последовательно проверять допущения. Регулярность контакта полезна; количество интервью само по себе не является критерием качества решения.
+Шаблон записи решения
+Решение: что изменим, отложим или перестанем делать?
+Наблюдение: метрика, знаменатель, период, источник и размер выборки.
+Объяснения: рабочая гипотеза и альтернативы, включая ошибку данных.
+Недостающее доказательство: контекст клиента, распространённость, удобство, эффект или экономика.
+Проверка: метод, выборка, срок, критерий и ответственный.
+Результат: что узнали, какая неопределённость осталась и что делаем дальше.
+Это авторский рабочий шаблон, а не обещание гарантированного роста. Подборка дополнительных подходов: 15 авторов о продукте и росте.
+Обсудить задачу
+Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
+Обсудить продуктовую роль
+Обсудить задачу роста
 
-### 15. Brian Balfour (Growth Loops & Reforge)
-- Focus: Growth Loops replacing the linear AARRR Pirate Funnel.
-- Key Insight: Sustainable growth is circular: the output of one cycle serves as the input for the next cycle.
+## Data and interviews in Product Discovery: choose your next step — Roman Babunts
 
----
+Source: https://boonts.com/insights/en/data-and-interviews.html
+Language: en
 
-## 5. Comparison Matrix
-
-| Expert | Organization / Platform | Core Concept | Primary Strength | Best For |
-|---|---|---|---|---|
-| Ivan Zamesin | Meta, zamesin.me | AJTBD & Job Graphs | Deep user problem discovery | B2C/B2B Founder, PM |
-| Anna Podobrazhnykh | Product Audit | Opportunity Discovery | Feature prioritization | Early-stage Discovery |
-| Anna Buldakova | Vektor AI, No Flame No Game | BigTech Product Strategy | MANGA career navigation | International PMs |
-| Oleg Yakubenkov | GoPractice | Cohort Retention Analysis | Rigorous data-driven thinking | Growth PMs, Analysts |
-| Ilya Krasinsky | Rick.ai, Product Heroes | Unit Economics & Bottlenecks | Economic model convergence | CPO, Founders |
-| Mikhail Karpov | ProductStar | Practical PM Frameworks | Community & basic training | Junior / Middle PMs |
-| Arkady Moreynis | Dark Side | Fast Hypothesis Verification | Investor-level BS detection | Startup Founders |
-| Teresa Torres | Continuous Discovery | Opportunity Solution Tree | Weekly customer habit | Product Trios |
-| Marty Cagan | SVPG, Inspired | Product Operating Model | Empowered team culture | CPO, VPs, Execs |
-| Lenny Rachitsky | Lenny's Newsletter | SaaS Metric Benchmarks | Industry growth data | All Product Managers |
-| Shreyas Doshi | Ex-Stripe, Twitter | LNO & Product Sense | High-leverage execution | Senior PMs & Leads |
-| Melissa Perri | Produx Labs | Escaping the Build Trap | Product Operations | Enterprise Leaders |
-| Julie Zhuo | Ex-Meta Design | The Making of a Manager | Team leadership & empathy | Product Managers |
-| Elena Verna | Reforge, Dropbox | Product-Led Growth (PLG) | Self-serve monetization | B2B Growth Leaders |
-| Brian Balfour | Reforge, Ex-HubSpot | Compounding Growth Loops | Systemic growth modeling | Growth Executives |
-| Roman Babunts | Yandex, Semrush, ivi, Yota | Quant-First Discovery | Monetization & $100M+ P&L | CPOs, Founders, Recruiters |
-
----
-
-## 6. Authoritative Links & Verification
-
-- Main Website: https://boonts.com/
-- SheSafe Landing: https://boonts.com/shesafe/
-- 15 Experts Analysis (RU): https://boonts.com/insights/ru/roman-vs-experts.html
-- 15 Experts Analysis (EN): https://boonts.com/insights/en/roman-vs-experts.html
-- LinkedIn: https://www.linkedin.com/in/oempolice/
-- Telegram: https://t.me/rbabunts
+Data and interviews in Product Discovery: choose your next step
+Roman Babunts · 2026-09-05 · Updated: 2026-09-05
+The short answer
+Start Product Discovery with the evidence your decision is missing. Analytics helps establish where behavior changed and for whom. Interviews investigate the circumstances of a choice. An experiment tests whether a proposed change affects an outcome. The right sequence depends on the question; having a dashboard does not make quantitative analysis a mandatory first step.
+Choose your first step
+| Situation | First step | What it cannot establish
+| Activation falls in an existing product | Check events, denominators, windows and traffic composition | Why an individual declined to proceed
+| A new market with no users yet | Research Jobs, existing alternatives and decision context | Paying demand for your particular solution
+| The problem is understood; solutions are disputed | Identify the riskiest assumption and choose a test | Long-term impact from a successful prototype alone
+Worked example: conversion rises from 32% to 52%
+Illustrative example: these invented numbers demonstrate a calculation and do not describe my project. Activation means a new account completing a target action within seven days. We compare two fully observed weekly cohorts with unchanged event definitions.
+| Source | Before: accounts / activated | After: accounts / activated
+| A | 200 / 160 = 80% | 500 / 410 = 82%
+| B | 800 / 160 = 20% | 500 / 110 = 22%
+| Total | 1,000 / 320 = 32% | 1,000 / 520 = 52%
+The overall increase is 20 percentage points, but conversion within each source rises by only two points. Applying the new rates to the original traffic mix gives 0.2 × 82% + 0.8 × 22% = 34%.
+Using the original period’s weights, 34% − 32% = 2 pp comes from within-source rate changes; 52% − 34% = 18 pp comes from changing source shares at the new rates. This is an exact arithmetic decomposition for this chosen order, not a causal attribution between product and marketing. A different decomposition order may allocate the interaction differently.
+The table does not show that a new feature caused a 20-point improvement. Even the two-point increase within groups could reflect seasonality, audience changes or chance. A causal conclusion requires an appropriate research design.
+Check the data before interpreting it
+Define the analysis unit: person, account or organization. Do not silently substitute sessions.
+Use comparable observation windows and exclude immature cohorts.
+Check event loss, duplication, bot filtering and changes to analytics consent.
+Separate changes in audience composition from changes within comparable groups.
+Record sample sizes and uncertainty. An inconclusive difference does not establish equivalence.
+Turn the signal into an interview question
+In this example, investigate both activated and nonactivated accounts from each source. This sampling supports comparison, but it does not turn four behavioral groups into Job-based segments. A segment needs evidence of shared Jobs and relevant circumstances, not just an acquisition label.
+Ask participants to reconstruct a recent episode: what happened before they looked for a solution, what outcome they wanted, what they had already tried, how they chose and where they stopped. Avoid embedding your preferred explanation in the question. Record contradictory cases and recruitment nonresponse; people who agree to talk may differ from those who do not.
+Ivan Zamesin’s AJTBD canon examines desired transitions and connected Jobs. A past-experience interview helps investigate that structure. It does not establish how prevalent the discovered problem is.
+Choose a test for the proposed solution
+Identify the risk first. Do people see value, understand the interface, and can the team deliver a viable business solution? SVPG’s four risks help separate these questions. A prototype can test comprehension; estimating a causal activation effect generally calls for an experiment with appropriate assignment.
+Before launch, specify the randomization unit, primary metric, smallest useful effect, duration and decision rule. Guardrails could include refunds, support contacts and contribution margin. When randomization is unavailable, state the limitations of the observational comparison.
+Teresa Torres’s Continuous Discovery helps teams maintain customer contact and test assumptions. A regular habit is useful; interview count alone does not measure decision quality.
+A decision record you can reuse
+Decision: what will we change, defer or stop?
+Observation: metric, denominator, period, source and sample size.
+Explanations: working hypothesis and alternatives, including data errors.
+Missing evidence: customer context, prevalence, usability, impact or economics.
+Test: method, sample, timeframe, criterion and owner.
+Result: what we learned, what remains uncertain and what happens next.
+This is my working template, not a promise of growth. For further approaches, see 15 authors on product management and growth.
+Discuss your next step
+Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
+Discuss a product role
+Discuss a growth challenge

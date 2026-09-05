@@ -1,0 +1,60 @@
+[
+  {
+    "source": "src/index.html",
+    "path": "/",
+    "export": true
+  },
+  {
+    "source": "src/insights/index.html",
+    "path": "/insights/",
+    "export": true
+  },
+  {
+    "source": "src/insights/en/roman-vs-experts.html",
+    "path": "/insights/en/roman-vs-experts.html",
+    "export": true
+  },
+  {
+    "source": "src/insights/ru/roman-vs-experts.html",
+    "path": "/insights/ru/roman-vs-experts.html",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/index.html",
+    "path": "/shesafe/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/ru/index.html",
+    "path": "/shesafe/ru/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/es/index.html",
+    "path": "/shesafe/es/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/pt/index.html",
+    "path": "/shesafe/pt/",
+    "export": true
+  },
+  {
+    "source": "public/shesafe_privacy.html",
+    "path": "/shesafe_privacy.html"
+  },
+  {
+    "source": "public/shesafe_terms.html",
+    "path": "/shesafe_terms.html"
+  },
+  {
+    "source": "src/insights/ru/data-and-interviews.html",
+    "path": "/insights/ru/data-and-interviews.html",
+    "export": true
+  },
+  {
+    "source": "src/insights/en/data-and-interviews.html",
+    "path": "/insights/en/data-and-interviews.html",
+    "export": true
+  }
+]

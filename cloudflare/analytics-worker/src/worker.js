@@ -1,15 +1,77 @@
+import pageRegistry from "../../../seo/pages.json" with { type: "json" };
 const SITE_KEY = "boonts-main";
-const KNOWN_EVENTS = new Set([
-  "pageview",
+export const KNOWN_EVENTS = new Set([
+  "article-back-home",
+  "article-switch-en",
+  "article-switch-ru",
+  "click-email",
+  "click-gcal",
+  "click-gcal-consulting",
+  "click-gcal-hiring",
+  "click-gplay-disabled",
   "click-linkedin",
   "click-telegram",
   "click-whatsapp",
-  "click-email",
+  "discovery-open-en",
+  "discovery-open-ru",
+  "download-ios",
+  "footer-article-practicum-hiring",
+  "footer-article-roman-experts-en",
+  "footer-article-roman-experts-ru",
+  "footer-article-tg-communication",
+  "footer-article-vc-interviews",
+  "footer-article-vc-roadmap",
+  "footer-legal-privacy",
+  "footer-legal-terms",
+  "footer-nav-home",
+  "footer-nav-insights",
+  "footer-nav-shesafe",
+  "footer-social-email",
+  "footer-social-linkedin",
+  "footer-social-telegram",
+  "footer-social-whatsapp",
+  "hub-back-home",
+  "hub-click-practicum-hiring",
+  "hub-click-tg-communication",
+  "hub-click-vc-interviews",
+  "hub-click-vc-roadmap",
+  "hub-footer-article-en",
+  "hub-footer-article-ru",
+  "hub-footer-nav-home",
+  "hub-footer-nav-insights",
+  "hub-footer-nav-shesafe",
+  "hub-footer-practicum-hiring",
+  "hub-footer-social-email",
+  "hub-footer-social-linkedin",
+  "hub-footer-social-telegram",
+  "hub-footer-social-whatsapp",
+  "hub-footer-vc-interviews",
+  "hub-footer-vc-roadmap",
+  "hub-open-en",
+  "hub-open-ru",
+  "lang-switch-en",
+  "lang-switch-es",
+  "lang-switch-pt",
+  "lang-switch-ru",
+  "pageview",
+  "scroll-100",
   "scroll-25",
   "scroll-50",
-  "scroll-75",
-  "scroll-100",
+  "scroll-75"
 ]);
+
+const KNOWN_PATHS = new Set(pageRegistry.map(page => page.path));
+const CHANNELS = new Set(["direct", "google", "yandex", "bing", "ai", "referral"]);
+
+export function classifyReferrer(value) {
+  const host = parseUrl(value)?.hostname || "";
+  if (!host || host === "boonts.com" || host === "www.boonts.com") return "direct";
+  if (/^(www\.)?google\.(com|[a-z]{2}|co\.[a-z]{2}|com\.[a-z]{2})$/.test(host)) return "google";
+  if (/^(www\.)?(yandex\.(ru|com|by|kz|uz|com\.tr)|ya\.ru)$/.test(host)) return "yandex";
+  if (host === "bing.com" || host.endsWith(".bing.com")) return "bing";
+  if (["chatgpt.com", "chat.openai.com", "perplexity.ai", "claude.ai", "gemini.google.com", "copilot.microsoft.com"].some(h => host === h || host.endsWith("." + h))) return "ai";
+  return "referral";
+}
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -27,13 +89,28 @@ export function buildClientScript() {
   const endpoint = new URL("/api/send", script && script.src ? script.src : location.href).toString();
   const website = (script && (script.dataset.websiteId || script.dataset.siteKey)) || "${SITE_KEY}";
 
+  const classify = ${classifyReferrer.toString()};
+  const parseUrl = ${parseUrl.toString()};
+  const now = Date.now();
+  let attribution = { channel: classify(document.referrer), landing: location.pathname, touched: now };
+  try {
+    const previous = JSON.parse(sessionStorage.getItem("boonts-attribution") || "null");
+    const ref = parseUrl(document.referrer);
+    const internal = ref && ref.hostname === location.hostname;
+    if (previous && now - previous.touched < 1800000 && (!ref || internal)) {
+      attribution = { ...previous, touched: now };
+    }
+    sessionStorage.setItem("boonts-attribution", JSON.stringify(attribution));
+  } catch {}
   function send(name, data) {
     if (!name || typeof name !== "string") return Promise.resolve();
     const payload = JSON.stringify({
       website,
       name,
-      url: location.href,
-      referrer: document.referrer,
+      url: location.origin + location.pathname,
+      channel: attribution.channel,
+      landing: attribution.landing,
+      referrer: parseUrl(document.referrer)?.origin || "",
       title: document.title,
       data: data && typeof data === "object" ? data : undefined,
     });
@@ -87,6 +164,8 @@ export function normalizeEvent(payload, request) {
     hostname: pageUrl ? pageUrl.hostname : "unknown",
     referrerHost: referrerUrl ? referrerUrl.hostname : "",
     country,
+    channel: CHANNELS.has(payload?.channel) ? payload.channel : classifyReferrer(payload?.referrer),
+    landing: KNOWN_PATHS.has(payload?.landing) ? payload.landing : (pageUrl?.pathname || "/"),
   };
 }
 
@@ -109,14 +188,13 @@ async function parsePayload(request) {
   return JSON.parse(body);
 }
 
+// One key per received event avoids read/modify/write losses in eventually-consistent KV.
+// UUID identifies a receipt, never a user. No IP, query strings or user identifiers are stored.
 async function writeEvent(env, event) {
-  if (!env?.BOONTS_EVENTS || !KNOWN_EVENTS.has(event.name)) return;
-
+  if (!env?.BOONTS_EVENTS) throw new Error("Storage unavailable");
   const date = new Date().toISOString().slice(0, 10);
-  const key = buildEventKey({ date, name: event.name, path: event.path });
-  const current = Number.parseInt((await env.BOONTS_EVENTS.get(key)) || "0", 10);
-  const next = Number.isFinite(current) ? current + 1 : 1;
-  await env.BOONTS_EVENTS.put(key, String(next));
+  const key = `event2:${date}:${event.name}:${encodeURIComponent(event.path)}:${event.channel}:${crypto.randomUUID()}`;
+  await env.BOONTS_EVENTS.put(key, JSON.stringify({ landing: event.landing }), { expirationTtl: 15552000 });
 }
 
 function textResponse(body, init = {}) {
@@ -159,7 +237,11 @@ export default {
       try {
         const payload = await parsePayload(request);
         const event = normalizeEvent(payload, request);
-        await writeEvent(env, event);
+        if (!KNOWN_EVENTS.has(event.name) || event.hostname !== "boonts.com" || !KNOWN_PATHS.has(event.path)) {
+          return textResponse("unsupported event\n", { status: 422 });
+        }
+        try { await writeEvent(env, event); }
+        catch { return textResponse("storage unavailable\n", { status: 503 }); }
         return textResponse("", { status: 204 });
       } catch {
         return textResponse("invalid json\n", { status: 400 });

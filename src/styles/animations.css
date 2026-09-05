@@ -11,7 +11,8 @@
 }
 
 .hero {
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Main content is visible at first paint; do not delay LCP with opacity. */
+  animation: none;
 }
 
 .link-btn {
@@ -23,4 +24,8 @@
 .theme-toggle {
   animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: 0.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-btn, .theme-toggle { animation: none; }
 }

@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { readFileSync } from 'node:fs';
+
+const pages = JSON.parse(readFileSync(new URL('./seo/pages.json', import.meta.url), 'utf8'));
 
 export default defineConfig({
   root: 'src',
@@ -9,16 +12,8 @@ export default defineConfig({
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'src/index.html'),
-        shesafe: resolve(__dirname, 'src/shesafe/index.html'),
-        shesafe_ru: resolve(__dirname, 'src/shesafe/ru/index.html'),
-        shesafe_es: resolve(__dirname, 'src/shesafe/es/index.html'),
-        shesafe_pt: resolve(__dirname, 'src/shesafe/pt/index.html'),
-        insights_hub: resolve(__dirname, 'src/insights/index.html'),
-        insights_ru: resolve(__dirname, 'src/insights/ru/roman-vs-experts.html'),
-        insights_en: resolve(__dirname, 'src/insights/en/roman-vs-experts.html'),
-      },
+      input: Object.fromEntries(pages.filter(page => page.source.startsWith('src/'))
+        .map((page, index) => [`page_${index}`, resolve(__dirname, page.source)])),
     },
   },
 });

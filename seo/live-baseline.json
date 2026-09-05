@@ -1,0 +1,331 @@
+{
+  "checked_at_utc": "2026-09-05T08:37:36.120095+00:00",
+  "scope": "HTTP and HTML snapshot; no ranking, index coverage, verified bot access or field CWV measurement",
+  "robots_txt": "User-agent: *\nAllow: /\nDisallow: /pru_translator/\n\n# AI Search & Generative Engine Crawlers\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: Google-Extended\nAllow: /\n\nUser-agent: Applebot-Extended\nAllow: /\n\nUser-agent: Diffbot\nAllow: /\n\nUser-agent: cohere-ai\nAllow: /\n\nUser-agent: CCBot\nAllow: /\n\n# Sitemaps & Machine-Readable Context\nSitemap: https://boonts.com/sitemap.xml\nLLMs-Txt: https://boonts.com/llms.txt\n",
+  "responses": [
+    {
+      "url": "https://boonts.com/robots.txt",
+      "status": 200,
+      "final_url": "https://boonts.com/robots.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "HIT"
+      }
+    },
+    {
+      "url": "https://boonts.com/",
+      "status": 200,
+      "final_url": "https://boonts.com/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/"
+      ],
+      "lang": "en",
+      "title": "Roman Babunts — Product Leader & Growth PM | Ex-Yandex, Semrush, ivi",
+      "h1": [
+        "\n        Hi 👋, I'm Roman Babunts \n      "
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/insights/",
+      "status": 200,
+      "final_url": "https://boonts.com/insights/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/insights/"
+      ],
+      "lang": "en",
+      "title": "Product & Growth Insights — Roman Babunts",
+      "h1": [
+        "\n        Product Insights \n      "
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/insights/en/roman-vs-experts.html",
+      "status": 200,
+      "final_url": "https://boonts.com/insights/en/roman-vs-experts.html",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/insights/en/roman-vs-experts.html"
+      ],
+      "lang": "en",
+      "title": "Who to Read and Listen to About Product Management in 2026: 15 Experts — Roman Babunts",
+      "h1": [
+        "Who to Read and Listen to About Product Management in 2026: 15 Experts Worth Knowing"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/insights/ru/roman-vs-experts.html",
+      "status": 200,
+      "final_url": "https://boonts.com/insights/ru/roman-vs-experts.html",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/insights/ru/roman-vs-experts.html"
+      ],
+      "lang": "ru",
+      "title": "Кого читать и слушать про продуктовый менеджмент в 2026 году: 15 экспертов — Роман Бабунц",
+      "h1": [
+        "Кого читать и слушать про продуктовый менеджмент в 2026 году: 15 экспертов, которых стоит знать"
+      ],
+      "robots": [
+        "index, follow, max-image-preview:large"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe/",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe/"
+      ],
+      "lang": "en",
+      "title": "SheSafe — Your Personal Safety Copilot",
+      "h1": [
+        "SheSafe"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe/ru/",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe/ru/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe/ru/"
+      ],
+      "lang": "ru",
+      "title": "SheSafe — Твой личный помощник по безопасности",
+      "h1": [
+        "SheSafe"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe/es/",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe/es/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe/es/"
+      ],
+      "lang": "es",
+      "title": "SheSafe — Tu Copiloto Personal de Seguridad",
+      "h1": [
+        "SheSafe"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe/pt/",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe/pt/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe/pt/"
+      ],
+      "lang": "pt",
+      "title": "SheSafe — Seu Copiloto Pessoal de Segurança",
+      "h1": [
+        "SheSafe"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe_privacy.html",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe_privacy.html",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe_privacy.html"
+      ],
+      "lang": "en",
+      "title": "SheSafe Privacy Policy",
+      "h1": [
+        "SheSafe Privacy Policy"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/shesafe_terms.html",
+      "status": 200,
+      "final_url": "https://boonts.com/shesafe_terms.html",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "canonical": [
+        "https://boonts.com/shesafe_terms.html"
+      ],
+      "lang": "en",
+      "title": "SheSafe Terms of Service",
+      "h1": [
+        "SheSafe Terms of Service"
+      ],
+      "robots": [
+        "index, follow"
+      ],
+      "schema_errors": [],
+      "edge_email_rewriting": true
+    },
+    {
+      "url": "https://boonts.com/sitemap.xml",
+      "status": 200,
+      "final_url": "https://boonts.com/sitemap.xml",
+      "headers": {
+        "content-type": "application/xml",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      }
+    },
+    {
+      "url": "https://boonts.com/llms.txt",
+      "status": 200,
+      "final_url": "https://boonts.com/llms.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      }
+    },
+    {
+      "url": "https://boonts.com/llms-full.txt",
+      "status": 200,
+      "final_url": "https://boonts.com/llms-full.txt",
+      "headers": {
+        "content-type": "text/plain; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      }
+    },
+    {
+      "url": "https://boonts.com/seo-check-missing-page-20260905",
+      "status": 404,
+      "final_url": "https://boonts.com/seo-check-missing-page-20260905",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      }
+    },
+    {
+      "url": "https://boonts.com/",
+      "status": 200,
+      "final_url": "https://boonts.com/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "user_agent_probe": "OAI-SearchBot"
+    },
+    {
+      "url": "https://boonts.com/",
+      "status": 200,
+      "final_url": "https://boonts.com/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "user_agent_probe": "Claude-SearchBot"
+    },
+    {
+      "url": "https://boonts.com/",
+      "status": 200,
+      "final_url": "https://boonts.com/",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC"
+      },
+      "user_agent_probe": "PerplexityBot"
+    }
+  ],
+  "html_findings": [
+    "robots.txt: OAI-SearchBot bypasses /pru_translator/ exclusion",
+    "robots.txt: GPTBot bypasses /pru_translator/ exclusion",
+    "robots.txt: ClaudeBot bypasses /pru_translator/ exclusion",
+    "robots.txt: PerplexityBot bypasses /pru_translator/ exclusion",
+    "robots.txt: Google-Extended bypasses /pru_translator/ exclusion",
+    "robots.txt: Applebot-Extended bypasses /pru_translator/ exclusion",
+    "robots.txt: Diffbot bypasses /pru_translator/ exclusion",
+    "robots.txt: cohere-ai bypasses /pru_translator/ exclusion",
+    "robots.txt: CCBot bypasses /pru_translator/ exclusion"
+  ]
+}

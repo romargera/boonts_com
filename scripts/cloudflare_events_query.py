@@ -47,6 +47,9 @@ def load_env(path: str) -> None:
 
 
 def decode_event_key(key: str) -> dict[str, str]:
+    if key.startswith("event2:"):
+        _, day, event_name, encoded_path, channel, receipt = key.split(":", 5)
+        return {"date": day, "event_name": event_name, "path": urllib.parse.unquote(encoded_path), "channel": channel}
     parts = key.split(":", 3)
     if len(parts) != 4 or parts[0] != "event":
         raise ValueError(f"Unexpected event key: {key}")
@@ -62,13 +65,15 @@ def aggregate_kv_rows(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     totals: dict[tuple[str, str, str], int] = {}
     for item in items:
         decoded = decode_event_key(str(item["name"]))
-        value = int(item.get("value") or 0)
-        key = (decoded["date"], decoded["event_name"], decoded["path"])
+        is_receipt = str(item["name"]).startswith("event2:")
+        value = 1 if is_receipt else int(item.get("value") or 0)
+        channel = decoded.get("channel", "legacy-unknown")
+        key = (decoded["date"], decoded["event_name"], decoded["path"], channel)
         totals[key] = totals.get(key, 0) + value
 
     rows = [
-        {"date": day, "event_name": event_name, "path": path, "count": count}
-        for (day, event_name, path), count in totals.items()
+        {"date": day, "event_name": event_name, "path": path, "count": count, "channel": channel}
+        for (day, event_name, path, channel), count in totals.items()
     ]
     rows.sort(key=lambda row: (row["date"], row["count"], row["event_name"]), reverse=True)
     return rows
@@ -112,16 +117,16 @@ def list_keys(account_id: str, namespace_id: str, token: str, prefix: str) -> li
 
 def fetch_event_rows(account_id: str, namespace_id: str, token: str, days: int) -> list[dict[str, Any]]:
     cutoff = (date.today() - timedelta(days=days - 1)).isoformat()
-    keys = [key for key in list_keys(account_id, namespace_id, token, "event:") if key.split(":", 3)[1] >= cutoff]
+    keys = [key for prefix in ("event:", "event2:") for key in list_keys(account_id, namespace_id, token, prefix) if key.split(":", 3)[1] >= cutoff]
     rows = []
     for key in keys:
-        value = cf_request(account_id, namespace_id, token, f"/values/{urllib.parse.quote(key, safe='')}")
+        value = "1" if key.startswith("event2:") else cf_request(account_id, namespace_id, token, f"/values/{urllib.parse.quote(key, safe='')}")
         rows.append({"name": key, "value": value})
     return rows
 
 
 def print_table(rows: list[dict[str, Any]]) -> None:
-    headers = ["date", "event_name", "path", "count"]
+    headers = ["date", "event_name", "path", "channel", "count"]
     widths = {header: len(header) for header in headers}
     for row in rows:
         for header in headers:

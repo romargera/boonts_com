@@ -5,11 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run seo:generate && vite build && npm run seo:check",
+    "seo:generate": "python3 scripts/seo.py generate",
+    "seo:check": "python3 scripts/seo.py check --root dist",
+    "seo:live": "python3 scripts/seo.py live",
+    "seo:baseline": ".venv-seo/bin/python scripts/search_baseline.py",
+    "test:seo": "python3 -m unittest discover -s test -p 'test_seo.py'",
     "preview": "vite preview",
     "test": "node --test test/analytics-worker.test.js && python3 test/test_cloudflare_events_query.py",
-    "deploy:analytics": "cd cloudflare/analytics-worker && npx wrangler deploy",
-    "analytics:events": "python3 scripts/cloudflare_events_query.py"
+    "deploy:analytics": "python3 scripts/deploy_analytics.py",
+    "analytics:events": "python3 scripts/cloudflare_events_query.py",
+    "seo:geo": "python3 scripts/geo_benchmark.py"
   },
   "devDependencies": {
     "vite": "^5.2.0"

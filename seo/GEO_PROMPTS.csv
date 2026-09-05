@@ -1,0 +1,13 @@
+id,language,group,prompt,target_page
+EN01,en,brand,Who is Roman Babunts and what public evidence describes his product experience?,https://boonts.com/
+EN02,en,brand,What has Roman Babunts published about product management?,https://boonts.com/insights/
+EN03,en,brand,What is SheSafe and where is its official product information?,https://boonts.com/shesafe/
+EN04,en,nonbrand,How should a product manager choose whom to interview after cohort retention drops?,https://boonts.com/insights/en/data-and-interviews.html
+EN05,en,nonbrand,How do I distinguish incremental revenue from total product revenue in an experiment?,planned:incremental-revenue-experiment
+EN06,en,nonbrand,Which product management authors cover discovery and product growth and what are their differences?,https://boonts.com/insights/en/roman-vs-experts.html
+RU01,ru,brand,Кто такой Роман Бабунц и какие есть публичные подтверждения его продуктового опыта?,https://boonts.com/
+RU02,ru,brand,Какие материалы Роман Бабунц опубликовал о продуктовом менеджменте?,https://boonts.com/insights/
+RU03,ru,brand,Что такое SheSafe и где находится официальная информация о приложении?,https://boonts.com/shesafe/ru/
+RU04,ru,nonbrand,Кого интервьюировать продакт-менеджеру после падения когортного удержания?,https://boonts.com/insights/ru/data-and-interviews.html
+RU05,ru,nonbrand,Как отличить инкрементальную выручку эксперимента от выручки всего продукта?,planned:incremental-revenue-experiment
+RU06,ru,nonbrand,Кого читать по продуктовому Discovery и росту и чем отличаются подходы этих авторов?,https://boonts.com/insights/ru/roman-vs-experts.html

@@ -10,6 +10,9 @@ on:
       - "package.json"
       - "package-lock.json"
       - "vite.config.js"
+      - "seo/**"
+      - "scripts/seo.py"
+      - "test/test_seo.py"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -43,6 +46,12 @@ jobs:
 
       - name: Build site
         run: npm run build
+
+      - name: Test analytics event delivery
+        run: npm test
+
+      - name: Test SEO regression detection
+        run: npm run test:seo
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

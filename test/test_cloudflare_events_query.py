@@ -32,16 +32,25 @@ class CloudflareEventsQueryTest(unittest.TestCase):
                     "event_name": "click-linkedin",
                     "path": "/",
                     "count": 5,
+                    "channel": "legacy-unknown",
                 },
                 {
                     "date": "2026-05-12",
                     "event_name": "scroll-50",
                     "path": "/",
                     "count": 1,
+                    "channel": "legacy-unknown",
                 },
             ],
         )
 
+    def test_receipts_count_individually_by_source(self):
+        rows = aggregate_kv_rows([
+            {"name": "event2:2026-09-05:click-gcal-hiring:%2F:google:a", "value": "1"},
+            {"name": "event2:2026-09-05:click-gcal-hiring:%2F:google:b", "value": "1"},
+            {"name": "event2:2026-09-05:click-gcal-hiring:%2F:ai:c", "value": "1"},
+        ])
+        self.assertEqual({r["channel"]: r["count"] for r in rows}, {"google": 2, "ai": 1})
 
 if __name__ == "__main__":
     unittest.main()

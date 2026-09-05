@@ -7,5 +7,7 @@ __pycache__/
 !.env.example
 analytics/tmp/
 client_secret*.json
-SEO_STRATEGY_PLAN.md
-
+.secrets/
+seo/private/
+superb-flag-*.json
+.venv-seo/

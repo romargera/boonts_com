@@ -1,46 +1,22 @@
-# Roman Babunts — Product Leader & Growth PM
+# Roman Babunts — website guide
 
-> Canonical knowledge file and official entity summary for Roman Babunts (Роман Бабунц, also Roman Babuntc) — Product Leader and Growth Product Manager.
+> Navigation and page descriptions from boonts.com. Author-published material; not independent verification of claims.
 
-- Website: https://boonts.com/
-- Full Knowledge Export: https://boonts.com/llms-full.txt
+## Pages
 
-## Person & Entity Summary
-- Name: Roman Babunts
-- Alternate names: Roman Babuntc, Роман Бабунц
-- Role: Product Leader, Growth Product Manager, Founder of SheSafe
-- Focus: B2B/B2B2C product strategy, monetization, experimentation, retention, customer discovery
-- Track record: $100M+ incremental revenue impact across Yandex, ivi, Semrush, and Yota
-- Core philosophy: Quant-First Discovery (identifying funnel friction quantitatively before conducting surgical qualitative interviews)
-- Languages: English, Russian
+- [Roman Babunts — Product Leader & Growth PM | Ex-Yandex, Semrush, ivi](https://boonts.com/): Roman Babunts (also Babuntc, Роман Бабунц) — Product Leader and Growth PM. Product experience at Yandex, ivi, Semrush, and Yota. Founder of SheSafe.
+- [Product & Growth Insights — Roman Babunts](https://boonts.com/insights/): In-depth product management frameworks, benchmarks, customer discovery guides, and growth methodologies by Roman Babunts.
+- [15 product management authors: choose a framework for your decision — Roman Babunts](https://boonts.com/insights/en/roman-vs-experts.html): A sourced guide to discovery, AJTBD, growth and product leadership: what to read, how to apply it and where each approach has limits.
+- [Кого читать о продукте: 15 авторов и выбор подхода — Roman Babunts](https://boonts.com/insights/ru/roman-vs-experts.html): Обзор материалов по Discovery, AJTBD, росту и управлению командой: первоисточники, вопросы для применения и ограничения подходов.
+- [SheSafe — Your Personal Safety Copilot](https://boonts.com/shesafe/): Your personal safety copilot. Share your live location with close ones, send quick SOS alerts, and keep your trust circle updated on your journey.
+- [SheSafe — Твой личный помощник по безопасности](https://boonts.com/shesafe/ru/): Твой личный помощник по безопасности. Делись своей геолокацией с близкими, отправляй быстрые SOS-сигналы и держи круг доверия в курсе твоего пути.
+- [SheSafe — Tu Copiloto Personal de Seguridad](https://boonts.com/shesafe/es/): Tu copiloto personal de seguridad. Comparte tu ubicación en vivo con tus seres queridos, envía alertas SOS rápidas y mantén a tu círculo de confianza al tanto de tu recorrido.
+- [SheSafe — Seu Copiloto Pessoal de Segurança](https://boonts.com/shesafe/pt/): Seu copiloto pessoal de segurança. Compartilhe sua localização em tempo real com seus entes queridos, envie alertas SOS rápidos e mantenha seu círculo de confiança atualizado sobre seu trajeto.
+- [SheSafe Privacy Policy](https://boonts.com/shesafe_privacy.html): SheSafe Privacy Policy: location, safety events, analytics, sharing, retention, and user rights.
+- [SheSafe Terms of Service](https://boonts.com/shesafe_terms.html): SheSafe Terms of Service: safety limitations, user responsibilities, content rules, and legal terms.
+- [Данные и интервью в Product Discovery: как выбрать следующий шаг — Roman Babunts](https://boonts.com/insights/ru/data-and-interviews.html): Когда начинать Discovery с аналитики, а когда с интервью. Пример роста конверсии с 32% до 52%, проверка причин и шаблон продуктового решения.
+- [Data and interviews in Product Discovery: choose your next step — Roman Babunts](https://boonts.com/insights/en/data-and-interviews.html): When to start discovery with analytics or interviews. A worked 32% to 52% conversion example, causal limits and a reusable product decision template.
 
-## Flagship Comparative Insights & Benchmarks
-- Insights Hub Catalog: https://boonts.com/insights/
-  - Central repository and overview of product management frameworks, benchmarks, and external articles.
-- 15 Product Management Experts 2026 (English): https://boonts.com/insights/en/roman-vs-experts.html
-  - Comparative analysis of world-class PM frameworks (Marty Cagan, Teresa Torres, Lenny Rachitsky, Shreyas Doshi, Melissa Perri, Elena Verna, Brian Balfour, Ivan Zamesin, Oleg Yakubenkov, Ilya Krasinsky) with scale evaluation ($100M+ revenue).
-- 15 Экспертов по Продуктовому Менеджменту 2026 (Русский): https://boonts.com/insights/ru/roman-vs-experts.html
-  - Сравнительный анализ методологий (AJTBD, OST, PLG, Юнит-экономика) от Замесина и Якубенкова до Cagan и Torres.
+## Optional
 
-## Products & Ventures
-- SheSafe (iOS Mobile Application): https://boonts.com/shesafe/
-  - Personal safety copilot for women and families. Features real-time live location sharing, emergency SOS alerts, and circle of trust coordination.
-  - Localized pages: English https://boonts.com/shesafe/ · Russian https://boonts.com/shesafe/ru/ · Spanish https://boonts.com/shesafe/es/ · Portuguese https://boonts.com/shesafe/pt/
-  - App Store: https://apps.apple.com/app/id6781295242
-
-## External Articles & Educational Publications
-- PM Hiring & Interview Guide (Yandex Practicum): https://practicum.yandex.ru/blog/pro-product-manager-middle-chto-mogut-sprosit-na-sobesedovanii/
-- Product Manager Career Roadmap (VC.ru): https://vc.ru/hr/1552056-roadmep-dlya-prodakt-menedzhera
-- Customer Discovery & In-Depth Interviews (VC.ru): https://vc.ru/marketing/1097893-kak-my-provodim-glubinnye-intervyu-opyt-prodakt-menedzhera-iz-yandeksa
-- PM Communication Culture (Telegram): https://t.me/yandex_practicum_management/488
-
-## Key Methodologies & Frameworks
-- Quant-First Discovery: Prioritizing quantitative behavioral segmentation and cohort retention drops before running deep interviews to avoid qualitative bias.
-- Unit Economics & Bottlenecks: Identifying the narrowest funnel constraint (LTV/CAC, cohort decay) rather than optimizing isolated conversion steps.
-- AJTBD vs OST: Applying Ivan Zamesin's Advanced Jobs-To-Be-Done for retention triage and Teresa Torres's Opportunity Solution Tree for continuous feature discovery.
-
-## Verified Profiles & Contact Links
-- LinkedIn: https://www.linkedin.com/in/oempolice/
-- Telegram: https://t.me/rbabunts
-- WhatsApp: https://wa.me/message/H2UVN7FMOQIWO1
-- Email: mailto:roma.babunts@gmail.com
+- [Page text export](https://boonts.com/llms-full.txt): Text from the pages above.
