@@ -40,6 +40,26 @@
     "export": true
   },
   {
+    "source": "src/shesafe/fr/index.html",
+    "path": "/shesafe/fr/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/de/index.html",
+    "path": "/shesafe/de/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/it/index.html",
+    "path": "/shesafe/it/",
+    "export": true
+  },
+  {
+    "source": "src/shesafe/hy/index.html",
+    "path": "/shesafe/hy/",
+    "export": true
+  },
+  {
     "source": "public/shesafe_privacy.html",
     "path": "/shesafe_privacy.html"
   },

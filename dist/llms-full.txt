@@ -117,8 +117,7 @@ No. Starting with data can help an existing product with reliable telemetry. Res
 How do I choose without a universal ranking?
 State the decision and the missing evidence first. Then choose material that helps obtain that evidence and check its limitations in your product.
 Discuss your next step
-Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
-Discuss a product role
+Looking for a perspective on a growth challenge? Let's talk.
 Discuss a growth challenge
 
 ## Кого читать о продукте: 15 авторов и выбор подхода — Roman Babunts
@@ -193,8 +192,7 @@ FAQ
 Как выбрать подход без универсального рейтинга?
 Сначала сформулируйте решение и недостающее доказательство. Затем выберите материал, который помогает получить это доказательство, и проверьте ограничения на своём продукте.
 Обсудить задачу
-Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
-Обсудить продуктовую роль
+Нужен взгляд на задачу роста? Давайте обсудим.
 Обсудить задачу роста
 
 ## SheSafe — Your Personal Safety Copilot
@@ -202,6 +200,7 @@ FAQ
 Source: https://boonts.com/shesafe/
 Language: en
 
+Choose language
 SheSafe
 Your personal safety copilot. Share your live location with close ones, send quick SOS alerts, and keep your trust circle updated on your journey.
 
@@ -210,6 +209,7 @@ Your personal safety copilot. Share your live location with close ones, send qui
 Source: https://boonts.com/shesafe/ru/
 Language: ru
 
+Выберите язык
 SheSafe
 Твой личный помощник по безопасности. Делись своей геолокацией с близкими, отправляй быстрые SOS-сигналы и держи круг доверия в курсе твоего пути.
 
@@ -218,6 +218,7 @@ SheSafe
 Source: https://boonts.com/shesafe/es/
 Language: es
 
+Elige el idioma
 SheSafe
 Tu copiloto personal de seguridad. Comparte tu ubicación en vivo con tus seres queridos, envía alertas SOS rápidas y mantén a tu círculo de confianza al tanto de tu recorrido.
 
@@ -226,8 +227,45 @@ Tu copiloto personal de seguridad. Comparte tu ubicación en vivo con tus seres 
 Source: https://boonts.com/shesafe/pt/
 Language: pt
 
+Escolha o idioma
 SheSafe
 Seu copiloto pessoal de segurança. Compartilhe sua localização em tempo real com seus entes queridos, envie alertas SOS rápidos e mantenha seu círculo de confiança atualizado sobre seu trajeto.
+
+## SheSafe — Votre copilote personnel de sécurité
+
+Source: https://boonts.com/shesafe/fr/
+Language: fr
+
+Choisir la langue
+SheSafe
+Votre copilote personnel de sécurité. Partagez votre position en direct avec vos proches, envoyez rapidement des alertes SOS et tenez votre cercle de confiance informé de votre trajet.
+
+## SheSafe — Ihr persönlicher Sicherheitsbegleiter
+
+Source: https://boonts.com/shesafe/de/
+Language: de
+
+Sprache wählen
+SheSafe
+Ihr persönlicher Sicherheitsbegleiter. Teilen Sie Ihren Live-Standort mit Ihren Vertrauenspersonen, senden Sie schnelle SOS-Notrufe und halten Sie Ihren Vertrauenskreis auf Ihrem Weg auf dem Laufenden.
+
+## SheSafe — La tua assistente personale per la sicurezza
+
+Source: https://boonts.com/shesafe/it/
+Language: it
+
+Scegli la lingua
+SheSafe
+La tua assistente personale per la sicurezza. Condividi la tua posizione in tempo reale con le persone care, invia rapidamente avvisi SOS e tieni aggiornato il tuo cerchio di fiducia durante il percorso.
+
+## SheSafe — Ձեր անձնական անվտանգության օգնականը
+
+Source: https://boonts.com/shesafe/hy/
+Language: hy
+
+Ընտրեք լեզուն
+SheSafe
+Ձեր անձնական անվտանգության օգնականը։ Կիսվեք ձեր գտնվելու վայրով մտերիմների հետ, արագ ուղարկեք SOS ահազանգեր և տեղեկացված պահեք վստահելի մարդկանց ձեր ճանապարհի մասին։
 
 ## Данные и интервью в Product Discovery: как выбрать следующий шаг — Roman Babunts
 
@@ -275,8 +313,7 @@ Continuous Discovery Терезы Торрес помогает поддержи
 Результат: что узнали, какая неопределённость осталась и что делаем дальше.
 Это авторский рабочий шаблон, а не обещание гарантированного роста. Подборка дополнительных подходов: 15 авторов о продукте и росте.
 Обсудить задачу
-Нужен продуктовый руководитель или взгляд на задачу роста? Выберите тему разговора.
-Обсудить продуктовую роль
+Нужен взгляд на задачу роста? Давайте обсудим.
 Обсудить задачу роста
 
 ## Data and interviews in Product Discovery: choose your next step — Roman Babunts
@@ -325,6 +362,5 @@ Test: method, sample, timeframe, criterion and owner.
 Result: what we learned, what remains uncertain and what happens next.
 This is my working template, not a promise of growth. For further approaches, see 15 authors on product management and growth.
 Discuss your next step
-Looking for a product leader or a perspective on a growth challenge? Choose the focus of the conversation.
-Discuss a product role
+Looking for a perspective on a growth challenge? Let's talk.
 Discuss a growth challenge
