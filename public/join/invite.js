@@ -26,6 +26,7 @@
       invalidTitle: 'Check your invitation link',
       invalidIntro: 'Ask the person who invited you to send the full link with the invitation code.',
       scan: 'Use your phone’s camera to scan', qrLabel: 'QR code for this SheSafe invitation',
+      desktopOr: 'OR', desktopOpenHint: 'open the app with the button below.',
       codeLabel: 'Invitation code', open: 'Open in SheSafe', copy: 'Copy invitation link',
       copied: 'Invitation link copied', copyFailed: 'Copy the invitation link from your browser’s address bar.',
       openHelp: 'If the app does not open, try this link in Safari or Chrome.',
@@ -46,6 +47,7 @@
       invalidTitle: 'Проверьте ссылку приглашения',
       invalidIntro: 'Попросите отправить полную ссылку с кодом приглашения.',
       scan: 'Наведите камеру телефона на QR-код', qrLabel: 'QR-код приглашения в SheSafe',
+      desktopOr: 'ИЛИ', desktopOpenHint: 'откройте приложение кнопкой ниже.',
       codeLabel: 'Код приглашения', open: 'Открыть в SheSafe', copy: 'Скопировать ссылку',
       copied: 'Ссылка приглашения скопирована', copyFailed: 'Скопируйте ссылку приглашения из адресной строки браузера.',
       openHelp: 'Если приложение не открывается, попробуйте открыть эту ссылку в Safari или Chrome.',
@@ -80,8 +82,8 @@
     if (!code) return;
     byId('ios-store').href = storeUrl('ios');
     byId('android-store').href = storeUrl('android');
-    if (stores.ios) byId('ios-store').textContent = 'App Store';
-    if (stores.android) byId('android-store').textContent = 'Google Play';
+    if (stores.ios) byId('ios-store').querySelector('.store-label').textContent = 'App Store';
+    if (stores.android) byId('android-store').querySelector('.store-label').textContent = 'Google Play';
     byId('open').href = isStoreMock ? `/join/?code=${encodeURIComponent(code)}&lang=${language}` : isAndroid
       ? `intent://join?code=${encodeURIComponent(code)}#Intent;scheme=shesafe;package=${androidPackage};S.browser_fallback_url=${encodeURIComponent(storeUrl('android'))};end`
       : customLink;

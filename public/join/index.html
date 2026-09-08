@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SheSafe invitation</title>
-    <link rel="stylesheet" href="/join/invite.css?v=20260908-email-layout" />
+    <link rel="stylesheet" href="/join/invite.css?v=20260908-invite-desktop-v2" />
     <script defer src="/join/vendor/qrcode.js"></script>
     <script defer src="/join/invite.js"></script>
   </head>
@@ -31,6 +31,16 @@
             <div id="qr" role="img" aria-label="QR code for this SheSafe invitation"></div>
             <p class="caption" data-text="scan">Use your phone’s camera to scan</p>
           </div>
+          <div class="desktop-open-app" aria-hidden="true">
+            <table role="presentation" class="or-divider" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>&nbsp;</td>
+                <td class="or-label" data-text="desktopOr">OR</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+            <p data-text="desktopOpenHint">open the app with the button below.</p>
+          </div>
           <div class="code-block">
             <span class="caption" data-text="codeLabel">Invitation code</span>
             <code id="code"></code>
@@ -44,8 +54,14 @@
           <h2 data-text="installTitle">Don’t have SheSafe yet?</h2>
           <p data-text="installHelp">Once the app is available, install it on your phone and open this invitation again. Your code will be filled in for confirmation.</p>
           <div class="stores">
-            <a id="ios-store" class="store-link" rel="noreferrer" data-text="iosStore">App Store · coming soon</a>
-            <a id="android-store" class="store-link" rel="noreferrer" data-text="androidStore">Google Play · coming soon</a>
+            <a id="ios-store" class="store-link" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.51 12.06 1.005 1.45 2.193 3.076 3.764 3.018 1.512-.06 2.083-.974 3.909-.974 1.815 0 2.343.974 3.917.94 1.603-.028 2.65-1.474 3.626-2.9 1.135-1.655 1.603-3.256 1.627-3.345-.035-.015-3.125-1.2-3.155-4.767-.03-2.983 2.443-4.417 2.554-4.482-1.4-2.05-3.56-2.285-4.32-2.33-2.015-.162-3.064.912-4.011.912zM15.967 4.19c.825-1.002 1.373-2.4 1.22-3.8-1.2.048-2.656.8-3.514 1.8-1.2 1.397-1.4 3.328-1.2 3.8 1.334.1 2.668-.8 3.494-1.8z" /></svg>
+              <span class="store-label" data-text="iosStore">App Store · coming soon</span>
+            </a>
+            <a id="android-store" class="store-link" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.609 1.814 13.792 12 3.609 22.186c-.347-.367-.549-.884-.549-1.472V3.286c0-.588.202-1.105.549-1.472zM15.206 13.414l3.197 3.198-10.141 5.86c-.521.301-1.037.135-1.396-.135l8.34-8.923zm4.618-2.666c.559.323.559.851 0 1.174l-3.208 1.852-3.21-3.21 3.21-3.21 3.208 1.852c.559.323.559.851 0 1.174l-3.208 1.852zm-4.618-1.922-8.34-5.86c.359-.27 1.035-.353 1.396-.145l10.141 5.86-3.197 3.198z" /></svg>
+              <span class="store-label" data-text="androidStore">Google Play · coming soon</span>
+            </a>
           </div>
         </div>
         <noscript><p>Enable JavaScript to display your invitation QR code. You can also open this same link on a phone with SheSafe installed.<br />Включите JavaScript для QR-кода или откройте эту же ссылку на телефоне с установленным SheSafe.</p></noscript>
